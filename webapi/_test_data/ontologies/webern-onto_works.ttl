@@ -1,0 +1,352 @@
+@prefix doremus: <http://data.doremus.org/ontology#> .
+@prefix ecrm: <http://erlangen-crm.org/current/> .
+@prefix efrbroo: <http://erlangen-crm.org/erfrbroo/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix kb: <http://www.knora.org/ontology/knora-base#> .
+@prefix mus: <http://data.doremus.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix : <http://www.knora.org/ontology/08AE/webern#> .
+@base <http://www.knora.org/ontology/08AE/webern> .
+
+<http://www.knora.org/ontology/08AE/webern> rdf:type owl:Ontology ;
+    rdfs:label "The Anton Webern works ontology" ;
+    kb:attachedToProject <http://rdfh.ch/projects/08AE> .
+
+    ##########################################################
+    #
+    # PROPERTIES
+    #
+    ##########################################################
+
+    ### ###########################################
+    ### webern:R10_hasMember
+
+    :R10_hasMember rdf:type owl:ObjectProperty ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R10_has_member ;
+
+            kb:subjectClassConstraint :F15_ComplexWork ;
+
+            kb:objectClassConstraint :F14_IndividualWork ;
+
+            rdfs:label  "hat Teil"@de ,
+                        "has member"@en ,
+                        "a membre"@fr ,
+                        "ha membro"@it ;
+
+            rdfs:comment    """Diese Property verbindet eine Instanz von F15 Complex Work mit einer Instanz von F1 Work, die Teil davon ist."""@de ,
+                            """This property associates an instance of F15 Complex Work with an instance of F1 Work that forms part of it."""@en ,
+                            """Cette propriété associe une instance de F15 Complex Work avec une instance de F1 Work qui en fait partie."""@fr ,
+                            """Questa proprietà associa un'istanza di F15 Lavoro Complesso con un'istanza di F1 Lavoro che ne fa parte."""@it ;
+
+            salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    :R10_hasMemberValue rdf:type owl:ObjectProperty ;
+
+            rdfs:subPropertyOf kb:hasLinkToValue ;
+
+            kb:subjectClassConstraint :F15_ComplexWork ;
+
+            kb:objectClassConstraint kb:LinkValue ;
+
+            rdfs:label  "hat Teil"@de ,
+                        "has member"@en ,
+                        "a membre"@fr ,
+                        "ha membro"@it ;
+
+            rdfs:comment    """Diese Property verbindet eine Instanz von F15 Complex Work mit einer Instanz von F1 Work, die Teil davon ist."""@de ,
+                            """This property associates an instance of F15 Complex Work with an instance of F1 Work that forms part of it."""@en ,
+                            """Cette propriété associe une instance de F15 Complex Work avec une instance de F1 Work qui en fait partie."""@fr ,
+                            """Questa proprietà associa un'istanza di F15 Lavoro Complesso con un'istanza di F1 Lavoro che ne fa parte."""@it .
+
+    ### ###########################################
+    ### webern:R40_hasRepresentativeExpression
+
+    :R40_hasRepresentativeExpression rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :F15_ComplexWork ;
+
+            kb:objectClassConstraint :F22_SelfContainedExpression ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R40_has_representative_expression ;
+
+            rdfs:label  "hat eine repräsentative Expression"@de ,
+                        "has representative expression"@en ,
+                        "a une expression représentative"@fr ,
+                        "ha un'espressione rappresentativa"@it ;
+
+            rdfs:comment    """Diese Property identifiziert eine Instanz von F2 Expression, die als charakteristischster Ausdruck der Instanz von F1 Work gewählt wurde, deren Ausdruck sie ist."""@de ,
+                            """This property identifies an instance of F2 Expression that has been chosen as the most characteristic expression of the instance of F1 Work of which it is an expression."""@en ,
+                            """Cette propriété identifie une instance d'Expression F2 qui a été choisie comme l'expression la plus caractéristique de l'instance de l'Œuvre F1 dont elle est une expression."""@fr ,
+                            """Questa proprietà identifica un'istanza di F2 Expression che è stata scelta come espressione più caratteristica dell'istanza di F1 Work di cui è espressione."""@it ;
+
+            salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    :R40_hasRepresentativeExpressionValue rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :F15_ComplexWork ;
+
+            kb:objectClassConstraint kb:LinkValue ;
+
+            rdfs:subPropertyOf kb:hasLinkToValue ;
+
+            rdfs:label  "hat eine repräsentative Expression"@de ,
+                        "has representative expression"@en ,
+                        "a une expression représentative"@fr ,
+                        "ha un'espressione rappresentativa"@it ;
+
+            rdfs:comment    """Diese Property identifiziert eine Instanz von F2 Expression, die als charakteristischster Ausdruck der Instanz von F1 Work gewählt wurde, deren Ausdruck sie ist."""@de ,
+                            """This property identifies an instance of F2 Expression that has been chosen as the most characteristic expression of the instance of F1 Work of which it is an expression."""@en ,
+                            """Cette propriété identifie une instance d'Expression F2 qui a été choisie comme l'expression la plus caractéristique de l'instance de l'Œuvre F1 dont elle est une expression."""@fr ,
+                            """Questa proprietà identifica un'istanza di F2 Expression che è stata scelta come espressione più caratteristica dell'istanza di F1 Work di cui è espressione."""@it .
+
+
+    ### ###########################################
+    ### webern:P148_hasComponent
+
+    :P148_hasComponent rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :F14_IndividualWork ;
+
+            kb:objectClassConstraint :F15_ComplexWork ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, ecrm:P148_has_component ;
+
+            rdfs:label  "hat Bestandteil"@de ,
+                        "has component"@en ,
+                        "a une composante"@fr ,
+                        "ha componente"@it ;
+
+            rdfs:comment    """Diese Property verbindet eine Instanz von E89 Propositional Object mit einem strukturellen Teil davon, der selbst eine Instanz von E89 Propositional Object ist."""@de ,
+                            """This property associates an instance of E89 Propositional Object with a structural part of it that is by itself an instance of E89 Propositional Object."""@en ,
+                            """Cette propriété associe une instance de l'objet propositionnel E89 à une partie structurelle de celui-ci qui est en soi une instance de l'objet propositionnel E89."""@fr ,
+                            """Questa proprietà associa un'istanza di E89 Oggetto Propositivo con una parte strutturale di esso che è di per sé un'istanza di E89 Oggetto Propositivo."""@it ;
+
+            salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+        :P148_hasComponentValue rdf:type owl:ObjectProperty ;
+
+                kb:subjectClassConstraint :F14_IndividualWork ;
+
+                kb:objectClassConstraint kb:LinkValue ;
+
+                rdfs:subPropertyOf kb:hasLinkToValue ;
+
+                rdfs:label  "hat Bestandteil"@de ,
+                            "has component"@en ,
+                            "a une composante"@fr ,
+                            "ha componente"@it ;
+
+                rdfs:comment    """Diese Property verbindet eine Instanz von E89 Propositional Object mit einem strukturellen Teil davon, der selbst eine Instanz von E89 Propositional Object ist."""@de ,
+                                """This property associates an instance of E89 Propositional Object with a structural part of it that is by itself an instance of E89 Propositional Object."""@en ,
+                                """Cette propriété associe une instance de l'objet propositionnel E89 à une partie structurelle de celui-ci qui est en soi une instance de l'objet propositionnel E89."""@fr ,
+                                """Questa proprietà associa un'istanza di E89 Oggetto Propositivo con una parte strutturale di esso che è di per sé un'istanza di E89 Oggetto Propositivo."""@it .
+
+    ### ###########################################
+    ### webern:R9_isRealisedIn
+
+    :R9_isRealisedIn rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :F14_IndividualWork ;
+
+            kb:objectClassConstraint :F22_SelfContainedExpression ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R9_is_realised_in ;
+
+            rdfs:label  "ist realisiert in"@de ,
+                        "is realised in"@en ,
+                        "est réalisée en"@fr ,
+                        "hè realizzato in"@it ;
+
+            rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit der einzigartigen F22 Self-Contained Expression, die es vollständig vermittelt."""@de ,
+                            """This property associates an F14 Individual Work with the unique F22 Self-Contained Expression that completely conveys it."""@en ,
+                            """Cette propriété associe une œuvre individuelle F14 avec l'unique F22 Self-Contained Expression qui la transmet complètement."""@fr ,
+                            """Questa proprietà associa un'Opera Individuale F14 con l'esclusiva Espressione Autocontenuta F22 che la trasmette completamente."""@it ;
+
+            salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    :R9_isRealisedInValue rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :F14_IndividualWork ;
+
+            kb:objectClassConstraint kb:LinkValue ;
+
+            rdfs:subPropertyOf kb:hasLinkToValue ;
+
+            rdfs:label  "ist realisiert in"@de ,
+                        "is realised in"@en ,
+                        "est réalisée en"@fr ,
+                        "hè realizzato in"@it ;
+
+            rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit der einzigartigen F22 Self-Contained Expression, die es vollständig vermittelt."""@de ,
+                            """This property associates an F14 Individual Work with the unique F22 Self-Contained Expression that completely conveys it."""@en ,
+                            """Cette propriété associe une œuvre individuelle F14 avec l'unique F22 Self-Contained Expression qui la transmet complètement."""@fr ,
+                            """Questa proprietà associa un'Opera Individuale F14 con l'esclusiva Espressione Autocontenuta F22 che la trasmette completamente."""@it .
+
+    ### ###########################################
+    ### webern:U4_hadPrincepsPublication
+
+    :U4_hadPrincepsPublication rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :F14_IndividualWork ;
+
+            kb:objectClassConstraint :F30_PublicationEvent ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, doremus:U4_had_princeps_publication ;
+
+            rdfs:label  "hatte Erstveröffentlichung"@de ,
+                        "had princeps publication"@en ,
+                        "avait une publication princeps"@fr ,
+                        "aveva pubblicazione principi"@it ;
+
+            rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit einem F30 Publication Event, in dem es seine Erstveröffentlichung hatte."""@de ,
+                            """This property associates an F14 Individual Work with an F30 Publication Event in which it had its princeps publication."""@en ,
+                            """Cette propriété associe une œuvre individuelle F14 à un événement de publication F30 dans lequel elle a fait l'objet d'une publication princeps."""@fr ,
+                            """Questa proprietà associa un'Opera Individuale F14 a un Evento di Pubblicazione F30 in cui ha avuto luogo la pubblicazione principi."""@it ;
+
+            salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    :U4_hadPrincepsPublicationValue rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :F14_IndividualWork ;
+
+            kb:objectClassConstraint kb:LinkValue ;
+
+            rdfs:subPropertyOf kb:hasLinkToValue ;
+
+            rdfs:label  "hatte Erstveröffentlichung"@de ,
+                        "had princeps publication"@en ,
+                        "avait une publication princeps"@fr ,
+                        "aveva pubblicazione principi"@it ;
+
+            rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit einem F30 Publication Event, in dem es seine Erstveröffentlichung hatte."""@de ,
+                            """This property associates an F14 Individual Work with an F30 Publication Event in which it had its princeps publication."""@en ,
+                            """Cette propriété associe une œuvre individuelle F14 à un événement de publication F30 dans lequel elle a fait l'objet d'une publication princeps."""@fr ,
+                            """Questa proprietà associa un'Opera Individuale F14 a un Evento di Pubblicazione F30 in cui ha avuto luogo la pubblicazione principi."""@it .
+
+
+    ##########################################################
+    #
+    # RESOURCES
+    #
+    ##########################################################
+
+    ### ###########################################
+    ### webern:F15_ComplexWork
+
+    :F15_ComplexWork rdf:type owl:Class ;
+
+        rdfs:subClassOf kb:Resource, ecrm:F15_Complex_Work ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :R40_hasRepresentativeExpression ;
+                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :R40_hasRepresentativeExpressionValue ;
+                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :R10_hasMember ;
+                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :R10_hasMemberValue ;
+                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                        ] ;
+
+        kb:resourceIcon "default.png" ;
+
+        rdfs:label "Werkkomplex"@de ,
+                   "complex work"@en ,
+                   "œuvre complexe"@fr ,
+                   "opera complessa"@it ;
+
+        rdfs:comment    "Diese Klasse umfasst Werke, die andere Werke als Mitglieder haben. Die Mitglieder eines komplexen Werkes stellen Alternativen zu anderen Mitgliedern des Werkes dar."@de ,
+                        "This class comprises works that have other works as members. The members of a Complex Work constitute alternatives to other members of the work."@en ,
+                        "Cette classe comprend les œuvres qui ont d'autres œuvres comme membres. Les membres d'une œuvre complexe constituent des alternatives aux autres membres de l'œuvre."@fr ,
+                        "Questa classe comprende opere che hanno altre opere come membri. I membri di un'opera complessa costituiscono un'alternativa agli altri membri dell'opera."@it .
+
+
+    ### ###########################################
+    ### webern:F14_IndividualWork
+
+    :F14_IndividualWork rdf:type owl:Class ;
+
+        rdfs:subClassOf kb:Resource, ecrm:F14_Individual_Work ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :R9_isRealisedIn ;
+                          owl:cardinality "1"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :R9_isRealisedInValue ;
+                          owl:cardinality "1"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                        ] ,
+                        #[ rdf:type owl:Restriction ;
+                        #  owl:onProperty :U4_hadPrincepsPublication ;
+                        #  owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                        #  salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                        #],
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :P148_hasComponent ;
+                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :P148_hasComponentValue ;
+                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+                        ] ;
+
+        kb:resourceIcon "default.png" ;
+
+        rdfs:label "Einzelwerk"@de ,
+                   "individual work"@en ,
+                   "œuvre individuelle"@fr ,
+                   "opera individuala"@it ;
+
+        rdfs:comment    "Diese Klasse umfasst Werke, die durch eine und nur eine in sich geschlossene Expression realisiert werden, d.h. Werke, die den Begriff repräsentieren, wie er durch genau diese Expression ausgedrückt wird, und die keine anderen Werke als Teile haben."@de ,
+                        "This class comprises works that are realised by one and only one self-contained expression, i.e., works representing the concept as expressed by precisely this expression, and that do not have other works as parts."@en ,
+                        "Cette classe comprend les œuvres qui sont réalisées par une seule et unique expression autonome, c'est-à-dire les œuvres représentant le concept tel qu'il est exprimé par cette expression, et qui n'ont pas d'autres œuvres comme parties."@fr ,
+                        "Questa classe comprende opere che sono realizzate da una sola e unica espressione autonoma, cioè opere che rappresentano il concetto espresso proprio da questa espressione, e che non hanno altri lavori come parti."@it .
+
+    ### ###########################################
+    ### webern:F22_SelfContainedExpression
+
+    :F22_SelfContainedExpression rdf:type owl:Class ;
+
+        rdfs:subClassOf kb:Resource, efrbroo:F22_Self-Contained_Expression ;
+
+        rdfs:label  "Eigenständige Expression"@de ,
+                    "self-contained expression"@en ,
+                    "Expression autonome"@fr ,
+                    "Espressione autonoma"@it .
+
+
+    ### ###########################################
+    ### webern:F30_PublicationEvent
+
+    :F30_PublicationEvent rdf:type owl:Class ;
+
+        rdfs:subClassOf kb:Resource, efrbroo:F30_Publication_Event ;
+
+        rdfs:label  "Publikationsereignis"@de ,
+                    "publication event"@en ,
+                    "événement de publication"@fr ,
+                    "evento pubblicazione"@it .

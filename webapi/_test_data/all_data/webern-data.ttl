@@ -1,204 +1,483 @@
-@prefix : <http://www.knora.org/data/08AE/webern#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix kb: <http://www.knora.org/ontology/knora-base#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix knora-base: <http://www.knora.org/ontology/knora-base#> .
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#> .
 @prefix webern: <http://www.knora.org/ontology/08AE/webern#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-#
-# 
-# 
-# #################################################################
-# #
-# #    Individuals
-# #
-# #################################################################
-# 
-# 
-# http://rdfh.ch/08AE/testperson1
-# webern:testperson1
-
-<http://rdfh.ch/08AE/testperson1> a webern:Person ;
-	webern:comment <http://rdfh.ch/08AE/testperson1/values/df1260ad43d5> ;
-	webern:hasAlternativeName <http://rdfh.ch/08AE/testperson1/values/88c91a1d-23bc-413d-b966-78b525715575> ;
-	webern:hasBiography <http://rdfh.ch/08AE/testperson1/values/3855051b-c47c-4e61-8cd7-76404efdc67b> ;
-	webern:hasBiographySource <http://rdfh.ch/08AE/testperson1/values/4ab0cfaa-479a-4cd6-946e-2b51c4b9d016> ;
-	webern:hasBirthDate <http://rdfh.ch/08AE/testperson1/values/6f3e4026-18bd-4039-9805-7d0d4e317690> ;
-	webern:hasBirthPlace <http://rdfh.ch/08AE/testperson1/values/a588947a-44e6-45fb-aec3-3d57887f038c> ;
-	webern:hasDeathDate <http://rdfh.ch/08AE/testperson1/values/b5349bdd-6f5d-4538-ad0f-7b9440760f55> ;
-	webern:hasDeathPlace <http://rdfh.ch/08AE/testperson1/values/47b2992554d5> ;
-	webern:hasFamilyName <http://rdfh.ch/08AE/testperson1/values/576dede4-8cc9-4e72-ac8c-8ea5dff9c668> ;
-	webern:hasGivenName <http://rdfh.ch/08AE/testperson1/values/20526fec-6106-4b9d-a41b-faccbe028340> ;
-	webern:hasIAFIdentifier <http://rdfh.ch/08AE/testperson1/values/50e58896-fd0f-49c7-9786-f9cdd4c9ce56> ;
-	webern:hasRelation <http://rdfh.ch/08AE/testperson1/values/f7675f26-4b01-4432-be74-9ae3aa24d2af> ;
-	knora-base:attachedToProject <http://rdfh.ch/projects/08AE> ;
-	knora-base:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-	knora-base:creationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-	knora-base:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
-	knora-base:isDeleted "false"^^xsd:boolean ;
-	rdfs:label "Test person for Webern" .
+@prefix : <http://www.knora.org/data/08AE/webern#> .
 
 
-#
-# http://rdfh.ch/08AE/testperson1/values/576dede4-8cc9-4e72-ac8c-8ea5dff9c668
-# hasFamilyName
+  	#################################################################
+  	#
+  	#    Persons
+  	#
+  	#################################################################
 
-<http://rdfh.ch/08AE/testperson1/values/576dede4-8cc9-4e72-ac8c-8ea5dff9c668> a knora-base:TextValue ;
-	knora-base:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-	knora-base:hasPermissions "CR knora-base:Creator|D knora-base:ProjectMember" ;
-	knora-base:isDeleted "false"^^xsd:boolean ;
-	knora-base:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-	knora-base:valueHasOrder "0"^^xsd:integer ;
-	knora-base:valueHasString "Polnauer" .
+	### ###########################################
+	### http://rdfh.ch/08AE/testperson1
+	### webern:testperson1
 
-# 
-# http://rdfh.ch/08AE/testperson1/values/20526fec-6106-4b9d-a41b-faccbe028340
-# hasGivenName
-
-<http://rdfh.ch/08AE/testperson1/values/20526fec-6106-4b9d-a41b-faccbe028340> a knora-base:TextValue ;
-	knora-base:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-	knora-base:hasPermissions "CR knora-base:Creator|D knora-base:ProjectMember" ;
-	knora-base:isDeleted "false"^^xsd:boolean ;
-	knora-base:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-	knora-base:valueHasOrder "0"^^xsd:integer ;
-	knora-base:valueHasString "Josef" .
-
-# 
-# http://rdfh.ch/08AE/testperson1/values/88c91a1d-23bc-413d-b966-78b525715575
-# hasAlternativeName
-
-<http://rdfh.ch/08AE/testperson1/values/88c91a1d-23bc-413d-b966-78b525715575> a knora-base:TextValue ;
-	knora-base:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-	knora-base:hasPermissions "CR knora-base:Creator|D knora-base:ProjectMember" ;
-	knora-base:isDeleted "false"^^xsd:boolean ;
-	knora-base:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-	knora-base:valueHasOrder "0"^^xsd:integer ;
-	knora-base:valueHasString "Josef Maximilian Polnauer" .
-
-#
-# http://rdfh.ch/08AE/testperson1/values/50e58896-fd0f-49c7-9786-f9cdd4c9ce56
-# hasIAFIdentifier
-
-<http://rdfh.ch/08AE/testperson1/values/50e58896-fd0f-49c7-9786-f9cdd4c9ce56> a knora-base:TextValue ;
-	knora-base:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-	knora-base:hasPermissions "CR knora-base:Creator|D knora-base:ProjectMember" ;
-	knora-base:isDeleted "false"^^xsd:boolean ;
-	knora-base:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-	knora-base:valueHasOrder "0"^^xsd:integer ;
-	knora-base:valueHasString "1017673659" .
-
-#
-# http://rdfh.ch/08AE/testperson1/values/6f3e4026-18bd-4039-9805-7d0d4e317690
-# hasBirthDate
-
-<http://rdfh.ch/08AE/testperson1/values/6f3e4026-18bd-4039-9805-7d0d4e317690> a knora-base:DateValue ;
-	knora-base:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-	knora-base:hasPermissions "CR knora-base:Creator|D knora-base:ProjectMember" ;
-	knora-base:isDeleted "false"^^xsd:boolean ;
-	knora-base:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-	knora-base:valueHasOrder "0"^^xsd:integer ;
-	knora-base:valueHasString "2011-10-24" ;
-	knora-base:valueHasCalendar "GREGORIAN" ;
-    knora-base:valueHasStartJDN 2455859 ;
-    knora-base:valueHasStartPrecision "DAY" ;
-    knora-base:valueHasEndJDN 2455859 ;
-    knora-base:valueHasEndPrecision "DAY" .
-
-#
-# http://rdfh.ch/08AE/testperson1/values/b5349bdd-6f5d-4538-ad0f-7b9440760f55
-# webern:hasDeathDate
-
-<http://rdfh.ch/08AE/testperson1/values/b5349bdd-6f5d-4538-ad0f-7b9440760f55> a knora-base:DateValue ;
-	knora-base:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-	knora-base:hasPermissions "CR knora-base:Creator|D knora-base:ProjectMember" ;
-	knora-base:isDeleted "false"^^xsd:boolean ;
-	knora-base:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-	knora-base:valueHasOrder "0"^^xsd:integer ;
-	knora-base:valueHasString "2011-10-24" ;
-	knora-base:valueHasCalendar "GREGORIAN" ;
-    knora-base:valueHasStartJDN 2455859 ;
-    knora-base:valueHasStartPrecision "DAY" ;
-    knora-base:valueHasEndJDN 2455859 ;
-    knora-base:valueHasEndPrecision "DAY" .
-
-#
-# http://rdfh.ch/08AE/testperson1/values/a588947a-44e6-45fb-aec3-3d57887f038c
-# webern:hasBirthPlace
-
-<http://rdfh.ch/08AE/testperson1/values/a588947a-44e6-45fb-aec3-3d57887f038c> a knora-base:TextValue ;
-	knora-base:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-	knora-base:hasPermissions "CR knora-base:Creator|D knora-base:ProjectMember" ;
-	knora-base:isDeleted "false"^^xsd:boolean ;
-	knora-base:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-	knora-base:valueHasOrder "0"^^xsd:integer ;
-	knora-base:valueHasString "Wien" .
-
-#
-# http://rdfh.ch/08AE/testperson1/values/47b2992554d5
-# webern:hasDeathPlace
-
-<http://rdfh.ch/08AE/testperson1/values/47b2992554d5> a knora-base:TextValue ;
-	knora-base:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-	knora-base:hasPermissions "CR knora-base:Creator|D knora-base:ProjectMember" ;
-	knora-base:isDeleted "false"^^xsd:boolean ;
-	knora-base:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-	knora-base:valueHasOrder "0"^^xsd:integer ;
-	knora-base:valueHasString "Wien" .
-
-#
-# http://rdfh.ch/08AE/testperson1/values/3855051b-c47c-4e61-8cd7-76404efdc67b
-# webern:hasBiography
-
-<http://rdfh.ch/08AE/testperson1/values/3855051b-c47c-4e61-8cd7-76404efdc67b> a knora-base:TextValue ;
-	knora-base:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-	knora-base:hasPermissions "CR knora-base:Creator|D knora-base:ProjectMember" ;
-	knora-base:isDeleted "false"^^xsd:boolean ;
-	knora-base:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-	knora-base:valueHasOrder "0"^^xsd:integer ;
-	knora-base:valueHasString "Musikstudien bei Arnold Schönberg (1909 bis 1911), Alban Berg (1911 bis 1913). Studien bei Guido Adler (1927 Promotion in Innsbruck). Beamter (bei den österreichischen Bundesbahnen, nach dem Zweiten Weltkrieg  beim Finanzministerium), Musikwissenschaftler, Bibliothekar, nach seiner Pensionierung auch Kompositionslehrer. Herausgeber des Briefwechsels Anton Webern und Hildegard Jone (stark gekürzt)." .
-
-#
-# http://rdfh.ch/08AE/testperson1/values/4ab0cfaa-479a-4cd6-946e-2b51c4b9d016
-# webern:hasBiographySource
-
-<http://rdfh.ch/08AE/testperson1/values/4ab0cfaa-479a-4cd6-946e-2b51c4b9d016> a knora-base:TextValue ;
-	knora-base:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-	knora-base:hasPermissions "CR knora-base:Creator|D knora-base:ProjectMember" ;
-	knora-base:isDeleted "false"^^xsd:boolean ;
-	knora-base:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-	knora-base:valueHasOrder "0"^^xsd:integer ;
-	knora-base:valueHasString "https://www.wien.gv.at/wiki/index.php/Josef_Polnauer" .
+	<http://rdfh.ch/08AE/testperson1> a webern:Person ;
+		webern:comment <http://rdfh.ch/08AE/testperson1/values/df1260ad43d5> ;
+		webern:hasAlternativeName <http://rdfh.ch/08AE/testperson1/values/88c91a1d-23bc-413d-b966-78b525715575> ;
+		webern:hasBiography <http://rdfh.ch/08AE/testperson1/values/3855051b-c47c-4e61-8cd7-76404efdc67b> ;
+		webern:hasBiographySource <http://rdfh.ch/08AE/testperson1/values/4ab0cfaa-479a-4cd6-946e-2b51c4b9d016> ;
+		webern:hasBirthDate <http://rdfh.ch/08AE/testperson1/values/6f3e4026-18bd-4039-9805-7d0d4e317690> ;
+		webern:hasBirthPlace <http://rdfh.ch/08AE/testperson1/values/a588947a-44e6-45fb-aec3-3d57887f038c> ;
+		webern:hasDeathDate <http://rdfh.ch/08AE/testperson1/values/b5349bdd-6f5d-4538-ad0f-7b9440760f55> ;
+		webern:hasDeathPlace <http://rdfh.ch/08AE/testperson1/values/47b2992554d5> ;
+		webern:hasFamilyName <http://rdfh.ch/08AE/testperson1/values/576dede4-8cc9-4e72-ac8c-8ea5dff9c668> ;
+		webern:hasGivenName <http://rdfh.ch/08AE/testperson1/values/20526fec-6106-4b9d-a41b-faccbe028340> ;
+		webern:hasIAFIdentifier <http://rdfh.ch/08AE/testperson1/values/50e58896-fd0f-49c7-9786-f9cdd4c9ce56> ;
+		webern:hasRelation <http://rdfh.ch/08AE/testperson1/values/f7675f26-4b01-4432-be74-9ae3aa24d2af> ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "Test person for Webern" .
 
 
-#
-# http://rdfh.ch/08AE/testperson1/values/f7675f26-4b01-4432-be74-9ae3aa24d2af
-# webern:hasRelation
+	### ###########################################
+	### http://rdfh.ch/08AE/testperson1/values/576dede4-8cc9-4e72-ac8c-8ea5dff9c668
+	### hasFamilyName
 
-<http://rdfh.ch/08AE/testperson1/values/f7675f26-4b01-4432-be74-9ae3aa24d2af> a knora-base:TextValue ;
-	knora-base:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-	knora-base:hasPermissions "CR knora-base:Creator|D knora-base:ProjectMember" ;
-	knora-base:isDeleted "false"^^xsd:boolean ;
-	knora-base:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-	knora-base:valueHasOrder "0"^^xsd:integer ;
-	knora-base:valueHasString "Angehöriger des Schönberg-Kreises. Freund." .
+	<http://rdfh.ch/08AE/testperson1/values/576dede4-8cc9-4e72-ac8c-8ea5dff9c668> a kb:TextValue ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:hasPermissions "CR kb:Creator|D kb:ProjectMember" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:valueHasOrder "0"^^xsd:integer ;
+		kb:valueHasString "Polnauer" .
 
-#
-# http://rdfh.ch/08AE/testperson1/values/df1260ad43d5
-# webern:comment
+	### ###########################################
+	# http://rdfh.ch/08AE/testperson1/values/20526fec-6106-4b9d-a41b-faccbe028340
+	# hasGivenName
 
-<http://rdfh.ch/08AE/testperson1/values/df1260ad43d5> a knora-base:TextValue ;
-	knora-base:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-	knora-base:hasPermissions "CR knora-base:Creator|D knora-base:ProjectMember" ;
-	knora-base:isDeleted "false"^^xsd:boolean ;
-	knora-base:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-	knora-base:valueHasOrder "0"^^xsd:integer ;
-	knora-base:valueHasString "Vgl. Eintrag 'Polnauer, Josef Maximilian' in Österreichisches Musiklexikon (online edition)." .
+	<http://rdfh.ch/08AE/testperson1/values/20526fec-6106-4b9d-a41b-faccbe028340> a kb:TextValue ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:hasPermissions "CR kb:Creator|D kb:ProjectMember" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:valueHasOrder "0"^^xsd:integer ;
+		kb:valueHasString "Josef" .
+
+	### ###########################################
+	### http://rdfh.ch/08AE/testperson1/values/88c91a1d-23bc-413d-b966-78b525715575
+	### hasAlternativeName
+
+	<http://rdfh.ch/08AE/testperson1/values/88c91a1d-23bc-413d-b966-78b525715575> a kb:TextValue ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:hasPermissions "CR kb:Creator|D kb:ProjectMember" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:valueHasOrder "0"^^xsd:integer ;
+		kb:valueHasString "Josef Maximilian Polnauer" .
+
+	### ###########################################
+	### http://rdfh.ch/08AE/testperson1/values/50e58896-fd0f-49c7-9786-f9cdd4c9ce56
+	### hasIAFIdentifier
+
+	<http://rdfh.ch/08AE/testperson1/values/50e58896-fd0f-49c7-9786-f9cdd4c9ce56> a kb:TextValue ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:hasPermissions "CR kb:Creator|D kb:ProjectMember" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:valueHasOrder "0"^^xsd:integer ;
+		kb:valueHasString "1017673659" .
+
+	### ###########################################
+	### http://rdfh.ch/08AE/testperson1/values/6f3e4026-18bd-4039-9805-7d0d4e317690
+	### hasBirthDate
+
+	<http://rdfh.ch/08AE/testperson1/values/6f3e4026-18bd-4039-9805-7d0d4e317690> a kb:DateValue ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:hasPermissions "CR kb:Creator|D kb:ProjectMember" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:valueHasOrder "0"^^xsd:integer ;
+		kb:valueHasString "2011-10-24" ;
+		kb:valueHasCalendar "GREGORIAN" ;
+	    kb:valueHasStartJDN 2455859 ;
+	    kb:valueHasStartPrecision "DAY" ;
+	    kb:valueHasEndJDN 2455859 ;
+	    kb:valueHasEndPrecision "DAY" .
+
+	### ###########################################
+	### http://rdfh.ch/08AE/testperson1/values/b5349bdd-6f5d-4538-ad0f-7b9440760f55
+	### webern:hasDeathDate
+
+	<http://rdfh.ch/08AE/testperson1/values/b5349bdd-6f5d-4538-ad0f-7b9440760f55> a kb:DateValue ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:hasPermissions "CR kb:Creator|D kb:ProjectMember" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:valueHasOrder "0"^^xsd:integer ;
+		kb:valueHasString "2011-10-24" ;
+		kb:valueHasCalendar "GREGORIAN" ;
+	    kb:valueHasStartJDN 2455859 ;
+	    kb:valueHasStartPrecision "DAY" ;
+	    kb:valueHasEndJDN 2455859 ;
+	    kb:valueHasEndPrecision "DAY" .
+
+	### ###########################################
+	### http://rdfh.ch/08AE/testperson1/values/a588947a-44e6-45fb-aec3-3d57887f038c
+	### webern:hasBirthPlace
+
+	<http://rdfh.ch/08AE/testperson1/values/a588947a-44e6-45fb-aec3-3d57887f038c> a kb:TextValue ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:hasPermissions "CR kb:Creator|D kb:ProjectMember" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:valueHasOrder "0"^^xsd:integer ;
+		kb:valueHasString "Wien" .
+
+	### ###########################################
+	### http://rdfh.ch/08AE/testperson1/values/47b2992554d5
+	### webern:hasDeathPlace
+
+	<http://rdfh.ch/08AE/testperson1/values/47b2992554d5> a kb:TextValue ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:hasPermissions "CR kb:Creator|D kb:ProjectMember" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:valueHasOrder "0"^^xsd:integer ;
+		kb:valueHasString "Wien" .
+
+	### ###########################################
+	### http://rdfh.ch/08AE/testperson1/values/3855051b-c47c-4e61-8cd7-76404efdc67b
+	### webern:hasBiography
+
+	<http://rdfh.ch/08AE/testperson1/values/3855051b-c47c-4e61-8cd7-76404efdc67b> a kb:TextValue ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:hasPermissions "CR kb:Creator|D kb:ProjectMember" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:valueHasOrder "0"^^xsd:integer ;
+		kb:valueHasString "Musikstudien bei Arnold Schönberg (1909 bis 1911), Alban Berg (1911 bis 1913). Studien bei Guido Adler (1927 Promotion in Innsbruck). Beamter (bei den österreichischen Bundesbahnen, nach dem Zweiten Weltkrieg  beim Finanzministerium), Musikwissenschaftler, Bibliothekar, nach seiner Pensionierung auch Kompositionslehrer. Herausgeber des Briefwechsels Anton Webern und Hildegard Jone (stark gekürzt)." .
+
+	### ###########################################
+	### http://rdfh.ch/08AE/testperson1/values/4ab0cfaa-479a-4cd6-946e-2b51c4b9d016
+	### webern:hasBiographySource
+
+	<http://rdfh.ch/08AE/testperson1/values/4ab0cfaa-479a-4cd6-946e-2b51c4b9d016> a kb:TextValue ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:hasPermissions "CR kb:Creator|D kb:ProjectMember" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:valueHasOrder "0"^^xsd:integer ;
+		kb:valueHasString "https://www.wien.gv.at/wiki/index.php/Josef_Polnauer" .
+
+
+	### ###########################################
+	### http://rdfh.ch/08AE/testperson1/values/f7675f26-4b01-4432-be74-9ae3aa24d2af
+	### webern:hasRelation
+
+	<http://rdfh.ch/08AE/testperson1/values/f7675f26-4b01-4432-be74-9ae3aa24d2af> a kb:TextValue ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:hasPermissions "CR kb:Creator|D kb:ProjectMember" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:valueHasOrder "0"^^xsd:integer ;
+		kb:valueHasString "Angehöriger des Schönberg-Kreises. Freund." .
+
+	### ###########################################
+	### http://rdfh.ch/08AE/testperson1/values/df1260ad43d5
+	### webern:comment
+
+	<http://rdfh.ch/08AE/testperson1/values/df1260ad43d5> a kb:TextValue ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:hasPermissions "CR kb:Creator|D kb:ProjectMember" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:valueHasOrder "0"^^xsd:integer ;
+		kb:valueHasString "Vgl. Eintrag 'Polnauer, Josef Maximilian' in Österreichisches Musiklexikon (online edition)." .
 
 
 
-#
-# Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi
+  	#################################################################
+  	#
+  	#    Works
+  	#
+  	#################################################################
+
+
+	### ###########################################
+	### F15_Complex_Work / F14_Individual_Work
+
+	<http://rdfh.ch/08AE/work/ComplexWork0> a webern:F15_ComplexWork ;
+	    webern:R40_hasRepresentativeExpression <http://rdfh.ch/08AE/expression/Expression0> ;
+		webern:R40_hasRepresentativeExpressionValue <http://rdfh.ch/08AE/expression/Expression0/values/000> ;
+	    webern:R10_hasMember <http://rdfh.ch/08AE/work/IndividualWork0> ;
+		webern:R10_hasMemberValue <http://rdfh.ch/08AE/work/IndividualWork0/values/000> ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "ComplexWork0" .
+
+		<http://rdfh.ch/08AE/expression/Expression0/values/000> a kb:LinkValue ;
+			rdf:subject <http://rdfh.ch/08AE/work/ComplexWork0> ;
+			rdf:predicate  webern:R40_hasRepresentativeExpression ;
+			rdf:object <http://rdfh.ch/08AE/expression/Expression0> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:valueCreationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:valueHasOrder "0"^^xsd:integer ;
+			kb:valueHasRefCount "1"^^xsd:integer ;
+			kb:valueHasString "http://rdfh.ch/08AE/expression/Expression0" ;
+			kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean .
+
+		<http://rdfh.ch/08AE/work/IndividualWork0/values/000> a kb:LinkValue ;
+			rdf:subject <http://rdfh.ch/08AE/work/ComplexWork0> ;
+			rdf:predicate  webern:R10_hasMember;
+			rdf:object <http://rdfh.ch/08AE/work/IndividualWork0> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:valueCreationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:valueHasOrder "0"^^xsd:integer ;
+			kb:valueHasRefCount "1"^^xsd:integer ;
+			kb:valueHasString "http://rdfh.ch/08AE/work/IndividualWork0" ;
+			kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean .
+
+	<http://rdfh.ch/08AE/work/IndividualWork0> a webern:F14_IndividualWork ;
+	    webern:U4_hadPrincepsPublication <http://rdfh.ch/08AE/event/PublicationEvent0> ;
+	    webern:R9_isRealisedIn <http://rdfh.ch/08AE/expression/Expression0> ;
+	    webern:P148_hasComponent <http://rdfh.ch/08AE/work/ComplexSatz1> ,
+	                            <http://rdfh.ch/08AE/work/ComplexSatz2> ,
+	                            <http://rdfh.ch/08AE/work/ComplexSatz3> ,
+	                            <http://rdfh.ch/08AE/work/ComplexSatz4> ,
+	                            <http://rdfh.ch/08AE/work/ComplexSatz5> ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "IndividualWork0" .
+
+	<http://rdfh.ch/08AE/work/ComplexSatz1> a webern:F15_ComplexWork ;
+	    webern:R40_hasRepresentativeExpression <http://rdfh.ch/08AE/expression/Satz1> ;
+	    webern:R10_hasMember <http://rdfh.ch/08AE/work/IndividualSatz1> ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "ComplexSatz1" .
+
+	<http://rdfh.ch/08AE/work/ComplexSatz2> a webern:F15_ComplexWork ;
+	    webern:R40_hasRepresentativeExpression <http://rdfh.ch/08AE/expression/Satz2> ;
+	    webern:R10_hasMember <http://rdfh.ch/08AE/work/IndividualSatz2> ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "ComplexSatz2" .
+
+	<http://rdfh.ch/08AE/work/ComplexSatz3> a webern:F15_ComplexWork ;
+	    webern:R40_hasRepresentativeExpression <http://rdfh.ch/08AE/expression/Satz3> ;
+	    webern:R10_hasMember <http://rdfh.ch/08AE/work/IndividualSatz3> ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "ComplexSatz3" .
+
+	<http://rdfh.ch/08AE/work/ComplexSatz4> a webern:F15_ComplexWork ;
+	    webern:R40_hasRepresentativeExpression <http://rdfh.ch/08AE/expression/Satz4> ;
+	    webern:R10_hasMember <http://rdfh.ch/08AE/work/IndividualSatz4> ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "ComplexSatz4" .
+
+	<http://rdfh.ch/08AE/work/ComplexSatz5> a webern:F15_ComplexWork ;
+	    webern:R40_hasRepresentativeExpression <http://rdfh.ch/08AE/expression/Satz5> ;
+	    webern:R10_hasMember <http://rdfh.ch/08AE/work/IndividualSatz5> ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "ComplexSatz5" .
+
+	<http://rdfh.ch/08AE/work/IndividualSatz1> a webern:F14_IndividualWork ;
+	    webern:U4_hadPrincepsPublication <http://rdfh.ch/08AE/event/PublicationEvent1> ;
+	    webern:R9_isRealisedIn <http://rdfh.ch/08AE/expression/Satz1> ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "IndividualSatz1" .
+
+	<http://rdfh.ch/08AE/work/IndividualSatz2> a webern:F14_IndividualWork ;
+	    webern:U4_hadPrincepsPublication <http://rdfh.ch/08AE/event/PublicationEvent2> ;
+	    webern:R9_isRealisedIn <http://rdfh.ch/08AE/expression/Satz2> ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "IndividualSatz2" .
+
+	<http://rdfh.ch/08AE/work/IndividualSatz3> a webern:F14_IndividualWork ;
+	    webern:U4_hadPrincepsPublication <http://rdfh.ch/08AE/event/PublicationEvent3> ;
+	    webern:R9_isRealisedIn <http://rdfh.ch/08AE/expression/Satz3> ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "IndividualSatz3" .
+
+	<http://rdfh.ch/08AE/work/IndividualSatz4> a webern:F14_IndividualWork ;
+	    webern:U4_hadPrincepsPublication <http://rdfh.ch/08AE/event/PublicationEvent4> ;
+	    webern:R9_isRealisedIn <http://rdfh.ch/08AE/expression/Satz4> ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "IndividualSatz4" .
+
+	<http://rdfh.ch/08AE/work/IndividualSatz5> a webern:F14_IndividualWork ;
+	    webern:U4_hadPrincepsPublication <http://rdfh.ch/08AE/event/PublicationEvent5> ;
+	    webern:R9_isRealisedIn <http://rdfh.ch/08AE/expression/Satz5> ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "IndividualSatz5" .
+
+	### ###########################################
+	### F22_Self-Contained_Expression
+
+	<http://rdfh.ch/08AE/expression/Expression0> a webern:F22_SelfContainedExpression ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "Fünf Lieder nach Gedichten von Stefan George op. 4" .
+	#    webern:U10_hasOrderNumber "0" ;
+	#    webern:P102_hasTitle "Fünf Lieder nach Gedichten von Stefan George op. 4" ;
+	#    mus:U17_has_opus_statement <http://rdfh.ch/08AE/opusstatement/4> ;
+	#    mus:U16_has_catalogue_statement <http://rdfh.ch/08AE/cataloguestatement/M138-142> ;
+	#    mus:U12_has_genre <http://data.doremus.org/vocabulary/iaml/genre/li> ;
+	#    mus:U13_has_casting <http://rdfh.ch/08AE/expression/Expression0/casting> ;
+	#    mus:U11_has_key <http://data.doremus.org/vocabulary/key/non> .
+
+	<http://rdfh.ch/08AE/expression/Satz1> a webern:F22_SelfContainedExpression ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "ExpressionSatz1" .
+
+	<http://rdfh.ch/08AE/expression/Satz2> a webern:F22_SelfContainedExpression ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "ExpressionSatz2" .
+
+	<http://rdfh.ch/08AE/expression/Satz3> a webern:F22_SelfContainedExpression ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "ExpressionSatz3" .
+
+	<http://rdfh.ch/08AE/expression/Satz4> a webern:F22_SelfContainedExpression ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "ExpressionSatz4" .
+
+	<http://rdfh.ch/08AE/expression/Satz5> a webern:F22_SelfContainedExpression ;
+	    kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "Ihr tratet zu dem Herde M 142" .
+	#    mus:U10_has_order_number "5" ;
+	#    ecrm:P102_has_title "Ihr tratet zu dem Herde" ;
+	#    mus:U17_has_opus_statement <http://rdfh.ch/08AE/opusstatement/4_5> ;
+	#    mus:U16_has_catalogue_statement <http://rdfh.ch/08AE/cataloguestatement/M142> ;
+	#    mus:U12_has_genre <http://data.doremus.org/vocabulary/iaml/genre/li> ;
+	#    mus:U13_has_casting <http://rdfh.ch/08AE/expression/Satz5/casting> ;
+	#    mus:U11_has_key <http://data.doremus.org/vocabulary/key/non> .
+
+	### ###########################################
+	### Publication
+
+	<http://rdfh.ch/08AE/event/PublicationEvent0> a webern:F30_PublicationEvent ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "PublicationEvent0" .
+
+	<http://rdfh.ch/08AE/event/PublicationEvent1> a webern:F30_PublicationEvent ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "PublicationEvent1" .
+
+	<http://rdfh.ch/08AE/event/PublicationEvent2> a webern:F30_PublicationEvent ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "PublicationEvent2" .
+
+	<http://rdfh.ch/08AE/event/PublicationEvent3> a webern:F30_PublicationEvent ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "PublicationEvent3" .
+
+	<http://rdfh.ch/08AE/event/PublicationEvent4> a webern:F30_PublicationEvent ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "PublicationEvent4" .
+
+	<http://rdfh.ch/08AE/event/PublicationEvent5> a webern:F30_PublicationEvent ;
+		rdfs:comment "Mai 1912 in Der blaue Reiter (einzeln)" ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR kb:ProjectMember,kb:Creator|V kb:KnownUser|RV kb:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "PublikationEvent5" .
+	#    ecrm:P7_took_place_at "München" ;
+	#    ecrm:P4_has_time-span [ ecrm:P82_at_some_time_within "19120101/19121231"^^dct:W3CDTF ] ;
+	#    ecrm:P3_has_note "Mai 1912 in Der blaue Reiter (einzeln)" ;
+	#    efrbroo:R17_created <http://rdfh.ch/08AE/expression/PublicationExpression5> ;
+	#    efrbroo:R19_created_a_realisation_of <http://rdfh.ch/08AE/work/PublicationWork5> .
