@@ -1,0 +1,15 @@
+PREFIX ecrm: <http://erlangen-crm.org/current/>
+PREFIX efrbroo: <http://erlangen-crm.org/erfrbroo/>
+PREFIX webern: <http://www.knora.org/ontology/08AE/webern#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT *
+WHERE {
+    ?complex a ecrm:F15_Complex_Work .
+    ?complex efrbroo:R10_has_member ?individual .
+
+    ?individual rdfs:label ?label .
+    ?individual efrbroo:R9_is_realised_in ?expression .
+
+    ?expression rdfs:label ?expr_label .
+} LIMIT 100
