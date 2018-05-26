@@ -1,5 +1,5 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix knora-base: <http://www.knora.org/ontology/knora-base#> .
+@prefix kb: <http://www.knora.org/ontology/knora-base#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -13,7 +13,7 @@
 
 <http://www.knora.org/ontology/08AE/webern> rdf:type owl:Ontology ;
     rdfs:label "The Anton Webern persons ontology" ;
-    knora-base:attachedToProject <http://rdfh.ch/projects/08AE> .
+    kb:attachedToProject <http://rdfh.ch/projects/08AE> .
 
     ##########################################################
     #
@@ -27,11 +27,11 @@
 
     :hasFamilyName rdf:type owl:ObjectProperty ;
 
-              knora-base:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint :Person ;
 
-              knora-base:objectClassConstraint knora-base:TextValue ;
+              kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf knora-base:hasValue ;
+              rdfs:subPropertyOf kb:hasValue ;
 
               rdfs:label "Nachname"@de ,
                          "family name"@en ,
@@ -50,11 +50,11 @@
 
     :hasGivenName rdf:type owl:ObjectProperty ;
 
-              knora-base:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint :Person ;
 
-              knora-base:objectClassConstraint knora-base:TextValue ;
+              kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf knora-base:hasValue ;
+              rdfs:subPropertyOf kb:hasValue ;
 
               rdfs:label "Vorname"@de ,
                          "given name"@en ,
@@ -73,11 +73,11 @@
 
     :hasAlternativeName rdf:type owl:ObjectProperty ;
 
-              knora-base:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint :Person ;
 
-              knora-base:objectClassConstraint knora-base:TextValue ;
+              kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf knora-base:hasValue ;
+              rdfs:subPropertyOf kb:hasValue ;
 
               rdfs:label "anderer Name"@de ,
                          "other names"@en ,
@@ -96,11 +96,11 @@
 
     :hasIAFIdentifier rdf:type owl:ObjectProperty ;
 
-              knora-base:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint :Person ;
 
-              knora-base:objectClassConstraint knora-base:TextValue ;
+              kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf knora-base:hasValue ;
+              rdfs:subPropertyOf kb:hasValue ;
 
               rdfs:label "Gemeinsame Normdatei (GND)"@de ,
                          "Integrated Authority File (IAF)"@en ,
@@ -119,11 +119,11 @@
 
     :hasBirthPlace rdf:type owl:ObjectProperty ;
 
-              knora-base:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint :Person ;
 
-              knora-base:objectClassConstraint knora-base:TextValue ;
+              kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf knora-base:hasValue ;
+              rdfs:subPropertyOf kb:hasValue ;
 
               rdfs:label "Geburtsort"@de ,
                          "place of birth"@en ,
@@ -142,11 +142,11 @@
 
     :hasBirthDate rdf:type owl:ObjectProperty ;
 
-              knora-base:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint :Person ;
 
-              knora-base:objectClassConstraint knora-base:DateValue ;
+              kb:objectClassConstraint kb:DateValue ;
 
-              rdfs:subPropertyOf knora-base:hasValue ;
+              rdfs:subPropertyOf kb:hasValue ;
 
               rdfs:label "Geburtdatum"@de ,
                          "date of birth"@en ,
@@ -165,11 +165,11 @@
 
     :hasDeathDate rdf:type owl:ObjectProperty ;
 
-              knora-base:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint :Person ;
 
-              knora-base:objectClassConstraint knora-base:DateValue ;
+              kb:objectClassConstraint kb:DateValue ;
 
-              rdfs:subPropertyOf knora-base:hasValue ;
+              rdfs:subPropertyOf kb:hasValue ;
 
               rdfs:label "Sterbedatum"@de ,
                          "date of death"@en ,
@@ -188,11 +188,11 @@
 
     :hasDeathPlace rdf:type owl:ObjectProperty ;
 
-              knora-base:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint :Person ;
 
-              knora-base:objectClassConstraint knora-base:TextValue ;
+              kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf knora-base:hasValue ;
+              rdfs:subPropertyOf kb:hasValue ;
 
               rdfs:label "Sterbesort"@de ,
                          "place of death"@en ,
@@ -211,11 +211,11 @@
 
     :hasDeathPlace rdf:type owl:ObjectProperty ;
 
-              knora-base:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint :Person ;
 
-              knora-base:objectClassConstraint knora-base:TextValue ;
+              kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf knora-base:hasValue ;
+              rdfs:subPropertyOf kb:hasValue ;
 
               rdfs:label "Sterbesort"@de ,
                          "place of death"@en ,
@@ -234,11 +234,11 @@
 
     :hasBiography rdf:type owl:ObjectProperty ;
 
-              knora-base:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint :Person ;
 
-              knora-base:objectClassConstraint knora-base:TextValue ;
+              kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf knora-base:hasValue ;
+              rdfs:subPropertyOf kb:hasValue ;
 
               rdfs:label "Biographie"@de ,
                          "biography"@en ,
@@ -257,11 +257,11 @@
 
     :hasBiographySource rdf:type owl:ObjectProperty ;
 
-              knora-base:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint :Person ;
 
-              knora-base:objectClassConstraint knora-base:TextValue ;
+              kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf knora-base:hasValue ;
+              rdfs:subPropertyOf kb:hasValue ;
 
               rdfs:label "Quellen zur Biographie"@de ,
                          "biography sources"@en ,
@@ -280,11 +280,11 @@
 
     :hasRelation rdf:type owl:ObjectProperty ;
 
-              knora-base:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint :Person ;
 
-              knora-base:objectClassConstraint knora-base:TextValue ;
+              kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf knora-base:hasValue ;
+              rdfs:subPropertyOf kb:hasValue ;
 
               rdfs:label "Bezug zu Webern"@de ,
                          "relation with Webern"@en ,
@@ -303,11 +303,11 @@
 
     :comment rdf:type owl:ObjectProperty ;
 
-              knora-base:subjectClassConstraint knora-base:Resource ;
+              kb:subjectClassConstraint kb:Resource ;
 
-              knora-base:objectClassConstraint knora-base:TextValue ;
+              kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf knora-base:hasComment ;
+              rdfs:subPropertyOf kb:hasComment ;
 
               rdfs:label "Kommentar"@de ,
                          "Comment"@en ,
@@ -335,7 +335,7 @@
 
     :Person rdf:type owl:Class ;
 
-        rdfs:subClassOf knora-base:Resource, foaf:Person ,
+        rdfs:subClassOf kb:Resource, foaf:Person ,
                         [ rdf:type owl:Restriction ;
                           owl:onProperty :hasFamilyName ;
                           owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
@@ -397,7 +397,7 @@
                           salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
                         ] ;
 
-        knora-base:resourceIcon "person.png" ;
+        kb:resourceIcon "person.png" ;
 
         rdfs:label "Person"@de ,
                    "Person"@en ,
