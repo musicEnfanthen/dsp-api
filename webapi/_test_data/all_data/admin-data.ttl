@@ -483,7 +483,16 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:projectShortname "webern"^^xsd:string ;
   knora-base:projectShortcode "08AE"^^xsd:string ;
   knora-base:projectLongname "Anton Webern Gesamtausgabe"^^xsd:string ;
-  knora-base:projectDescription "Historisch-kritische Edition des Gesamtschaffens von Anton Webern."^^xsd:string ;
+  knora-base:projectDescription """<p>Die Anton Webern Gesamtausgabe (AWG) ist eine historisch-kritische Edition, die das gesamte kompositorische Schaffen Anton Weberns der Öffentlichkeit in wissenschaftlich angemessener und der musikalischen Praxis dienender Form zugänglich machen will. Die Edition beinhaltet nicht nur die von Webern selbst zum Druck beförderten Werke, sondern auch deren unpublizierte Fassungen, zu Lebzeiten unveröffentlichte Kompositionen, Jugend- und Studienkompositionen sowie Fragmente, Skizzen und Bearbeitungen.</p/>
+  <p>Die AWG entsteht am <a href="http://mws.unibas.ch/" target="_blank">Musikwissenschaftlichen Seminar der Universität Basel</a> in enger inhaltlicher Zusammenarbeit mit der <a href="http://www.paul-sacher-stiftung.ch/de/home.html" target="_blank">Paul Sacher Stiftung, Basel</a>, wo der größte Teil der überlieferten Webern-Quellen aufbewahrt wird. Seit Oktober 2006 wird die Gesamtausgabe vom <a href="http://p3.snf.ch/project-143565" target="_blank">Schweizerischen Nationalfonds</a> gefördert. Außerdem wurde in einer Kooperation mit der <a title="Opens external link in new window" href="http://www.oeaw.ac.at/kmf/projekte/webern/index.html" target="_blank">Österreichischen Akademie der Wissenschaften</a> ab 2008 eine Wiener Arbeitsstelle eingerichtet, die Dokumente zur Werkgeschichte, Rezeption und zum historischen Kontext recherchiert. Diese Zusammenarbeit konnte seit Januar 2010 durch Fördermittel der <a href="http://www.evs-musikstiftung.ch/de/preise/preise/foerderprojekte/symposienpublikationen/anton-webern-briefwechsel-mit-der-universal-0" target="_blank">Ernst von Siemens Musikstiftung</a> ausgebaut werden.</p>
+  <p>Erscheinen wird die AWG in einer Print-/Online-Hybrid-<a href="index.php?id=30" target="_blank">Edition</a>, deren gedruckte Bände bei der <a class="external-link-new-window" title="Opens external link in new window" href="http://www.universaledition.com/" target="_blank">Universal Edition, Wien</a> publiziert und deren online zugängliche Bestandteile auf der Plattform Knora/SALSAH des <a class="external-link-new-window" title="Opens external link in new window" href="http://www.dhlab.unibas.ch/" target="_blank">Digital Humanties Lab</a> der Universität Basel präsentiert werden.</p><p>Die AWG versteht sich als Kompetenzzentrum, in dem neben den editorischen auch archivarische, dokumentarische, analytisch-forschende, kommunizierende, dienstleistende und organisatorische Aktivitäten vernetzt werden.</p>"""^^xsd:string ;
+  knora-base:projectKeyword "Anton Webern Gesamtausgabe"^^xsd:string ,
+                            "Anton Webern"^^xsd:string ,
+                            "Second Viennese School"^^xsd:string ,
+                            "Edition"^^xsd:string ,
+                            "Musikwissenschaftles Seminar der Universität Basel"^^xsd:string ;
+
+  knora-base:projectLogo "webern_logo.png"^^xsd:string ;
   knora-base:status "true"^^xsd:boolean ;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean .
 
