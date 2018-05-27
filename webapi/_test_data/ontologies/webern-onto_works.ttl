@@ -3,7 +3,6 @@
 @prefix efrbroo: <http://erlangen-crm.org/erfrbroo/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix kb: <http://www.knora.org/ontology/knora-base#> .
-@prefix mus: <http://data.doremus.org/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -458,8 +457,31 @@
                            """Cette propriété décrit le M2 Opus Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
                            """Questa proprietà descrive il M2 Opus Statement applicata a un'istanza di F22 Self-Contained Expression."""@it ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+              salsah-gui:guiElement salsah-gui:SimpleText .     # TODO: searchbox
 
+
+    ### ###########################################
+    ### webern:U42_hasOpusNumber
+
+    :U42_hasOpusNumber rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :M2_OpusStatement ;
+
+              kb:objectClassConstraint kb:TextValue ;
+
+              rdfs:subPropertyOf kb:hasValue, doremus:U42_has_opus_number ;
+
+              rdfs:label "hat Opusnummer"@de ,
+                         "has opus number"@en ,
+                         "a numéro d'opus"@fr ,
+                         "ha numero opus"@it ;
+
+              rdfs:comment """Diese Property beschreibt die Opusnummer, die auf eine Instanz von M2 Opus Statment angewendet wird."""@de ,
+                           """This property describes the opus number applied to an instance of M2 Opus Statment."""@en ,
+                           """Cette propriété décrit le numéro d'opus appliqué à une instance de M2 Opus Statment."""@fr ,
+                           """Questa proprietà descrive il numero dell'opus applicato a un'istanza di M2 Opus Statment."""@it ;
+
+              salsah-gui:guiElement salsah-gui:SimpleText .
 
 
 
@@ -729,9 +751,9 @@
         kb:resourceIcon "default.png" ;
 
         rdfs:comment    "Diese Klasse umfasst Aktivitäten, die dazu führen, dass Instanzen von F2 Expression entstehen."@de ,
-                        "This class comprises activities that result in instances of F2 Expression coming into existence"@en ,
+                        "This class comprises activities that result in instances of F2 Expression coming into existence."@en ,
                         "Cette classe comprend les activités qui aboutissent à la création d'instances de F2 Expression."@fr ,
-                        "Questa classe comprende le attività che danno luogo a istanze di F2 Expression che nascono"@it .
+                        "Questa classe comprende le attività che danno luogo a istanze di F2 Expression che nascono."@it .
 
 
     ### ###########################################
@@ -745,3 +767,48 @@
                     "publication event"@en ,
                     "événement de publication"@fr ,
                     "evento pubblicazione"@it .
+
+
+    ### ###########################################
+    ### webern:M2_OpusStatement
+
+    :M2_OpusStatement rdf:type owl:Class ;
+
+        rdfs:subClassOf kb:Resource , doremus:M2_Opus_Statement ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :U42_hasOpusNumber ;
+                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :U43_hasOpusSubnumber ;
+                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :u69_hasWoONumber ;
+                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :U76_hasWoOSubnumber ;
+                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :P3_hasNote ;
+                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+                        ];
+
+        rdfs:label  "Opus Statement"@de ,
+                    "Opus Statement"@en ,
+                    "Mention d'opus"@fr ,
+                    "Menzione di opus"@it ;
+
+        kb:resourceIcon "default.png" ;
+
+        rdfs:comment    "Diese Klasse umfasst die Aussagen zu einem Opus Statement."@de ,
+                        "This class comprises statements for an opus statement."@en ,
+                        "Cette classe contient les instructions d'une mention d'opus."@fr ,
+                        "Questa classe contiene le istruzioni per una dichiarazione opus."@it .

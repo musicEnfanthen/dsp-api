@@ -207,29 +207,6 @@
               salsah-gui:guiElement salsah-gui:SimpleText .
 
     ### ###########################################
-    ### webern:hasDeathPlace
-
-    :hasDeathPlace rdf:type owl:ObjectProperty ;
-
-              kb:subjectClassConstraint :Person ;
-
-              kb:objectClassConstraint kb:TextValue ;
-
-              rdfs:subPropertyOf kb:hasValue ;
-
-              rdfs:label "Sterbesort"@de ,
-                         "place of death"@en ,
-                         "lieu de décès"@fr ,
-                         "luogo del decesso"@it ;
-
-              rdfs:comment """Repräsentiert den Sterbeort einer Person."""@de ,
-                           """Represents the place of death of a person."""@en ,
-                           """Représente le lieu de décès d'une personne."""@fr ,
-                           """Rappresenta il luogo del decesso di una persona."""@it ;
-
-              salsah-gui:guiElement salsah-gui:SimpleText .
-
-    ### ###########################################
     ### webern:hasBiography
 
     :hasBiography rdf:type owl:ObjectProperty ;
