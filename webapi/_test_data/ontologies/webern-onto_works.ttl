@@ -24,6 +24,29 @@
     ##########################################################
 
     ### ###########################################
+    ### webern:P3_hasNote
+
+    :P3_hasNote rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :E1_Entity ;
+
+              kb:objectClassConstraint kb:TextValue ;
+
+              rdfs:subPropertyOf kb:hasValue, ecrm:P13_has_note ;
+
+              rdfs:label "hat Anmerkung"@de ,
+                         "has note"@en ,
+                         "a une note"@fr ,
+                         "ha nota"@it ;
+
+              rdfs:comment """Diese Property ist ein Container für alle informellen Beschreibungen zu einem Objekt, die nicht in Form von CRM-Konstrukten ausgedrückt wurden."""@de ,
+                           """This property is a container for all informal descriptions about an object that have not been expressed in terms of CRM constructs."""@en ,
+                           """Cette propriété est un conteneur pour toutes les descriptions informelles d'un objet qui n'ont pas été exprimées en termes de construction CRM."""@fr ,
+                           """Questa proprietà è un contenitore per tutte le descrizioni informali di un oggetto che non sono state espresse in termini di costrutti CRM."""@it ;
+
+              salsah-gui:guiElement salsah-gui:SimpleText .
+
+    ### ###########################################
     ### webern:P102_hasTitle
 
     :P102_hasTitle rdf:type owl:ObjectProperty ;
@@ -443,9 +466,9 @@
 
               kb:subjectClassConstraint :F22_SelfContainedExpression ;
 
-              kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Verweis auf M2 Opus Statement
+              kb:objectClassConstraint :M2_OpusStatement ;
 
-              rdfs:subPropertyOf kb:hasValue, doremus:U17_has_opus_statement ;
+              rdfs:subPropertyOf kb:hasLinkTo, doremus:U17_has_opus_statement ;
 
               rdfs:label "hat Opus-Statement"@de ,
                          "has opus statment"@en ,
@@ -457,7 +480,26 @@
                            """Cette propriété décrit le M2 Opus Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
                            """Questa proprietà descrive il M2 Opus Statement applicata a un'istanza di F22 Self-Contained Expression."""@it ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .     # TODO: searchbox
+              salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    :U17_hasOpusStatementValue rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :F22_SelfContainedExpression ;
+
+              kb:objectClassConstraint kb:LinkValue ;
+
+              rdfs:subPropertyOf kb:hasLinkToValue ;
+
+              rdfs:label "hat Opus-Statement"@de ,
+                         "has opus statment"@en ,
+                         "a opus statment"@fr ,
+                         "ha statment opus"@it ;
+
+              rdfs:comment """Diese Property beschreibt das M2 Opus Satement, die auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
+                           """This property describes the M2 Opus Statement applied to an instance of F22 Self-Contained Expression."""@en ,
+                           """Cette propriété décrit le M2 Opus Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
+                           """Questa proprietà descrive il M2 Opus Statement applicata a un'istanza di F22 Self-Contained Expression."""@it .
 
 
     ### ###########################################
@@ -484,12 +526,153 @@
               salsah-gui:guiElement salsah-gui:SimpleText .
 
 
+    ### ###########################################
+    ### webern:U43_hasOpusSubnumber
+
+    :U43_hasOpusSubnumber rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :M2_OpusStatement ;
+
+              kb:objectClassConstraint kb:TextValue ;
+
+              rdfs:subPropertyOf kb:hasValue, doremus:U43_has_opus_subnumber ;
+
+              rdfs:label "hat Opussubnummer"@de ,
+                         "has opus subnumber"@en ,
+                         "a un sous-numéro d'opus"@fr ,
+                         "ha un sottonumero di opus"@it ;
+
+              rdfs:comment """Diese Property beschreibt die Opussubnummer, die auf eine Instanz von M2 Opus Statment angewendet wird."""@de ,
+                           """This property describes the opus subnumber applied to an instance of M2 Opus Statment."""@en ,
+                           """Cette propriété décrit le sous-numéro d'opus appliqué à une instance de M2 Opus Statment."""@fr ,
+                           """Questa proprietà descrive il sottonumero dell'opus applicato a un'istanza di M2 Opus Statment."""@it ;
+
+              salsah-gui:guiElement salsah-gui:SimpleText .
+
+
+    ### ###########################################
+    ### webern:U69_hasWoONumber
+
+    :U69_hasWoONumber rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :M2_OpusStatement ;
+
+              kb:objectClassConstraint kb:TextValue ;
+
+              rdfs:subPropertyOf kb:hasValue, doremus:U69_has_WoO_Number ;
+
+              rdfs:label "hat WoO Nummer"@de ,
+                         "has WoO number"@en ,
+                         "a pour numéro de WoO"@fr ,
+                         "ha numero WoO"@it ;
+
+              rdfs:comment """Diese Property beschreibt die WoO-Nummer, die auf eine Instanz von M2 Opus Statment angewendet wird."""@de ,
+                           """This property describes the WoO number applied to an instance of M2 Opus Statment."""@en ,
+                           """Cette propriété décrit le pour numéro de WoO appliqué à une instance de M2 Opus Statment."""@fr ,
+                           """Questa proprietà descrive il numero WoO applicato a un'istanza di M2 Opus Statment."""@it ;
+
+              salsah-gui:guiElement salsah-gui:SimpleText .
+
+
+    ### ###########################################
+    ### webern:U76_hasWoOSubnumber
+
+    :U76_hasWoOSubnumber rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :M2_OpusStatement ;
+
+              kb:objectClassConstraint kb:TextValue ;
+
+              rdfs:subPropertyOf kb:hasValue, doremus:U76_has_WoO_Subnumber ;
+
+              rdfs:label "hat WoO Subnummer"@de ,
+                         "has WoO subnumber"@en ,
+                         "a un sous-numéro WoO"@fr ,
+                         "ha il sottonumero WoO"@it ;
+
+              rdfs:comment """Diese Property beschreibt die WoO-Subnummer, die auf eine Instanz von M2 Opus Statment angewendet wird."""@de ,
+                           """This property describes the WoO subnumber applied to an instance of M2 Opus Statment."""@en ,
+                           """Cette propriété décrit le sous-numéro de WoO appliqué à une instance de M2 Opus Statment."""@fr ,
+                           """Questa proprietà descrive il sottonumero WoO applicato a un'istanza di M2 Opus Statment."""@it ;
+
+              salsah-gui:guiElement salsah-gui:SimpleText .
+
 
     ##########################################################
     #
     # RESOURCES
     #
     ##########################################################
+
+    ### ###########################################
+    ### webern:E1_Entity
+
+    :E1_Entity rdf:type owl:Class ;
+
+        rdfs:subClassOf kb:Resource, ecrm:E1_CRM_Entity ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :P3_hasNote ;
+                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+                        ];
+
+        kb:resourceIcon "default.png" ;
+
+        rdfs:label  "Entität"@de ,
+                    "entity"@en ,
+                    "entité"@fr ,
+                    "entità"@it ;
+
+        rdfs:comment    "Diese Klasse umfasst alle Dinge im Diskursuniversum des CIDOC Conceptual Reference Model."@de ,
+                        "This class comprises all things in the universe of discourse of the CIDOC Conceptual Reference Model. "@en ,
+                        "Cette classe comprend toutes les choses de l'univers du discours du CIDOC Conceptual Reference Model."@fr ,
+                        "Questa classe comprende tutte le cose dell'universo del discorso del CIDOC Conceptual Reference Model. "@it .
+
+
+
+#E77 Persistent item
+#E70 THing
+#E71 Man-Made Thing
+
+    ### ###########################################
+    ### webern:E28_ConceptualObject
+
+    :E28_ConceptualObject rdf:type owl:Class ;
+
+        rdfs:subClassOf :E1_Entity, ecrm:E28_Conceptual_Object ;    # TODO: eigentlich E71_Man-Made_Thing
+
+        kb:resourceIcon "default.png" ;
+
+        rdfs:label  "knozeptuelles Objekt"@de ,
+                    "conceptual object"@en ,
+                    "objet conceptuel"@fr ,
+                    "oggetto concettuale"@it ;
+
+        rdfs:comment    "Diese Klasse umfasst immaterielle Produkte unseres Geistes und andere von Menschen produzierte Daten, die zu Objekten eines Diskurses über ihre Identität, Schöpfungsumstände oder historische Implikationen geworden sind."@de ,
+                        "This class comprises non-material products of our minds and other human produced data that have become objects of a discourse about their identity, circumstances of creation or historical implication."@en ,
+                        "Cette classe comprend les produits non matériels de notre esprit et d'autres données produites par l'homme qui sont devenus des objets d'un discours sur leur identité, les circonstances de leur création ou leur implication historique."@fr ,
+                        "Questa classe comprende prodotti immateriali della nostra mente e altri dati prodotti dall'uomo che sono diventati oggetto di un discorso sulla loro identità, sulle circostanze della creazione o sulle implicazioni storiche."@it .
+
+
+    ### ###########################################
+    ### webern:E41_Appellation
+
+    :E41_Appellation rdf:type owl:Class ;
+
+        rdfs:subClassOf :E90_SymbolicObject, ecrm:E41_Appellation ;
+
+        kb:resourceIcon "default.png" ;
+
+        rdfs:label  "Bezeichnung"@de ,
+                    "appellation"@en ,
+                    "appellation"@fr ,
+                    "denominazione"@it ;
+
+        rdfs:comment    "Diese Klasse umfasst Zeichen, ob sinnhaft oder nicht, oder Anordnungen von Zeichen nach einer bestimmten Syntax, die verwendet werden oder verwendet werden können, um eine bestimmte Instanz einer Klasse oder Kategorie in einem bestimmten Kontext zu referenzieren und zu identifizieren."@de ,
+                        "This class comprises signs, either meaningful or not, or arrangements of signs following a specific syntax, that are used or can be used to refer to and identify a specific instance of some class or category within a certain context."@en ,
+                        "Cette classe comprend les signes, significatifs ou non, ou les agencements de signes suivant une syntaxe spécifique, qui sont utilisés ou peuvent être utilisés pour se référer et identifier une instance spécifique d'une certaine classe ou catégorie dans un certain contexte."@fr ,
+                        "Questa classe comprende segni, significativi o meno, o composizioni di segni che seguono una sintassi specifica, che sono usati o possono essere usati per riferirsi e identificare un'istanza specifica di una certa classe o categoria all'interno di un certo contesto."@it .
+
 
     ### ###########################################
     ### webern:E73_InformationObject
@@ -516,19 +699,39 @@
 
     :E89_PropositionalObject rdf:type owl:Class ;
 
-        rdfs:subClassOf kb:Resource, ecrm:E89_Propositional_Object ;
+        rdfs:subClassOf :E28_ConceptualObject, ecrm:E89_Propositional_Object ;
 
         kb:resourceIcon "default.png" ;
 
-        rdfs:label  "Aussagegegenstand"@de ,
+        rdfs:label  "Aussageobjekt"@de ,
                     "propositional object"@en ,
                     "objet propositionnel"@fr ,
                     "oggetto proposizionale"@it ;
 
         rdfs:comment    "Diese Klasse umfasst immaterielle Gegenstände, einschließlich, aber nicht beschränkt auf Geschichten, Plots, Verfahrensvorschriften, Algorithmen, Gesetze der Physik oder Bilder, die in gewissem Sinne Sätze von Sätzen über reale oder imaginäre Dinge sind oder darstellen und die als einzelne Einheiten dokumentiert sind oder als Thema des Diskurses dienen."@de ,
-                        "This class comprises immaterial items, including but not limited to stories, plots, procedural prescriptions, algorithms, laws of physics or images that are, or represent in some sense, sets of propositions about real or imaginary things and that are documented as single units or serve as topic of discourse. "@en ,
+                        "This class comprises immaterial items, including but not limited to stories, plots, procedural prescriptions, algorithms, laws of physics or images that are, or represent in some sense, sets of propositions about real or imaginary things and that are documented as single units or serve as topic of discourse."@en ,
                         "Cette classe comprend les éléments immatériels, y compris, mais sans s'y limiter, les histoires, les intrigues, les prescriptions procédurales, les algorithmes, les lois de la physique ou les images qui sont, ou représentent dans un certain sens, des ensembles de propositions sur des choses réelles ou imaginaires et qui sont documentés en tant qu'unités individuelles ou servent de sujet de discours."@fr ,
-                        "Questa classe comprende elementi immateriali, tra cui, ma non solo, storie, trame, prescrizioni procedurali, algoritmi, leggi della fisica o immagini che sono, o rappresentano in qualche modo, insiemi di proposizioni su cose reali o immaginarie e che sono documentati come singole unità o servono come argomento di discussione. ."@it .
+                        "Questa classe comprende elementi immateriali, tra cui, ma non solo, storie, trame, prescrizioni procedurali, algoritmi, leggi della fisica o immagini che sono, o rappresentano in qualche modo, insiemi di proposizioni su cose reali o immaginarie e che sono documentati come singole unità o servono come argomento di discussione."@it .
+
+
+    ### ###########################################
+    ### webern:E90_SymbolicObject
+
+    :E90_SymbolicObject rdf:type owl:Class ;
+
+        rdfs:subClassOf :E28_ConceptualObject, ecrm:E90_Symbolic_Object ;
+
+        kb:resourceIcon "default.png" ;
+
+        rdfs:label  "symbolisches Objekt"@de ,
+                    "symbolic object"@en ,
+                    "objet symbolique"@fr ,
+                    "oggetto simbolico"@it ;
+
+        rdfs:comment    "Diese Klasse umfasst identifizierbare Symbole und jegliche Aggregation von Symbolen, wie Zeichen, Identifikatoren, Verkehrszeichen, Embleme, Texte, Datensätze, Bilder, Partituren, Multimedia-Objekte, Computerprogrammcode oder mathematische Formeln, die eine objektiv erkennbare Struktur haben und als einzelne Einheiten dokumentiert sind."@de ,
+                        "This class comprises identifiable symbols and any aggregation of symbols, such as characters, identifiers, traffic signs, emblems, texts, data sets, images, musical scores, multimedia objects, computer program code or mathematical formulae that have an objectively recognizable structure and that are documented as single units."@en ,
+                        "Cette classe comprend les symboles identifiables et toute agrégation de symboles, tels que les caractères, les identificateurs, les panneaux de signalisation, les emblèmes, les textes, les ensembles de données, les images, les partitions musicales, les objets multimédias, les codes de programmes informatiques ou les formules mathématiques qui ont une structure objectivement reconnaissable et qui sont documentés en tant qu'unités individuelles."@fr ,
+                        "Questa classe comprende i simboli identificabili e qualsiasi aggregazione di simboli, quali caratteri, identificatori, segnali stradali, emblemi, testi, set di dati, immagini, spartiti musicali, oggetti multimediali, codici di programmi per elaboratore o formule matematiche che hanno una struttura oggettivamente riconoscibile e che sono documentati come unità singole."@it .
 
 
     ### ###########################################
@@ -683,6 +886,11 @@
                           salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
                         ],
                         [ rdf:type owl:Restriction ;
+                          owl:onProperty :U17_hasOpusStatementValue ;
+                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+                        ],
+                        [ rdf:type owl:Restriction ;
                           owl:onProperty :U16_hasCatalogueStatement ;
                           owl:minCardinality "0"^^xsd:nonNegativeInteger ;
                           salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
@@ -774,7 +982,7 @@
 
     :M2_OpusStatement rdf:type owl:Class ;
 
-        rdfs:subClassOf kb:Resource , doremus:M2_Opus_Statement ,
+        rdfs:subClassOf :E41_Appellation, doremus:M2_Opus_Statement ,
                         [ rdf:type owl:Restriction ;
                           owl:onProperty :U42_hasOpusNumber ;
                           owl:minCardinality "0"^^xsd:nonNegativeInteger ;
@@ -786,7 +994,7 @@
                           salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
                         ] ,
                         [ rdf:type owl:Restriction ;
-                          owl:onProperty :u69_hasWoONumber ;
+                          owl:onProperty :U69_hasWoONumber ;
                           owl:minCardinality "0"^^xsd:nonNegativeInteger ;
                           salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
                         ] ,
@@ -794,12 +1002,8 @@
                           owl:onProperty :U76_hasWoOSubnumber ;
                           owl:minCardinality "0"^^xsd:nonNegativeInteger ;
                           salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :P3_hasNote ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
-                        ];
+                        ] ;
+
 
         rdfs:label  "Opus Statement"@de ,
                     "Opus Statement"@en ,
