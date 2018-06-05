@@ -93,6 +93,7 @@
 
             salsah-gui:guiElement salsah-gui:Searchbox .
 
+
     :P148_hasComponentValue rdf:type owl:ObjectProperty ;
 
             kb:subjectClassConstraint :E89_PropositionalObject ;
@@ -101,10 +102,10 @@
 
             rdfs:subPropertyOf kb:hasLinkToValue ;
 
-            rdfs:label  "hat Bestandteil"@de ,
-                        "has component"@en ,
-                        "a une composante"@fr ,
-                        "ha componente"@it ;
+            rdfs:label  "hat Bestandteil (value)"@de ,
+                        "has component (value)"@en ,
+                        "a une composante (value)"@fr ,
+                        "ha componente (value)"@it ;
 
             rdfs:comment    """Diese Property verbindet eine Instanz von E89 Propositional Object mit einem strukturellen Teil davon, der selbst eine Instanz von E89 Propositional Object ist."""@de ,
                             """This property associates an instance of E89 Propositional Object with a structural part of it that is by itself an instance of E89 Propositional Object."""@en ,
@@ -135,6 +136,7 @@
 
             salsah-gui:guiElement salsah-gui:Searchbox .
 
+
     :R9_isRealisedInValue rdf:type owl:ObjectProperty ;
 
             kb:subjectClassConstraint :F14_IndividualWork ;
@@ -143,10 +145,10 @@
 
             rdfs:subPropertyOf kb:hasLinkToValue ;
 
-            rdfs:label  "ist realisiert in"@de ,
-                        "is realised in"@en ,
-                        "est réalisée en"@fr ,
-                        "hè realizzato in"@it ;
+            rdfs:label  "ist realisiert in (value)"@de ,
+                        "is realised in (value)"@en ,
+                        "est réalisée en (value)"@fr ,
+                        "hè realizzato in (value)"@it ;
 
             rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit der einzigartigen F22 Self-Contained Expression, die es vollständig vermittelt."""@de ,
                             """This property associates an F14 Individual Work with the unique F22 Self-Contained Expression that completely conveys it."""@en ,
@@ -177,6 +179,7 @@
 
             salsah-gui:guiElement salsah-gui:Searchbox .
 
+
     :R10_hasMemberValue rdf:type owl:ObjectProperty ;
 
             rdfs:subPropertyOf kb:hasLinkToValue ;
@@ -185,10 +188,10 @@
 
             kb:objectClassConstraint kb:LinkValue ;
 
-            rdfs:label  "hat Teil"@de ,
-                        "has member"@en ,
-                        "a membre"@fr ,
-                        "ha membro"@it ;
+            rdfs:label  "hat Teil (value)"@de ,
+                        "has member (value)"@en ,
+                        "a membre (value)"@fr ,
+                        "ha membro (value)"@it ;
 
             rdfs:comment    """Diese Property verbindet eine Instanz von F15 Complex Work mit einer Instanz von F1 Work, die Teil davon ist."""@de ,
                             """This property associates an instance of F15 Complex Work with an instance of F1 Work that forms part of it."""@en ,
@@ -219,6 +222,7 @@
 
             salsah-gui:guiElement salsah-gui:Searchbox .
 
+
     :R17_createdValue rdf:type owl:ObjectProperty ;
 
             rdfs:subPropertyOf kb:hasLinkToValue ;
@@ -227,10 +231,10 @@
 
             kb:objectClassConstraint kb:LinkValue ;
 
-            rdfs:label  "hat hervorgebracht"@de ,
-                        "created"@en ,
-                        "a créé"@fr ,
-                        "ha creato"@it ;
+            rdfs:label  "hat hervorgebracht (value)"@de ,
+                        "created (value)"@en ,
+                        "a créé (value)"@fr ,
+                        "ha creato (value)"@it ;
 
             rdfs:comment    """Diese Property verbindet die Expression, die während eines bestimmten Erzeuguns-Events erstmalig externalisiert wurde, mit diesem bestimmten Erzeugungs-Event."""@de ,
                             """This property associates the expression that was first externalised during a particular creation event with that particular creation event."""@en ,
@@ -261,6 +265,7 @@
 
             salsah-gui:guiElement salsah-gui:Searchbox .
 
+
     :R19_createdARealisationOfValue rdf:type owl:ObjectProperty ;
 
             rdfs:subPropertyOf kb:hasLinkToValue ;
@@ -269,10 +274,10 @@
 
             kb:objectClassConstraint kb:LinkValue ;
 
-            rdfs:label  "erzeugte eine Realisierung von"@de ,
-                        "created a realisation of"@en ,
-                        "créé une réalisation de"@fr ,
-                        "creato a realizzato di"@it ;
+            rdfs:label  "erzeugte eine Realisierung von (value)"@de ,
+                        "created a realisation of (value)"@en ,
+                        "créé une réalisation de (value)"@fr ,
+                        "creato a realizzato di (value)"@it ;
 
             rdfs:comment    """Diese Property verknüpft eine Instanz von F28 Expression Creation mit der entsprechenden Instanz von F14 Individual Work oder einer Instanz von F15 Complex Work, deren Mitglied die entsprechende Instanz von F14 Individual Work ist."""@de ,
                             """This property associates an instance of F28 Expression Creation with the corresponding instance of F14 Individual Work or an instance of F15 Complex Work of which the corresponding instance of F14 Individual Work is a member."""@en ,
@@ -303,18 +308,19 @@
 
             salsah-gui:guiElement salsah-gui:Searchbox .
 
+
     :R40_hasRepresentativeExpressionValue rdf:type owl:ObjectProperty ;
 
-            kb:subjectClassConstraint :F15_ComplexWork ;
+            kb:subjectClassConstraint :F1_Work ;
 
             kb:objectClassConstraint kb:LinkValue ;
 
             rdfs:subPropertyOf kb:hasLinkToValue ;
 
-            rdfs:label  "hat eine repräsentative Expression"@de ,
-                        "has representative expression"@en ,
-                        "a une expression représentative"@fr ,
-                        "ha un'espressione rappresentativa"@it ;
+            rdfs:label  "hat eine repräsentative Expression (value)"@de ,
+                        "has representative expression (value)"@en ,
+                        "a une expression représentative (value)"@fr ,
+                        "ha un'espressione rappresentativa (value)"@it ;
 
             rdfs:comment    """Diese Property identifiziert eine Instanz von F2 Expression, die als charakteristischster Ausdruck der Instanz von F1 Work gewählt wurde, deren Ausdruck sie ist."""@de ,
                             """This property identifies an instance of F2 Expression that has been chosen as the most characteristic expression of the instance of F1 Work of which it is an expression."""@en ,
@@ -327,7 +333,7 @@
 
     :U4_hadPrincepsPublication rdf:type owl:ObjectProperty ;
 
-            kb:subjectClassConstraint :F14_IndividualWork ;
+            kb:subjectClassConstraint :E89_PropositionalObject ;
 
             kb:objectClassConstraint :F30_PublicationEvent ;
 
@@ -347,16 +353,16 @@
 
     :U4_hadPrincepsPublicationValue rdf:type owl:ObjectProperty ;
 
-            kb:subjectClassConstraint :F14_IndividualWork ;
+            kb:subjectClassConstraint :E89_PropositionalObject ;
 
             kb:objectClassConstraint kb:LinkValue ;
 
             rdfs:subPropertyOf kb:hasLinkToValue ;
 
-            rdfs:label  "hatte Erstveröffentlichung"@de ,
-                        "had princeps publication"@en ,
-                        "avait une publication princeps"@fr ,
-                        "aveva pubblicazione principi"@it ;
+            rdfs:label  "hatte Erstveröffentlichung (value)"@de ,
+                        "had princeps publication (value)"@en ,
+                        "avait une publication princeps (value)"@fr ,
+                        "aveva pubblicazione principi (value)"@it ;
 
             rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit einem F30 Publication Event, in dem es seine Erstveröffentlichung hatte."""@de ,
                             """This property associates an F14 Individual Work with an F30 Publication Event in which it had its princeps publication."""@en ,
@@ -491,10 +497,10 @@
 
               rdfs:subPropertyOf kb:hasLinkToValue ;
 
-              rdfs:label "hat Opus-Statement"@de ,
-                         "has opus statment"@en ,
-                         "a opus statment"@fr ,
-                         "ha statment opus"@it ;
+              rdfs:label "hat Opus-Statement (value)"@de ,
+                         "has opus statment (value)"@en ,
+                         "a opus statment (value)"@fr ,
+                         "ha statment opus (value)"@it ;
 
               rdfs:comment """Diese Property beschreibt das M2 Opus Satement, die auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
                            """This property describes the M2 Opus Statement applied to an instance of F22 Self-Contained Expression."""@en ,
@@ -969,7 +975,7 @@
 
     :F30_PublicationEvent rdf:type owl:Class ;
 
-        rdfs:subClassOf kb:Resource, efrbroo:F30_Publication_Event ;    # TODO: :F28_ExpressionCreation
+        rdfs:subClassOf webern:F28_ExpressionCreation, efrbroo:F30_Publication_Event ;    # TODO: :F28_ExpressionCreation
 
         rdfs:label  "Publikationsereignis"@de ,
                     "publication event"@en ,
