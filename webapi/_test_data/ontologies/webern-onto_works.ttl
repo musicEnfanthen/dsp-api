@@ -448,9 +448,9 @@
 
               kb:subjectClassConstraint :F22_SelfContainedExpression ;
 
-              kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Verweis auf M1 Catalogue Statement
+              kb:objectClassConstraint :M1_CatalogueStatement ;       # TODO: eigentlich Verweis auf M1 Catalogue Statement
 
-              rdfs:subPropertyOf kb:hasValue, doremus:U16_has_catalogue_statement ;
+              rdfs:subPropertyOf kb:hasLinkTo, doremus:U16_has_catalogue_statement ;
 
               rdfs:label "hat Katalog-Statement"@de ,
                          "has catalogue statment"@en ,
@@ -462,7 +462,26 @@
                            """Cette propriété décrit le M1 Catalogue Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
                            """Questa proprietà descrive il M1 Catalogue Statement applicata a un'istanza di F22 Self-Contained Expression."""@it ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+              salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    :U16_hasCatalogueStatementValue rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :F22_SelfContainedExpression ;
+
+              kb:objectClassConstraint kb:LinkValue ;
+
+              rdfs:subPropertyOf kb:hasLinkToValue ;
+
+              rdfs:label "hat Katalog-Statement (value)"@de ,
+                         "has catalogue statment (value)"@en ,
+                         "a catalogue statment (value)"@fr ,
+                         "ha statment catalogo (value)"@it ;
+
+              rdfs:comment """Diese Property beschreibt das M1 Catalogue Statement, die auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
+                           """This property describes the M1 Catalogue Statement applied to an instance of F22 Self-Contained Expression."""@en ,
+                           """Cette propriété décrit le M1 Catalogue Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
+                           """Questa proprietà descrive il M1 Catalogue Statement applicata a un'istanza di F22 Self-Contained Expression."""@it .
 
 
     ### ###########################################
@@ -506,6 +525,54 @@
                            """This property describes the M2 Opus Statement applied to an instance of F22 Self-Contained Expression."""@en ,
                            """Cette propriété décrit le M2 Opus Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
                            """Questa proprietà descrive il M2 Opus Statement applicata a un'istanza di F22 Self-Contained Expression."""@it .
+
+
+    ### ###########################################
+    ### webern:U40_hasCatalogueName
+
+    :U40_hasCatalogueName rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :M1_CatalogueStatement ;
+
+              kb:objectClassConstraint kb:TextValue ;                           #TODO: M10 Catalogue Name
+
+              rdfs:subPropertyOf kb:hasValue, doremus:U40_has_catalogue_name ;     #TODO: subProp of P106 is composed of; inverse of U40i ..
+
+              rdfs:label "hat Katalogname"@de ,
+                         "has catalogue name"@en ,
+                         "a nom de catalogue"@fr ,
+                         "ha nome catalogo"@it ;
+
+              rdfs:comment """Diese Property beschreibt den Katalognamen, der auf eine Instanz von M1 Catalogue Statment angewendet wird."""@de ,
+                           """This property describes the catalogue name applied to an instance of M1 Catalogue Statment."""@en ,
+                           """Cette propriété décrit le nom de catalogue appliqué à une instance de M1 Catalogue Statment."""@fr ,
+                           """Questa proprietà descrive il nome catalogo applicato a un'istanza di M1 Catalogue Statment."""@it ;
+
+              salsah-gui:guiElement salsah-gui:SimpleText .
+
+
+    ### ###########################################
+    ### webern:U41_hasCatalogueNumber
+
+    :U41_hasCatalogueNumber rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :M1_CatalogueStatement ;
+
+              kb:objectClassConstraint kb:TextValue ;
+
+              rdfs:subPropertyOf kb:hasValue, doremus:U41_has_catalogue_number ;
+
+              rdfs:label "hat Katalognummer"@de ,
+                         "has catalogue number"@en ,
+                         "a numéro de catalogue"@fr ,
+                         "ha numero catalogo"@it ;
+
+              rdfs:comment """Diese Property beschreibt die Katalognummer, die auf eine Instanz von M1 Catalogue Statment angewendet wird."""@de ,
+                           """This property describes the catalogue number applied to an instance of M1 Catalogue Statment."""@en ,
+                           """Cette propriété décrit le numéro dde catalogue appliqué à une instance de M1 Catalogue Statment."""@fr ,
+                           """Questa proprietà descrive il numero catalogo applicato a un'istanza di M1 Catalogue Statment."""@it ;
+
+              salsah-gui:guiElement salsah-gui:SimpleText .
 
 
     ### ###########################################
@@ -604,6 +671,8 @@
               salsah-gui:guiElement salsah-gui:SimpleText .
 
 
+
+
     ##########################################################
     #
     # RESOURCES
@@ -645,7 +714,7 @@
 
     :E28_ConceptualObject rdf:type owl:Class ;
 
-        rdfs:subClassOf :E1_Entity, ecrm:E28_Conceptual_Object ;    # TODO: eigentlich E71_Man-Made_Thing
+        rdfs:subClassOf :E1_Entity, ecrm:E28_Conceptual_Object ;    # TODO: eigentlich E71_Man-Made_Thing -> E70 Thing -> E77 Persistent Item
 
         kb:resourceIcon "default.png" ;
 
@@ -902,6 +971,11 @@
                           salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
                         ],
                         [ rdf:type owl:Restriction ;
+                          owl:onProperty :U16_hasCatalogueStatementValue ;
+                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+                        ],
+                        [ rdf:type owl:Restriction ;
                           owl:onProperty :U12_hasGenre ;
                           owl:minCardinality "0"^^xsd:nonNegativeInteger ;
                           salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
@@ -975,12 +1049,43 @@
 
     :F30_PublicationEvent rdf:type owl:Class ;
 
-        rdfs:subClassOf webern:F28_ExpressionCreation, efrbroo:F30_Publication_Event ;    # TODO: :F28_ExpressionCreation
+        rdfs:subClassOf :F28_ExpressionCreation, efrbroo:F30_Publication_Event ;
 
         rdfs:label  "Publikationsereignis"@de ,
                     "publication event"@en ,
                     "événement de publication"@fr ,
                     "evento pubblicazione"@it .
+
+
+    ### ###########################################
+    ### webern:M1_CatalogueStatement
+
+    :M1_CatalogueStatement rdf:type owl:Class ;
+
+        rdfs:subClassOf :E41_Appellation, doremus:M1_Catalolgue_Statement ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :U40_hasCatalogueName ;
+                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :U41_hasCatalogueNumber ;
+                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                        ] ;
+
+
+        rdfs:label  "Katalog Statement"@de ,
+                    "Catalogue Statement"@en ,
+                    "Mention de catalogue"@fr ,
+                    "Menzione di catalogo"@it ;
+
+        kb:resourceIcon "default.png" ;
+
+        rdfs:comment    "Diese Klasse umfasst die Aussagen zu einem Katalog Statement."@de ,
+                        "This class comprises statements for an catalogue statement."@en ,
+                        "Cette classe contient les instructions d'une mention de catalogue."@fr ,
+                        "Questa classe contiene le istruzioni per una menzione di catalogo."@it .
 
 
     ### ###########################################
@@ -1021,4 +1126,4 @@
         rdfs:comment    "Diese Klasse umfasst die Aussagen zu einem Opus Statement."@de ,
                         "This class comprises statements for an opus statement."@en ,
                         "Cette classe contient les instructions d'une mention d'opus."@fr ,
-                        "Questa classe contiene le istruzioni per una dichiarazione opus."@it .
+                        "Questa classe contiene le istruzioni per una menzione di opus."@it .

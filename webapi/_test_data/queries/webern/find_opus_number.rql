@@ -1,0 +1,27 @@
+PREFIX knora-api: <http://api.knora.org/ontology/knora-api/simple/v2#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX webern: <http://0.0.0.0:3333/ontology/08AE/webern/simple/v2#>
+
+CONSTRUCT {
+    ?CompWork knora-api:isMainResource true .
+    ?CompWork webern:R40_hasRepresentativeExpression ?expression .
+    ?expression webern:U17_hasOpusStatement ?opusState .
+    ?opusState webern:U42_hasOpusNumber ?opus .
+} WHERE {
+
+    ?CompWork a knora-api:Resource, webern:F15_ComplexWork .
+    ?CompWork webern:R40_hasRepresentativeExpression ?expression .
+    webern:R40_hasRepresentativeExpression knora-api:objectType knora-api:Resource .
+
+    ?expression a knora-api:Resource, webern:F22_SelfContainedExpression .
+    ?expression webern:U17_hasOpusStatement ?opusState .
+
+    webern:U17_hasOpusStatement knora-api:objectType knora-api:Resource .
+
+    ?opusState a knora-api:Resource, webern:M2_OpusStatement .
+    ?opusState webern:U42_hasOpusNumber ?opus .
+
+    webern:U42_hasOpusNumber knora-api:objectType xsd:string .
+
+    ?opus a xsd:string .
+}

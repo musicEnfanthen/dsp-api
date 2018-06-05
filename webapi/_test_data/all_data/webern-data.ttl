@@ -385,7 +385,8 @@
 	    webern:U11_hasKey <http://rdfh.ch/08AE/expression/Expression0/values/U11_hasKey> ;
 	    webern:U12_hasGenre <http://rdfh.ch/08AE/expression/Expression0/values/U12_hasGenre> ;
 	    webern:U13_hasCasting <http://rdfh.ch/08AE/expression/Expression0/values/U13_hasCasting> ;
-	    webern:U16_hasCatalogueStatement <http://rdfh.ch/08AE/expression/Expression0/values/U16_hasCatalogueStatement> ; 	# <http://rdfh.ch/08AE/cataloguestatement/M138-142> ;
+	    webern:U16_hasCatalogueStatement <http://rdfh.ch/08AE/cataloguestatement/M138-142> ;
+		webern:U16_hasCatalogueStatementValue <http://rdfh.ch/08AE/expression/Expression0/values/U16_hasCatalogueStatement/M138-142_L> ;
 		webern:U17_hasOpusStatement <http://rdfh.ch/08AE/opusstatement/OpusStatement4> ;
 	    webern:U17_hasOpusStatementValue <http://rdfh.ch/08AE/expression/Expression0/values/U17_hasOpusStatement/OpusStatement4_L> .
 
@@ -403,7 +404,7 @@
 			kb:isDeleted "false"^^xsd:boolean ;
 			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:valueHasOrder "0"^^xsd:integer ;
-			kb:valueHasString "non" . 			# <http://data.doremus.org/vocabulary/key/non>
+			kb:valueHasString "non" . 			# TODO <http://data.doremus.org/vocabulary/key/non>
 
 		<http://rdfh.ch/08AE/expression/Expression0/values/U12_hasGenre> a kb:TextValue ;
 			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -411,7 +412,7 @@
 			kb:isDeleted "false"^^xsd:boolean ;
 			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:valueHasOrder "0"^^xsd:integer ;
-			kb:valueHasString "Lieder" .			# <http://data.doremus.org/vocabulary/iaml/genre/li>
+			kb:valueHasString "Lieder" .			# TODO <http://data.doremus.org/vocabulary/iaml/genre/li>
 
 		<http://rdfh.ch/08AE/expression/Expression0/values/U13_hasCasting> a kb:TextValue ;
 			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -419,27 +420,32 @@
 			kb:isDeleted "false"^^xsd:boolean ;
 			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:valueHasOrder "0"^^xsd:integer ;
-			kb:valueHasString "Gesang, Klavier" . 			# <http://rdfh.ch/08AE/expression/ExpressionSatz5/casting>
+			kb:valueHasString "Gesang, Klavier" . 			# TODO <http://rdfh.ch/08AE/expression/ExpressionSatz5/casting>
 
-		<http://rdfh.ch/08AE/expression/Expression0/values/U16_hasCatalogueStatement> a kb:TextValue ;
+		<http://rdfh.ch/08AE/expression/Expression0/values/U16_hasCatalogueStatement/M138-142_L> a kb:LinkValue ;
 			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 			kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
 			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:valueHasOrder "0"^^xsd:integer ;
-			kb:valueHasString "M138–142" .
+			kb:valueHasRefCount "1"^^xsd:integer ;
+			kb:valueHasString "http://rdfh.ch/08AE/cataloguestatement/M138-142" ;
+			rdf:subject <http://rdfh.ch/08AE/expression/Expression0> ;
+			rdf:predicate  webern:U16_hasCatalogueStatement ;
+			rdf:object <http://rdfh.ch/08AE/cataloguestatement/M138-142> .
 
 		<http://rdfh.ch/08AE/expression/Expression0/values/U17_hasOpusStatement/OpusStatement4_L> a kb:LinkValue ;
-			rdf:subject <http://rdfh.ch/08AE/expression/Expression0> ;
-			rdf:predicate  webern:U17_hasOpusStatement ;
-			rdf:object <http://rdfh.ch/08AE/opusstatement/OpusStatement4> ;
 			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
 			kb:valueCreationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:valueHasOrder "0"^^xsd:integer ;
 			kb:valueHasRefCount "1"^^xsd:integer ;
 			kb:valueHasString "http://rdfh.ch/08AE/opusstatement/OpusStatement4" ;
-			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
-			kb:isDeleted "false"^^xsd:boolean .
+			rdf:subject <http://rdfh.ch/08AE/expression/Expression0> ;
+			rdf:predicate  webern:U17_hasOpusStatement ;
+			rdf:object <http://rdfh.ch/08AE/opusstatement/OpusStatement4> .
+
 
 
 	<http://rdfh.ch/08AE/expression/ExpressionSatz5> a webern:F22_SelfContainedExpression ;
@@ -454,7 +460,8 @@
 	    webern:U11_hasKey <http://rdfh.ch/08AE/expression/ExpressionSatz5/values/U11_hasKey> ;
 	    webern:U12_hasGenre <http://rdfh.ch/08AE/expression/ExpressionSatz5/values/U12_hasGenre> ;
 	    webern:U13_hasCasting <http://rdfh.ch/08AE/expression/ExpressionSatz5/values/U13_hasCasting> ;
-		webern:U16_hasCatalogueStatement <http://rdfh.ch/08AE/expression/ExpressionSatz5/values/U16_hasCatalogueStatement> ; 		# <http://rdfh.ch/08AE/cataloguestatement/M142>
+		webern:U16_hasCatalogueStatement <http://rdfh.ch/08AE/cataloguestatement/M142> ;
+		webern:U16_hasCatalogueStatementValue <http://rdfh.ch/08AE/expression/ExpressionSatz5/values/U16_hasCatalogueStatement/M142_L> ;
 		webern:U17_hasOpusStatement <http://rdfh.ch/08AE/opusstatement/OpusStatement4_5> ;
 		webern:U17_hasOpusStatementValue <http://rdfh.ch/08AE/expression/ExpressionSatz5/values/U17_hasOpusStatement/OpusStatement4_5_L> .
 
@@ -472,7 +479,7 @@
 			kb:isDeleted "false"^^xsd:boolean ;
 			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:valueHasOrder "0"^^xsd:integer ;
-			kb:valueHasString "non" . 			# <http://data.doremus.org/vocabulary/key/non>
+			kb:valueHasString "non" . 			# TODO: <http://data.doremus.org/vocabulary/key/non>
 
 		<http://rdfh.ch/08AE/expression/ExpressionSatz5/values/U12_hasGenre> a kb:TextValue ;
 			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -480,7 +487,7 @@
 			kb:isDeleted "false"^^xsd:boolean ;
 			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:valueHasOrder "0"^^xsd:integer ;
-			kb:valueHasString "Lieder" .			# <http://data.doremus.org/vocabulary/iaml/genre/li>
+			kb:valueHasString "Lieder" .			# TODO: <http://data.doremus.org/vocabulary/iaml/genre/li>
 
 		<http://rdfh.ch/08AE/expression/ExpressionSatz5/values/U13_hasCasting> a kb:TextValue ;
 			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -488,27 +495,31 @@
 			kb:isDeleted "false"^^xsd:boolean ;
 			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:valueHasOrder "0"^^xsd:integer ;
-			kb:valueHasString "Gesang, Klavier" . 			# <http://rdfh.ch/08AE/expression/ExpressionSatz5/casting>
+			kb:valueHasString "Gesang, Klavier" . 			# TODO: <http://rdfh.ch/08AE/expression/ExpressionSatz5/casting>
 
-		<http://rdfh.ch/08AE/expression/ExpressionSatz5/values/U16_hasCatalogueStatement> a kb:TextValue ;
+		<http://rdfh.ch/08AE/expression/ExpressionSatz5/values/U16_hasCatalogueStatement/M142_L> a kb:LinkValue ;
 			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 			kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
 			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:valueHasOrder "0"^^xsd:integer ;
-			kb:valueHasString "M142" .
+			kb:valueHasRefCount "1"^^xsd:integer ;
+			kb:valueHasString "http://rdfh.ch/08AE/cataloguestatement/M142" ;
+			rdf:subject <http://rdfh.ch/08AE/expression/ExpressionSatz5> ;
+			rdf:predicate  webern:U16_hasCatalogueStatement ;
+			rdf:object <http://rdfh.ch/08AE/cataloguestatement/M142> .
 
 		<http://rdfh.ch/08AE/expression/ExpressionSatz5/values/U17_hasOpusStatement/OpusStatement4_5_L> a kb:LinkValue ;
-			rdf:subject <http://rdfh.ch/08AE/expression/ExpressionSatz5> ;
-			rdf:predicate  webern:U17_hasOpusStatement ;
-			rdf:object <http://rdfh.ch/08AE/opusstatement/OpusStatement4_5> ;
 			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
 			kb:valueCreationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:valueHasOrder "0"^^xsd:integer ;
 			kb:valueHasRefCount "1"^^xsd:integer ;
 			kb:valueHasString "http://rdfh.ch/08AE/opusstatement/OpusStatement4_5" ;
-			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
-			kb:isDeleted "false"^^xsd:boolean .
+			rdf:subject <http://rdfh.ch/08AE/expression/ExpressionSatz5> ;
+			rdf:predicate  webern:U17_hasOpusStatement ;
+			rdf:object <http://rdfh.ch/08AE/opusstatement/OpusStatement4_5> .
 
 
 	### ###########################################
@@ -593,6 +604,81 @@
 
 
 	### ###########################################
+	### M1_CatalogueStatement
+
+	<http://rdfh.ch/08AE/cataloguestatement/M138-142> a webern:M1_CatalogueStatement ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "M 138–142" ;
+		webern:P3_hasNote <http://rdfh.ch/08AE/cataloguestatement/M138-142/values/P3_hasNote> ;
+		webern:U40_hasCatalogueName <http://rdfh.ch/08AE/cataloguestatement/M138-142/values/U40_hasCatalogueName> ;
+		webern:U41_hasCatalogueNumber <http://rdfh.ch/08AE/cataloguestatement/M138-142/values/U41_hasCatalogueNumber> .
+
+		<http://rdfh.ch/08AE/cataloguestatement/M138-142/values/P3_hasNote> a kb:TextValue ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:valueHasOrder "0"^^xsd:integer ;
+			kb:valueHasString "M 138–142" .
+
+		<http://rdfh.ch/08AE/cataloguestatement/M138-142/values/U40_hasCatalogueName> a kb:TextValue ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:valueHasOrder "0"^^xsd:integer ;
+			kb:valueHasString "M" .
+
+		<http://rdfh.ch/08AE/cataloguestatement/M138-142/values/U41_hasCatalogueNumber> a kb:TextValue ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:valueHasOrder "0"^^xsd:integer ;
+			kb:valueHasString "138–142" .
+
+
+	<http://rdfh.ch/08AE/cataloguestatement/M142> a webern:M1_CatalogueStatement ;
+		kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+		kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+		kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+		kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+		kb:isDeleted "false"^^xsd:boolean ;
+		rdfs:label "M 142" ;
+		webern:P3_hasNote <http://rdfh.ch/08AE/cataloguestatement/M142/values/P3_hasNote> ;
+		webern:U40_hasCatalogueName <http://rdfh.ch/08AE/cataloguestatement/M142/values/U40_hasCatalogueName> ;
+		webern:U41_hasCatalogueNumber <http://rdfh.ch/08AE/cataloguestatement/M142/values/U41_hasCatalogueNumber> .
+
+		<http://rdfh.ch/08AE/cataloguestatement/M142/values/P3_hasNote> a kb:TextValue ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:valueHasOrder "0"^^xsd:integer ;
+			kb:valueHasString "M 142" .
+
+		<http://rdfh.ch/08AE/cataloguestatement/M142/values/U40_hasCatalogueName> a kb:TextValue ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:valueHasOrder "0"^^xsd:integer ;
+			kb:valueHasString "M" .
+
+		<http://rdfh.ch/08AE/cataloguestatement/M142/values/U41_hasCatalogueNumber> a kb:TextValue ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:valueHasOrder "0"^^xsd:integer ;
+			kb:valueHasString "142" .
+
+
+	### ###########################################
 	### M2_Opus_Statement
 
 	<http://rdfh.ch/08AE/opusstatement/OpusStatement4> a webern:M2_OpusStatement ;
@@ -602,8 +688,16 @@
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
 			rdfs:label "OpusStatement4" ;
+			webern:P3_hasNote <http://rdfh.ch/08AE/opusstatement/OpusStatement4/values/P3_hasNote> ;
 			webern:U42_hasOpusNumber <http://rdfh.ch/08AE/opusstatement/OpusStatement4/values/U42_hasOpusNumber> .
-    		# ecrm:P3_has_note "Op. 4" .
+
+			<http://rdfh.ch/08AE/opusstatement/OpusStatement4/values/P3_hasNote> a kb:TextValue ;
+				kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+				kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+				kb:isDeleted "false"^^xsd:boolean ;
+				kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+				kb:valueHasOrder "0"^^xsd:integer ;
+				kb:valueHasString "Op. 4" .
 
 			<http://rdfh.ch/08AE/opusstatement/OpusStatement4/values/U42_hasOpusNumber> a kb:TextValue ;
 				kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -621,9 +715,17 @@
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
 			rdfs:label "OpusStatement4_5" ;
+			webern:P3_hasNote <http://rdfh.ch/08AE/opusstatement/OpusStatement4_5/values/P3_hasNote> ;
 			webern:U42_hasOpusNumber <http://rdfh.ch/08AE/opusstatement/OpusStatement4/values/U42_hasOpusNumber> ;
     		webern:U43_hasOpusSubnumber <http://rdfh.ch/08AE/opusstatement/OpusStatement4_5/values/U43_hasOpusSubnumber> .
-    		# ecrm:P3_has_note "Op. 4, Nr. 5" .
+
+			<http://rdfh.ch/08AE/opusstatement/OpusStatement4_5/values/P3_hasNote> a kb:TextValue ;
+				kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+				kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+				kb:isDeleted "false"^^xsd:boolean ;
+				kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+				kb:valueHasOrder "0"^^xsd:integer ;
+				kb:valueHasString "Op. 4, Nr. 5" .
 
 			<http://rdfh.ch/08AE/opusstatement/OpusStatement4_5/values/U43_hasOpusSubnumber> a kb:TextValue ;
 				kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
