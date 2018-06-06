@@ -329,6 +329,49 @@
 
 
     ### ###########################################
+    ### webern:U2_foreseesUseOfMediumOfPerformance
+
+    :U2_foreseesUseOfMediumOfPerformance rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :E29_DesignOrProcedure ;
+
+              kb:objectClassConstraint :M14_MediumOfPerformance ;
+
+              rdfs:subPropertyOf kb:hasLinkTo, doremus:U2_foresees_use_of_medium_of_performance ;    # TODO: subProp of P67 refers to
+
+              rdfs:label "U2 sieht den Einsatz eines Performance-Mediums vor"@de ,
+                         "U2 foresees use of medium of performance"@en ,
+                         "U2 prévoit l'utilisation d'un médium de performance"@fr ,
+                         "U2 prevede l'utilizzo di mezzi di comunicazione di performance"@it ;
+
+              rdfs:comment """Diese Property beschreibt das M14 Medium of Performance, der auf eine Instanz von E29 Design or Procedure angewendet wird."""@de ,
+                           """This property describes the M14 Medium of Performance applied to an instance of E29 Design or Procedure."""@en ,
+                           """Cette propriété décrit le M14 Medium of Performance appliquée à une instance de E29 Design or Procedure."""@fr ,
+                           """Questa proprietà descrive il M14 Medium of Performance applicata ad un'istanza di E29 Design or Procedure."""@it ;
+
+              salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    :U2_foreseesUseOfMediumOfPerformanceValue rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :E29_DesignOrProcedure ;
+
+              kb:objectClassConstraint kb:LinkValue ;
+
+              rdfs:subPropertyOf kb:hasLinkToValue ;
+
+              rdfs:label "U2 sieht den Einsatz eines Aufführungsmediums vor (value)"@de ,
+                         "U2 foresees use of medium of performance (value)"@en ,
+                         "U2 prévoit l'utilisation d'un médium de performance (value)"@fr ,
+                         "U2 prevede l'utilizzo di mezzi di comunicazione di performance (value)"@it ;
+
+              rdfs:comment """Diese Property beschreibt das M14 Medium of Performance, der auf eine Instanz von E29 Design or Procedure angewendet wird."""@de ,
+                           """This property describes the M14 Medium of Performance applied to an instance of E29 Design or Procedure."""@en ,
+                           """Cette propriété décrit le M14 Medium of Performance appliquée à une instance de E29 Design or Procedure."""@fr ,
+                           """Questa proprietà descrive il M14 Medium of Performance applicata ad un'istanza di E29 Design or Procedure."""@it .
+
+
+    ### ###########################################
     ### webern:U4_hadPrincepsPublication
 
     :U4_hadPrincepsPublication rdf:type owl:ObjectProperty ;
@@ -350,6 +393,7 @@
                             """Questa proprietà associa un F14 Individual Work a un F30 Publication Event in cui ha avuto luogo la pubblicazione principi."""@it ;
 
             salsah-gui:guiElement salsah-gui:Searchbox .
+
 
     :U4_hadPrincepsPublicationValue rdf:type owl:ObjectProperty ;
 
@@ -425,7 +469,7 @@
 
               kb:subjectClassConstraint :F22_SelfContainedExpression ;
 
-              kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Verweis auf M6_Casting
+              kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Link auf M6_Casting
 
               rdfs:subPropertyOf kb:hasValue, doremus:U13_has_casting ;
 
@@ -525,6 +569,73 @@
                            """This property describes the M2 Opus Statement applied to an instance of F22 Self-Contained Expression."""@en ,
                            """Cette propriété décrit le M2 Opus Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
                            """Questa proprietà descrive il M2 Opus Statement applicata a un'istanza di F22 Self-Contained Expression."""@it .
+
+
+    ### ###########################################
+    ### webern:U23_hasCastingDetail
+
+    :U23_hasCastingDetail rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :M6_Casting ;
+
+              kb:objectClassConstraint :M23_CastingDetail ;
+
+              rdfs:subPropertyOf kb:hasLinkTo, doremus:U17_has_opus_statement ; # TODO: subProp of P69 has association with
+
+              rdfs:label "U23 hat Besetzungsangabe"@de ,
+                         "U23 has casting detail"@en ,
+                         "U23 a détail de la distribution"@fr ,
+                         "U23 ha dettagli distribuzione"@it ;
+
+              rdfs:comment """Diese Property beschreibt das M23 Casting Detail, die auf eine Instanz von M6 Casting angewendet wird."""@de ,
+                           """This property describes the M23 Casting Detail applied to an instance of M6 Casting."""@en ,
+                           """Cette propriété décrit le M23 Casting Detail appliquée à une instance de M6 Casting."""@fr ,
+                           """Questa proprietà descrive il M23 Casting Detail applicata a un'istanza di M6 Casting."""@it ;
+
+              salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    :U23_hasCastingDetailValue rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :M6_Casting ;
+
+              kb:objectClassConstraint kb:LinkValue ;
+
+              rdfs:subPropertyOf kb:hasLinkToValue ;
+
+              rdfs:label "U23 hat Besetzungsangabe (value)"@de ,
+                         "U23 has casting detail (value)"@en ,
+                         "U23 a détail de la distribution (value)"@fr ,
+                         "U23 ha dettagli distribuzione (value)"@it ;
+
+              rdfs:comment """Diese Property beschreibt das M23 Casting Detail, die auf eine Instanz von M6 Casting angewendet wird."""@de ,
+                           """This property describes the M23 Casting Detail applied to an instance of M6 Casting."""@en ,
+                           """Cette propriété décrit le M23 Casting Detail appliquée à une instance de M6 Casting."""@fr ,
+                           """Questa proprietà descrive il M23 Casting Detail applicata a un'istanza di M6 Casting."""@it .
+
+
+    ### ###########################################
+    ### webern:U30_foreseesQuantityOfMop
+
+    :U30_foreseesQuantityOfMop rdf:type owl:ObjectProperty ;
+
+              kb:subjectClassConstraint :M23_CastingDetail ;
+
+              kb:objectClassConstraint kb:IntValue ;
+
+              rdfs:subPropertyOf kb:hasValue, doremus:U30_foresees_quantity_of_mop ;
+
+              rdfs:label "U30 vorgesehene Menge an Aufführungs-Medien"@de ,
+                         "U30 foresees quantity of mop"@en ,
+                         "U30 prévoit la quantité de mop"@fr ,
+                         "U30 prevede la quantità di mop"@it ;
+
+              rdfs:comment """Diese Property beschreibt die vorgesehene Menge an Aufführungs-Medien, die auf eine Instanz von M23 Casting Detail angewendet wird."""@de ,
+                           """This property describes the foreseen quantity of mop applied to an instance of M23 Casting Detail."""@en ,
+                           """Cette propriété décrit la quantité prévoitée de mop appliqué à une instance de M23 Casting Detail."""@fr ,
+                           """Questa proprietà descrive la quantità di mop applicato a un'istanza di M23 Casting Detail."""@it ;
+
+              salsah-gui:guiElement salsah-gui:SimpleText .
 
 
     ### ###########################################
@@ -1142,7 +1253,6 @@
                           salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
                         ] ;
 
-
         rdfs:label  "M2 Opus Statement"@de ,
                     "M2 Opus Statement"@en ,
                     "M2 Mention d'opus"@fr ,
@@ -1157,34 +1267,78 @@
 
 
     ### ###########################################
+    ### webern:M6_Casting
+
+    :M6_Casting rdf:type owl:Class ;
+
+        rdfs:subClassOf :E29_DesignOrProcedure, doremus:M6_Casting ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :U23_hasCastingDetail ;
+                          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :U23_hasCastingDetailValue ;
+                          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                        ] ;
+
+        rdfs:label  "M6 Besetzung"@de ,
+                    "M6 Casting"@en ,
+                    "M6 Distribution vocale ou instrumentale"@fr ,
+                    "M6 Distribuzione vocale o strumentale"@it ;
+
+        kb:resourceIcon "default.png" ;
+
+        rdfs:comment    "Diese Klasse beschreibt das 'Aufführungsmedium' eines Werkes, d.h. die Instrumente, Maschinen, Interpreten (Tänzer, Schauspieler, Rezitatoren usw.), für die das Werk komponiert wurde."@de ,
+                        "This class describes the 'medium of performance' of a work, i.e. the instruments, machines, performers other than musicians (dancers, actors, reciters, etc.) for which the work was composed."@en ,
+                        "CCette classe permet de décrire les 'medium of performance' d’une œuvre, c’est-à-dire les instruments, machines, exécutants autres que musiciens (danseurs, acteurs, récitants,…) pour lesquels l’œuvre a été composée."@fr ,
+                        "Questa classe descrive il 'mezzo di esecuzione' di un'opera, cioè gli strumenti, le macchine, gli interpreti diversi dai musicisti (ballerini, attori, recitatori, ecc.) per i quali l'opera è stata composta."@it .
+
+
+    ### ###########################################
+    ### webern:M14_MediumOfPerformance
+
+    :M14_MediumOfPerformance rdf:type owl:Class ;
+
+        rdfs:subClassOf kb:Resource, doremus:M14_Medium_Of_Performance ;      #TODO: subClassOf E55_Type
+
+        rdfs:label  "M6 Aufführungsmedium"@de ,
+                    "M14 Medium of Performance"@en ,
+                    "M14 Distribution instrumentale ou vocale"@fr ,
+                    "M6 Distribuzione strumentale o vocale"@it ;
+
+        kb:resourceIcon "default.png" ;
+
+        rdfs:comment    "Diese Klasse beschreibt das 'Aufführungsmedium' eines Werkes, d.h. die Instrumente, Maschinen, Interpreten (Tänzer, Schauspieler, Rezitatoren usw.), für die das Werk komponiert wurde."@de ,
+                        "This class describes the 'medium of performance' of a work, i.e. the instruments, machines, performers other than musicians (dancers, actors, reciters, etc.) for which the work was composed."@en ,
+                        "CCette classe permet de décrire les 'medium of performance' d’une œuvre, c’est-à-dire les instruments, machines, exécutants autres que musiciens (danseurs, acteurs, récitants,…) pour lesquels l’œuvre a été composée."@fr ,
+                        "Questa classe descrive il 'mezzo di esecuzione' di un'opera, cioè gli strumenti, le macchine, gli interpreti diversi dai musicisti (ballerini, attori, recitatori, ecc.) per i quali l'opera è stata composta."@it .
+
+
+    ### ###########################################
     ### webern:M23_CastingDetail
 
     :M23_CastingDetail rdf:type owl:Class ;
 
         rdfs:subClassOf :E29_DesignOrProcedure, doremus:M23_Casting_Detail ,
                         [ rdf:type owl:Restriction ;
-                          owl:onProperty :U42_hasOpusNumber ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onProperty :U2_foreseesUseOfMediumOfPerformance ;
+                          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
                           salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
                         ] ,
                         [ rdf:type owl:Restriction ;
-                          owl:onProperty :U43_hasOpusSubnumber ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onProperty :U2_foreseesUseOfMediumOfPerformanceValue ;
+                          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :U30_foreseesQuantityOfMop ;
+                          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
                           salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U69_hasWoONumber ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U76_hasWoOSubnumber ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
                         ] ;
 
-
-        rdfs:label  "M23 Besetzungsangabe"@de ,
+        rdfs:label  "M23 Besetzungsdetail"@de ,
                     "M23 Casting Detail"@en ,
                     "M23 Détail de la distribution"@fr ,
                     "M23 Dettagli distribuzione"@it ;
