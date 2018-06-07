@@ -1,24 +1,45 @@
-@prefix doremus: <http://data.doremus.org/ontology#> .
-@prefix ecrm: <http://erlangen-crm.org/current/> .
-@prefix efrbroo: <http://erlangen-crm.org/erfrbroo/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix kb: <http://www.knora.org/ontology/knora-base#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cc:         <http://creativecommons.org/ns#> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix doremus:    <http://data.doremus.org/ontology#> .
+@prefix ecrm:       <http://erlangen-crm.org/current/> .
+@prefix efrbroo:    <http://erlangen-crm.org/erfrbroo/> .
+@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
+@prefix kb:         <http://www.knora.org/ontology/knora-base#> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix schema: <http://schema.org/>.
+@prefix xml:        <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann:       <http://purl.org/vocab/vann/> .
 
-@prefix : <http://www.knora.org/ontology/08AE/webern#> .
-@base <http://www.knora.org/ontology/08AE/webern> .
+@prefix :           <http://www.knora.org/ontology/08AE/webern#> .
+@base               <http://www.knora.org/ontology/08AE/webern> .
+
+##########################################################
+#
+# AWG WORKS ONTOLOGY
+#
+##########################################################
 
 <http://www.knora.org/ontology/08AE/webern> rdf:type owl:Ontology ;
+    cc:license  <http://creativecommons.org/licenses/by/4.0/> ;
+    # dcterms:created "2018-05-22"^^xsd:date ;
+    dcterms:creator [foaf:name "Stefan Münnich"; schema:affiliation [foaf:homepage <http://www.anton-webern.ch>; foaf:name "Anton Webern Gesamtausgabe, Musikwissenschaftliches Seminar, Universität Basel"]] ;
+    dcterms:description """Formal description of works for the AWG project ontology, general subclasses, related classes and properties."""@en ;
+    # dcterms:issued ""^^xsd:date ;   # TODO: to be issued
+    # dcterms:modified "2018-06-07"^^xsd:date ;
+    dcterms:publisher <http://rdfh.ch/projects/08AE> ;
+    dcterms:title "The AWG project ontology" ;
+    kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+    owl:versionInfo "0.0.1" ;
     rdfs:label "The AWG project ontology" ;
     vann:preferredNamespaceUri "http://www.knora.org/ontology/08AE/webern#" ;
-    vann:preferredNamespacePrefix "webern" ;
-    kb:attachedToProject <http://rdfh.ch/projects/08AE> .
+    vann:preferredNamespacePrefix "webern" .
+    ### TODO: in the future the ontology metadata go into a seperate Ontology Metadata Object (DCAT, VoID)
+
+
 
     ##########################################################
     #
