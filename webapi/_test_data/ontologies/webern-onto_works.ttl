@@ -9,12 +9,15 @@
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 
 @prefix : <http://www.knora.org/ontology/08AE/webern#> .
 @base <http://www.knora.org/ontology/08AE/webern> .
 
 <http://www.knora.org/ontology/08AE/webern> rdf:type owl:Ontology ;
-    rdfs:label "The AWG ontology" ;
+    rdfs:label "The AWG project ontology" ;
+    vann:preferredNamespaceUri "http://www.knora.org/ontology/08AE/webern#" ;
+    vann:preferredNamespacePrefix "webern" ;
     kb:attachedToProject <http://rdfh.ch/projects/08AE> .
 
     ##########################################################
@@ -1310,10 +1313,10 @@
 
         kb:resourceIcon "default.png" ;
 
-        rdfs:comment    "Diese Klasse beschreibt das 'Aufführungsmedium' eines Werkes, d.h. die Instrumente, Maschinen, Interpreten (Tänzer, Schauspieler, Rezitatoren usw.), für die das Werk komponiert wurde."@de ,
-                        "This class describes the 'medium of performance' of a work, i.e. the instruments, machines, performers other than musicians (dancers, actors, reciters, etc.) for which the work was composed."@en ,
-                        "CCette classe permet de décrire les 'medium of performance' d’une œuvre, c’est-à-dire les instruments, machines, exécutants autres que musiciens (danseurs, acteurs, récitants,…) pour lesquels l’œuvre a été composée."@fr ,
-                        "Questa classe descrive il 'mezzo di esecuzione' di un'opera, cioè gli strumenti, le macchine, gli interpreti diversi dai musicisti (ballerini, attori, recitatori, ecc.) per i quali l'opera è stata composta."@it .
+        rdfs:comment    "Diese Klasse umfasst die Aussagen zu einem M14 Medium Of Performance."@de ,
+                        "This class comprises statements for an M14 Medium Of Performance."@en ,
+                        "Cette classe contient les instructions d'un M14 Medium Of Performance."@fr ,
+                        "Questa classe contiene le istruzioni per uno M14 Medium Of Performance."@it .
 
 
     ### ###########################################
