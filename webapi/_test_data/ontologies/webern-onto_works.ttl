@@ -86,7 +86,7 @@
 
     :P102_hasTitle rdf:type owl:ObjectProperty ;
 
-            kb:subjectClassConstraint :F22_SelfContainedExpression ;  #TODO: E71 Man-Made THing
+            kb:subjectClassConstraint :E71_ManMadeThing ;
 
             kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Verweis auf E35 Titel Objekt
 
@@ -979,17 +979,15 @@
                         "E1 Entité"@fr ,
                         "E1 Entità"@it ;
 
-            rdfs:subClassOf kb:Resource, ecrm:E1_CRM_Entity ,
+            rdfs:subClassOf kb:Resource , ecrm:E1_CRM_Entity ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :P3_hasNote ;
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
                             ] .
 
-
 #E77 Persistent item
 #E70 THing
-#E71 Man-Made Thing
 
     ### ###########################################
     ### webern:E28_ConceptualObject
@@ -1012,7 +1010,7 @@
                         "E28 Objet conceptuel"@fr ,
                         "E28 Oggetto concettuale"@it ;
 
-            rdfs:subClassOf :E1_Entity, ecrm:E28_Conceptual_Object .    # TODO: eigentlich E71_Man-Made_Thing -> E70 Thing -> E77 Persistent Item
+            rdfs:subClassOf :E71_ManMadeThing , ecrm:E28_Conceptual_Object .
 
 
     ### ###########################################
@@ -1036,7 +1034,7 @@
                         "E29 Conception ou procédure"@fr ,
                         "E29 Progettazione o procedura"@it ;
 
-            rdfs:subClassOf :E28_ConceptualObject, :E73_InformationObject, ecrm:E29_Design_or_Procedure .
+            rdfs:subClassOf :E28_ConceptualObject , :E73_InformationObject , ecrm:E29_Design_or_Procedure .
 
 
     ### ###########################################
@@ -1060,7 +1058,36 @@
                         "E41 Appellation"@fr ,
                         "E41 Denominazione"@it ;
 
-            rdfs:subClassOf :E90_SymbolicObject, ecrm:E41_Appellation .
+            rdfs:subClassOf :E90_SymbolicObject , ecrm:E41_Appellation .
+
+
+    ### ###########################################
+    ### webern:E71_ManMadeThing
+
+    :E71_ManMadeThing rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E71_Man-Made_Thing ;
+
+            rdfs:comment    """Diese Klasse umfasst diskrete, identifizierbare Kunstgegenstände, die als Einzelstücke dokumentiert sind."""@de ,
+                            """This class comprises discrete, identifiable man-made items that are documented as single units."""@en ,
+                            """Cette classe comprend les articles artificiels discrets et identifiables qui sont documentés en tant qu'unités individuelles."""@fr ,
+                            """Questa classe comprende elementi distinti e identificabili prodotti dall'uomo che sono documentati come unità singole."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "E1 Menschengemachte Sache"@de ,
+                        "E71 Man-Made Thing"@en ,
+                        "E71 Chose faite par l'homme"@fr ,
+                        "E71 Cose da fare per l'uomo"@it ;
+
+            rdfs:subClassOf :E1_Entity, ecrm:E71_Man-Made_Thing ,           # TODO: eigentlich E70 Thing -> E77 Persistent Item
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :P102_hasTitle ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+                            ] .
 
 
     ### ###########################################
@@ -1084,7 +1111,7 @@
                         "E73 Objet d'information"@fr ,
                         "E73 Oggetto d'informazione"@it ;
 
-            rdfs:subClassOf :E89_PropositionalObject, ecrm:E73_Information_Object .
+            rdfs:subClassOf :E89_PropositionalObject , ecrm:E73_Information_Object .
 
 
     ### ###########################################
@@ -1108,7 +1135,7 @@
                         "E89 Objet propositionnel"@fr ,
                         "E89 Oggetto proposizionale"@it ;
 
-            rdfs:subClassOf :E28_ConceptualObject, ecrm:E89_Propositional_Object .
+            rdfs:subClassOf :E28_ConceptualObject , ecrm:E89_Propositional_Object .
 
 
     ### ###########################################
@@ -1132,7 +1159,7 @@
                         "E90 Objet symbolique"@fr ,
                         "E90 Oggetto simbolico"@it ;
 
-            rdfs:subClassOf :E28_ConceptualObject, ecrm:E90_Symbolic_Object .
+            rdfs:subClassOf :E28_ConceptualObject , ecrm:E90_Symbolic_Object .
 
 
     ### ###########################################
@@ -1156,7 +1183,7 @@
                         "F1 Oeuvre"@fr ,
                         "F1 Opera"@it ;
 
-            rdfs:subClassOf :E89_PropositionalObject, ecrm:F1_Work .
+            rdfs:subClassOf :E89_PropositionalObject , ecrm:F1_Work .
 
 
     ### ###########################################
@@ -1180,7 +1207,7 @@
                         "F2 Expression"@fr ,
                         "F2 Espressione"@it ;
 
-            rdfs:subClassOf :E73_InformationObject, ecrm:F2_Expression .
+            rdfs:subClassOf :E73_InformationObject , ecrm:F2_Expression .
 
 
     ### ###########################################
@@ -1302,12 +1329,7 @@
                         "F22 Expression autonome"@fr ,
                         "F22 Espressione autonoma"@it ;
 
-            rdfs:subClassOf :F2_Expression, efrbroo:F22_Self-Contained_Expression ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :P102_hasTitle ;
-                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                            ] ,
+            rdfs:subClassOf :F2_Expression , efrbroo:F22_Self-Contained_Expression ,
                             # [ rdf:type owl:Restriction ;
                             #  owl:onProperty :U10_hasOrderNumber ;
                             #  owl:minCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1371,7 +1393,7 @@
                         "F28 Création d'expressions"@fr ,
                         "F28 Creazione di espressioni"@it ;
 
-            rdfs:subClassOf kb:Resource, efrbroo:F28_Expression_Creation ,
+            rdfs:subClassOf kb:Resource , efrbroo:F28_Expression_Creation ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :R17_created ;
                               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
@@ -1415,7 +1437,7 @@
                         "F30 Événement de publication"@fr ,
                         "F30 Événement de publication"@it ;
 
-            rdfs:subClassOf :F28_ExpressionCreation, efrbroo:F30_Publication_Event .
+            rdfs:subClassOf :F28_ExpressionCreation , efrbroo:F30_Publication_Event .
 
 
     ### ###########################################
@@ -1439,7 +1461,7 @@
                         "M1 Mention de catalogue"@fr ,
                         "M1 Menzione di catalogo"@it ;
 
-            rdfs:subClassOf :E41_Appellation, doremus:M1_Catalolgue_Statement ,
+            rdfs:subClassOf :E41_Appellation , doremus:M1_Catalolgue_Statement ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :U40_hasCatalogueName ;
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1472,7 +1494,7 @@
                         "M2 Mention d'opus"@fr ,
                         "M2 Menzione di opus"@it ;
 
-            rdfs:subClassOf :E41_Appellation, doremus:M2_Opus_Statement ,
+            rdfs:subClassOf :E41_Appellation , doremus:M2_Opus_Statement ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :U42_hasOpusNumber ;
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1516,7 +1538,7 @@
                         "M6 Distribution vocale ou instrumentale"@fr ,
                         "M6 Distribuzione vocale o strumentale"@it ;
 
-            rdfs:subClassOf :E29_DesignOrProcedure, doremus:M6_Casting ,
+            rdfs:subClassOf :E29_DesignOrProcedure , doremus:M6_Casting ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :U23_hasCastingDetail ;
                               owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -1548,7 +1570,7 @@
                         "M14 Médium de performance"@fr ,
                         "M14 Mezzo di performance"@it ;
 
-            rdfs:subClassOf kb:Resource, doremus:M14_Medium_Of_Performance .      #TODO: subClassOf E55_Type
+            rdfs:subClassOf kb:Resource , doremus:M14_Medium_Of_Performance .      #TODO: subClassOf E55_Type
 
 
     ### ###########################################
@@ -1559,7 +1581,7 @@
             kb:resourceIcon "default.png" ;
 
             prov:wasDerivedFrom doremus:M23_Casting_Detail ;
-    
+
             rdfs:comment    """Diese Klasse umfasst die Aussagen zu einem M23 Casting Detail."""@de ,
                             """This class comprises statements for an M23 Casting Detail."""@en ,
                             """Cette classe contient les instructions d'un M23 Détail de la distribution."""@fr ,
@@ -1572,7 +1594,7 @@
                         "M23 Détail de la distribution"@fr ,
                         "M23 Dettagli distribuzione"@it ;
 
-            rdfs:subClassOf :E29_DesignOrProcedure, doremus:M23_Casting_Detail ,
+            rdfs:subClassOf :E29_DesignOrProcedure , doremus:M23_Casting_Detail ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :U2_foreseesUseOfMediumOfPerformance ;
                               owl:minCardinality "1"^^xsd:nonNegativeInteger ;
