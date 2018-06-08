@@ -6,10 +6,11 @@
 @prefix foaf:       <http://xmlns.com/foaf/0.1/> .
 @prefix kb:         <http://www.knora.org/ontology/knora-base#> .
 @prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix prov:       <http://www.w3.org/ns/prov#> .
 @prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#> .
-@prefix schema: <http://schema.org/>.
+@prefix schema:     <http://schema.org/> .
 @prefix xml:        <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
 @prefix vann:       <http://purl.org/vocab/vann/> .
@@ -25,19 +26,23 @@
 
 <http://www.knora.org/ontology/08AE/webern> rdf:type owl:Ontology ;
     cc:license  <http://creativecommons.org/licenses/by/4.0/> ;
-    # dcterms:created "2018-05-22"^^xsd:date ;
-    dcterms:creator [foaf:name "Stefan Münnich"; schema:affiliation [foaf:homepage <http://www.anton-webern.ch>; foaf:name "Anton Webern Gesamtausgabe, Musikwissenschaftliches Seminar, Universität Basel"]] ;
+    dcterms:created "2018-05-22T12:00:00Z"^^xsd:dateTimeStamp ;
+    dcterms:creator [foaf:name "Stefan Münnich"; foaf:mbox <mailto:stefan.muennich@unibas.ch> ; schema:affiliation [foaf:homepage <http://www.anton-webern.ch>; foaf:name "Anton Webern Gesamtausgabe, Musikwissenschaftliches Seminar, Universität Basel" ; foaf:mbox <mailto:info-awg@unibas.ch>]] ;
     dcterms:description """Formal description of works for the AWG project ontology, general subclasses, related classes and properties."""@en ;
-    # dcterms:issued ""^^xsd:date ;   # TODO: to be issued
-    # dcterms:modified "2018-06-07"^^xsd:date ;
+    # dcterms:issued ""^^xsd:dateTimeStamp ;   # TODO: to be issued
+    dcterms:modified "2018-06-07T12:00:00Z"^^xsd:dateTimeStamp ;
     dcterms:publisher <http://rdfh.ch/projects/08AE> ;
     dcterms:title "The AWG project ontology" ;
     kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
     owl:versionInfo "0.0.1" ;
+    prov:wasDerivedFrom <http://data.doremus.org/ontology#> ,
+                        <http://erlangen-crm.org/current/> ,
+                        <http://erlangen-crm.org/erfrbroo/> ;
     rdfs:label "The AWG project ontology" ;
     vann:preferredNamespaceUri "http://www.knora.org/ontology/08AE/webern#" ;
     vann:preferredNamespacePrefix "webern" .
     ### TODO: in the future the ontology metadata go into a seperate Ontology Metadata Object (DCAT, VoID)
+
 
 
 
@@ -47,51 +52,59 @@
     #
     ##########################################################
 
+
     ### ###########################################
     ### webern:P3_hasNote
 
     :P3_hasNote rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :E1_Entity ;
+            kb:subjectClassConstraint :E1_Entity ;
 
-              kb:objectClassConstraint kb:TextValue ;
+            kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf kb:hasValue, ecrm:P13_has_note ;
+            prov:wasDerivedFrom ecrm:P3_has_note ;
 
-              rdfs:label "P3 hat Anmerkung"@de ,
-                         "P3 has note"@en ,
-                         "P3 a une note"@fr ,
-                         "P3 ha nota"@it ;
+            rdfs:comment    """Diese Property ist ein Container für alle informellen Beschreibungen zu einem Objekt, die nicht in Form von CRM-Konstrukten ausgedrückt wurden."""@de ,
+                            """This property is a container for all informal descriptions about an object that have not been expressed in terms of CRM constructs."""@en ,
+                            """Cette propriété est un conteneur pour toutes les descriptions informelles d'un objet qui n'ont pas été exprimées en termes de construction CRM."""@fr ,
+                            """Questa proprietà è un contenitore per tutte le descrizioni informali di un oggetto che non sono state espresse in termini di costrutti CRM."""@it ;
 
-              rdfs:comment """Diese Property ist ein Container für alle informellen Beschreibungen zu einem Objekt, die nicht in Form von CRM-Konstrukten ausgedrückt wurden."""@de ,
-                           """This property is a container for all informal descriptions about an object that have not been expressed in terms of CRM constructs."""@en ,
-                           """Cette propriété est un conteneur pour toutes les descriptions informelles d'un objet qui n'ont pas été exprimées en termes de construction CRM."""@fr ,
-                           """Questa proprietà è un contenitore per tutte le descrizioni informali di un oggetto che non sono state espresse in termini di costrutti CRM."""@it ;
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            rdfs:label  "P3 hat Anmerkung"@de ,
+                        "P3 has note"@en ,
+                        "P3 a une note"@fr ,
+                        "P3 ha nota"@it ;
+
+            rdfs:subPropertyOf kb:hasValue, ecrm:P3_has_note ;
+
+            salsah-gui:guiElement salsah-gui:SimpleText .
+
 
     ### ###########################################
     ### webern:P102_hasTitle
 
     :P102_hasTitle rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :F22_SelfContainedExpression ;  #TODO: E71 Man-Made THing
+            kb:subjectClassConstraint :F22_SelfContainedExpression ;  #TODO: E71 Man-Made THing
 
-              kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Verweis auf E35 Titel Objekt
+            kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Verweis auf E35 Titel Objekt
 
-              rdfs:subPropertyOf kb:hasValue, ecrm:P102_has_title ;
+            rdfs:comment    """Diese Property beschreibt den E35 Title, der auf eine Instanz von E71 Man-Made Thing angewendet wird."""@de ,
+                            """This property describes the E35 Title applied to an instance of E71 Man-Made Thing."""@en ,
+                            """Cette propriété décrit le E35 Title appliqué à une instance de E71 Man-Made Thing."""@fr ,
+                            """Questa proprietà descrive il E35 Title applicato a un'istanza di E71 Man-Made Thing."""@it ;
 
-              rdfs:label "P102 hat Titel"@de ,
-                         "P102 has title"@en ,
-                         "P102 a le titre"@fr ,
-                         "P102 ha titolo"@it ;
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
 
-              rdfs:comment """Diese Property beschreibt den E35 Title, der auf eine Instanz von E71 Man-Made Thing angewendet wird."""@de ,
-                           """This property describes the E35 Title applied to an instance of E71 Man-Made Thing."""@en ,
-                           """Cette propriété décrit le E35 Title appliqué à une instance de E71 Man-Made Thing."""@fr ,
-                           """Questa proprietà descrive il E35 Title applicato a un'istanza di E71 Man-Made Thing."""@it ;
+            rdfs:label  "P102 hat Titel"@de ,
+                        "P102 has title"@en ,
+                        "P102 a le titre"@fr ,
+                        "P102 ha titolo"@it ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            rdfs:subPropertyOf kb:hasValue, ecrm:P102_has_title ;
+
+            salsah-gui:guiElement salsah-gui:SimpleText .
 
 
     ### ###########################################
@@ -103,17 +116,19 @@
 
             kb:objectClassConstraint :E89_PropositionalObject ;
 
-            rdfs:subPropertyOf kb:hasLinkTo, ecrm:P148_has_component ;
+            rdfs:comment    """Diese Property verbindet eine Instanz von E89 Propositional Object mit einem strukturellen Teil davon, der selbst eine Instanz von E89 Propositional Object ist."""@de ,
+                            """This property associates an instance of E89 Propositional Object with a structural part of it that is by itself an instance of E89 Propositional Object."""@en ,
+                            """Cette propriété associe une instance de l'objet propositionnel E89 à une partie structurelle de celui-ci qui est en soi une instance de l'objet propositionnel E89."""@fr ,
+                            """Questa proprietà associa un'istanza di E89 Oggetto Propositivo con una parte strutturale di esso che è di per sé un'istanza di E89 Oggetto Propositivo."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
 
             rdfs:label  "P148 hat Bestandteil"@de ,
                         "P148 has component"@en ,
                         "P148 a une composante"@fr ,
                         "P148 ha componente"@it ;
 
-            rdfs:comment    """Diese Property verbindet eine Instanz von E89 Propositional Object mit einem strukturellen Teil davon, der selbst eine Instanz von E89 Propositional Object ist."""@de ,
-                            """This property associates an instance of E89 Propositional Object with a structural part of it that is by itself an instance of E89 Propositional Object."""@en ,
-                            """Cette propriété associe une instance de l'objet propositionnel E89 à une partie structurelle de celui-ci qui est en soi une instance de l'objet propositionnel E89."""@fr ,
-                            """Questa proprietà associa un'istanza di E89 Oggetto Propositivo con una parte strutturale di esso che è di per sé un'istanza di E89 Oggetto Propositivo."""@it ;
+            rdfs:subPropertyOf kb:hasLinkTo, ecrm:P148_has_component ;
 
             salsah-gui:guiElement salsah-gui:Searchbox .
 
@@ -124,17 +139,19 @@
 
             kb:objectClassConstraint kb:LinkValue ;
 
-            rdfs:subPropertyOf kb:hasLinkToValue ;
+            rdfs:comment    """Diese Property verbindet eine Instanz von E89 Propositional Object mit einem strukturellen Teil davon, der selbst eine Instanz von E89 Propositional Object ist."""@de ,
+                            """This property associates an instance of E89 Propositional Object with a structural part of it that is by itself an instance of E89 Propositional Object."""@en ,
+                            """Cette propriété associe une instance de l'objet propositionnel E89 à une partie structurelle de celui-ci qui est en soi une instance de l'objet propositionnel E89."""@fr ,
+                            """Questa proprietà associa un'istanza di E89 Oggetto Propositivo con una parte strutturale di esso che è di per sé un'istanza di E89 Oggetto Propositivo."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
 
             rdfs:label  "P148 hat Bestandteil (value)"@de ,
                         "P148 has component (value)"@en ,
                         "P148 a une composante (value)"@fr ,
                         "P148 ha componente (value)"@it ;
 
-            rdfs:comment    """Diese Property verbindet eine Instanz von E89 Propositional Object mit einem strukturellen Teil davon, der selbst eine Instanz von E89 Propositional Object ist."""@de ,
-                            """This property associates an instance of E89 Propositional Object with a structural part of it that is by itself an instance of E89 Propositional Object."""@en ,
-                            """Cette propriété associe une instance de l'objet propositionnel E89 à une partie structurelle de celui-ci qui est en soi une instance de l'objet propositionnel E89."""@fr ,
-                            """Questa proprietà associa un'istanza di E89 Oggetto Propositivo con una parte strutturale di esso che è di per sé un'istanza di E89 Oggetto Propositivo."""@it .
+            rdfs:subPropertyOf kb:hasLinkToValue .
 
 
     ### ###########################################
@@ -146,17 +163,19 @@
 
             kb:objectClassConstraint :F22_SelfContainedExpression ;
 
-            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R9_is_realised_in ;
+            rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit der einzigartigen F22 Self-Contained Expression, die es vollständig vermittelt."""@de ,
+                            """This property associates an F14 Individual Work with the unique F22 Self-Contained Expression that completely conveys it."""@en ,
+                            """Cette propriété associe une œuvre individuelle F14 avec l'unique F22 Self-Contained Expression qui la transmet complètement."""@fr ,
+                            """Questa proprietà associa un'Opera Individuale F14 con l'esclusiva Espressione Autocontenuta F22 che la trasmette completamente."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
 
             rdfs:label  "R9 ist realisiert in"@de ,
                         "R9 is realised in"@en ,
                         "R9 est réalisée en"@fr ,
                         "R9 hè realizzato in"@it ;
 
-            rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit der einzigartigen F22 Self-Contained Expression, die es vollständig vermittelt."""@de ,
-                            """This property associates an F14 Individual Work with the unique F22 Self-Contained Expression that completely conveys it."""@en ,
-                            """Cette propriété associe une œuvre individuelle F14 avec l'unique F22 Self-Contained Expression qui la transmet complètement."""@fr ,
-                            """Questa proprietà associa un'Opera Individuale F14 con l'esclusiva Espressione Autocontenuta F22 che la trasmette completamente."""@it ;
+            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R9_is_realised_in ;
 
             salsah-gui:guiElement salsah-gui:Searchbox .
 
@@ -167,17 +186,19 @@
 
             kb:objectClassConstraint kb:LinkValue ;
 
-            rdfs:subPropertyOf kb:hasLinkToValue ;
+            rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit der einzigartigen F22 Self-Contained Expression, die es vollständig vermittelt."""@de ,
+                            """This property associates an F14 Individual Work with the unique F22 Self-Contained Expression that completely conveys it."""@en ,
+                            """Cette propriété associe une œuvre individuelle F14 avec l'unique F22 Self-Contained Expression qui la transmet complètement."""@fr ,
+                            """Questa proprietà associa un'Opera Individuale F14 con l'esclusiva Espressione Autocontenuta F22 che la trasmette completamente."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
 
             rdfs:label  "R9 ist realisiert in (value)"@de ,
                         "R9 is realised in (value)"@en ,
                         "R9 est réalisée en (value)"@fr ,
                         "R9 hè realizzato in (value)"@it ;
 
-            rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit der einzigartigen F22 Self-Contained Expression, die es vollständig vermittelt."""@de ,
-                            """This property associates an F14 Individual Work with the unique F22 Self-Contained Expression that completely conveys it."""@en ,
-                            """Cette propriété associe une œuvre individuelle F14 avec l'unique F22 Self-Contained Expression qui la transmet complètement."""@fr ,
-                            """Questa proprietà associa un'Opera Individuale F14 con l'esclusiva Espressione Autocontenuta F22 che la trasmette completamente."""@it .
+            rdfs:subPropertyOf kb:hasLinkToValue .
 
 
     ### ###########################################
@@ -185,42 +206,46 @@
 
     :R10_hasMember rdf:type owl:ObjectProperty ;
 
-            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R10_has_member ;
-
             kb:subjectClassConstraint :F15_ComplexWork ;
 
             kb:objectClassConstraint :F1_Work ;
-
-            rdfs:label  "R10 hat Teil"@de ,
-                        "R10 has member"@en ,
-                        "R10 a membre"@fr ,
-                        "R10 ha membro"@it ;
 
             rdfs:comment    """Diese Property verbindet eine Instanz von F15 Complex Work mit einer Instanz von F1 Work, die Teil davon ist."""@de ,
                             """This property associates an instance of F15 Complex Work with an instance of F1 Work that forms part of it."""@en ,
                             """Cette propriété associe une instance de F15 Complex Work avec une instance de F1 Work qui en fait partie."""@fr ,
                             """Questa proprietà associa un'istanza di F15 Complex Work con un'istanza di F1 Work che ne fa parte."""@it ;
 
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "R10 hat Teil"@de ,
+                        "R10 has member"@en ,
+                        "R10 a membre"@fr ,
+                        "R10 ha membro"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R10_has_member ;
+
             salsah-gui:guiElement salsah-gui:Searchbox .
 
 
     :R10_hasMemberValue rdf:type owl:ObjectProperty ;
 
-            rdfs:subPropertyOf kb:hasLinkToValue ;
-
             kb:subjectClassConstraint :F15_ComplexWork ;
 
             kb:objectClassConstraint kb:LinkValue ;
+
+            rdfs:comment    """Diese Property verbindet eine Instanz von F15 Complex Work mit einer Instanz von F1 Work, die Teil davon ist."""@de ,
+                            """This property associates an instance of F15 Complex Work with an instance of F1 Work that forms part of it."""@en ,
+                            """Cette propriété associe une instance de F15 Complex Work avec une instance de F1 Work qui en fait partie."""@fr ,
+                            """Questa proprietà associa un'istanza di F15 Complex Work con un'istanza di F1 Work che ne fa parte."""@it ;
 
             rdfs:label  "R10 hat Teil (value)"@de ,
                         "R10 has member (value)"@en ,
                         "R10 a membre (value)"@fr ,
                         "R10 ha membro (value)"@it ;
 
-            rdfs:comment    """Diese Property verbindet eine Instanz von F15 Complex Work mit einer Instanz von F1 Work, die Teil davon ist."""@de ,
-                            """This property associates an instance of F15 Complex Work with an instance of F1 Work that forms part of it."""@en ,
-                            """Cette propriété associe une instance de F15 Complex Work avec une instance de F1 Work qui en fait partie."""@fr ,
-                            """Questa proprietà associa un'istanza di F15 Complex Work con un'istanza di F1 Work che ne fa parte."""@it .
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:subPropertyOf kb:hasLinkToValue .
 
 
     ### ###########################################
@@ -228,42 +253,46 @@
 
     :R17_created rdf:type owl:ObjectProperty ;
 
-            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R17_created ;
-
             kb:subjectClassConstraint :F28_ExpressionCreation ;
 
             kb:objectClassConstraint :F2_Expression ;
-
-            rdfs:label  "R17 erzeugte"@de ,
-                        "R17 created"@en ,
-                        "R17 créé"@fr ,
-                        "R17 creato"@it ;
 
             rdfs:comment    """Diese Property verbindet die Expression, die während eines bestimmten Erzeugungs-Events erstmalig externalisiert wurde, mit diesem bestimmten Erzeugungs-Event."""@de ,
                             """This property associates the expression that was first externalised during a particular creation event with that particular creation event."""@en ,
                             """Cette propriété associe l'expression qui a été externalisée pour la première fois lors d'un événement de création particulier à cet événement de création particulier."""@fr ,
                             """Questa proprietà associa l'espressione che è stata esternalizzata durante un evento di creazione con quella particolare."""@it ;
 
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "R17 erzeugte"@de ,
+                        "R17 created"@en ,
+                        "R17 créé"@fr ,
+                        "R17 creato"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R17_created ;
+
             salsah-gui:guiElement salsah-gui:Searchbox .
 
 
     :R17_createdValue rdf:type owl:ObjectProperty ;
 
-            rdfs:subPropertyOf kb:hasLinkToValue ;
-
             kb:subjectClassConstraint :F28_ExpressionCreation ;
 
             kb:objectClassConstraint kb:LinkValue ;
+
+            rdfs:comment    """Diese Property verbindet die Expression, die während eines bestimmten Erzeuguns-Events erstmalig externalisiert wurde, mit diesem bestimmten Erzeugungs-Event."""@de ,
+                            """This property associates the expression that was first externalised during a particular creation event with that particular creation event."""@en ,
+                            """Cette propriété associe l'expression qui a été externalisée pour la première fois lors d'un événement de création particulier à cet événement de création particulier."""@fr ,
+                            """Questa proprietà associa l'espressione che è stata esternalizzata durante un evento di creazione con quella particolare."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
 
             rdfs:label  "R17 hat hervorgebracht (value)"@de ,
                         "R17 created (value)"@en ,
                         "R17 a créé (value)"@fr ,
                         "R17 ha creato (value)"@it ;
 
-            rdfs:comment    """Diese Property verbindet die Expression, die während eines bestimmten Erzeuguns-Events erstmalig externalisiert wurde, mit diesem bestimmten Erzeugungs-Event."""@de ,
-                            """This property associates the expression that was first externalised during a particular creation event with that particular creation event."""@en ,
-                            """Cette propriété associe l'expression qui a été externalisée pour la première fois lors d'un événement de création particulier à cet événement de création particulier."""@fr ,
-                            """Questa proprietà associa l'espressione che è stata esternalizzata durante un evento di creazione con quella particolare."""@it .
+            rdfs:subPropertyOf kb:hasLinkToValue .
 
 
     ### ###########################################
@@ -271,42 +300,46 @@
 
     :R19_createdARealisationOf rdf:type owl:ObjectProperty ;
 
-            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R19_created_a_realisation_of ;
-
             kb:subjectClassConstraint :F28_ExpressionCreation ;
 
             kb:objectClassConstraint :F1_Work ;
+
+            rdfs:comment    """Diese Property verknüpft eine Instanz von F28 Expression Creation mit der entsprechenden Instanz von F14 Individual Work oder einer Instanz von F15 Complex Work, deren Mitglied die entsprechende Instanz von F14 Individual Work ist."""@de ,
+                            """This property associates an instance of F28 Expression Creation with the corresponding instance of F14 Individual Work or an instance of F15 Complex Work of which the corresponding instance of F14 Individual Work is a member."""@en ,
+                            """Cette propriété associe une instance de F28 Expression Creation avec l'instance correspondante de F14 Individual Work ou une instance de F15 Complex Work dont l'instance correspondante de F14 Individual Work est membre."""@fr ,
+                            """Questa proprietà associa un'istanza di F28 Expression Creation con la corrispondente istanza di F14 Individual Work o un'istanza di F15 Complex Work di cui è membro la corrispondente istanza di F14 Individual Work."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
 
             rdfs:label  "R19 erzeugte eine Realisierung von"@de ,
                         "R19 created a realisation of"@en ,
                         "R19 créé une réalisation de"@fr ,
                         "R19 creato a realizzato di"@it ;
 
-            rdfs:comment    """Diese Property verknüpft eine Instanz von F28 Expression Creation mit der entsprechenden Instanz von F14 Individual Work oder einer Instanz von F15 Complex Work, deren Mitglied die entsprechende Instanz von F14 Individual Work ist."""@de ,
-                            """This property associates an instance of F28 Expression Creation with the corresponding instance of F14 Individual Work or an instance of F15 Complex Work of which the corresponding instance of F14 Individual Work is a member."""@en ,
-                            """Cette propriété associe une instance de F28 Expression Creation avec l'instance correspondante de F14 Individual Work ou une instance de F15 Complex Work dont l'instance correspondante de F14 Individual Work est membre."""@fr ,
-                            """Questa proprietà associa un'istanza di F28 Expression Creation con la corrispondente istanza di F14 Individual Work o un'istanza di F15 Complex Work di cui è membro la corrispondente istanza di F14 Individual Work. """@it ;
+            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R19_created_a_realisation_of ;
 
             salsah-gui:guiElement salsah-gui:Searchbox .
 
 
     :R19_createdARealisationOfValue rdf:type owl:ObjectProperty ;
 
-            rdfs:subPropertyOf kb:hasLinkToValue ;
-
             kb:subjectClassConstraint :F28_ExpressionCreation ;
 
             kb:objectClassConstraint kb:LinkValue ;
+
+            rdfs:comment    """Diese Property verknüpft eine Instanz von F28 Expression Creation mit der entsprechenden Instanz von F14 Individual Work oder einer Instanz von F15 Complex Work, deren Mitglied die entsprechende Instanz von F14 Individual Work ist."""@de ,
+                            """This property associates an instance of F28 Expression Creation with the corresponding instance of F14 Individual Work or an instance of F15 Complex Work of which the corresponding instance of F14 Individual Work is a member."""@en ,
+                            """Cette propriété associe une instance de F28 Expression Creation avec l'instance correspondante de F14 Individual Work ou une instance de F15 Complex Work dont l'instance correspondante de F14 Individual Work est membre."""@fr ,
+                            """Questa proprietà associa un'istanza di F28 Expression Creation con la corrispondente istanza di F14 Individual Work o un'istanza di F15 Complex Work di cui è membro la corrispondente istanza di F14 Individual Work."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
 
             rdfs:label  "R19 erzeugte eine Realisierung von (value)"@de ,
                         "R19 created a realisation of (value)"@en ,
                         "R19 créé une réalisation de (value)"@fr ,
                         "R19 creato a realizzato di (value)"@it ;
 
-            rdfs:comment    """Diese Property verknüpft eine Instanz von F28 Expression Creation mit der entsprechenden Instanz von F14 Individual Work oder einer Instanz von F15 Complex Work, deren Mitglied die entsprechende Instanz von F14 Individual Work ist."""@de ,
-                            """This property associates an instance of F28 Expression Creation with the corresponding instance of F14 Individual Work or an instance of F15 Complex Work of which the corresponding instance of F14 Individual Work is a member."""@en ,
-                            """Cette propriété associe une instance de F28 Expression Creation avec l'instance correspondante de F14 Individual Work ou une instance de F15 Complex Work dont l'instance correspondante de F14 Individual Work est membre."""@fr ,
-                            """Questa proprietà associa un'istanza di F28 Expression Creation con la corrispondente istanza di F14 Individual Work o un'istanza di F15 Complex Work di cui è membro la corrispondente istanza di F14 Individual Work. """@it .
+            rdfs:subPropertyOf kb:hasLinkToValue .
 
 
     ### ###########################################
@@ -318,17 +351,19 @@
 
             kb:objectClassConstraint :F2_Expression ;
 
-            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R40_has_representative_expression ;
+            rdfs:comment    """Diese Property identifiziert eine Instanz von F2 Expression, die als charakteristischster Ausdruck der Instanz von F1 Work gewählt wurde, deren Ausdruck sie ist."""@de ,
+                            """This property identifies an instance of F2 Expression that has been chosen as the most characteristic expression of the instance of F1 Work of which it is an expression."""@en ,
+                            """Cette propriété identifie une instance d'Expression F2 qui a été choisie comme l'expression la plus caractéristique de l'instance de l'Œuvre F1 dont elle est une expression."""@fr ,
+                            """Questa proprietà identifica un'istanza di F2 Expression che è stata scelta come espressione più caratteristica dell'istanza di F1 Work di cui è espressione."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
 
             rdfs:label  "R40 hat eine repräsentative Expression"@de ,
                         "R40 has representative expression"@en ,
                         "R40 a une expression représentative"@fr ,
                         "R40 ha un'espressione rappresentativa"@it ;
 
-            rdfs:comment    """Diese Property identifiziert eine Instanz von F2 Expression, die als charakteristischster Ausdruck der Instanz von F1 Work gewählt wurde, deren Ausdruck sie ist."""@de ,
-                            """This property identifies an instance of F2 Expression that has been chosen as the most characteristic expression of the instance of F1 Work of which it is an expression."""@en ,
-                            """Cette propriété identifie une instance d'Expression F2 qui a été choisie comme l'expression la plus caractéristique de l'instance de l'Œuvre F1 dont elle est une expression."""@fr ,
-                            """Questa proprietà identifica un'istanza di F2 Expression che è stata scelta come espressione più caratteristica dell'istanza di F1 Work di cui è espressione."""@it ;
+            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R40_has_representative_expression ;
 
             salsah-gui:guiElement salsah-gui:Searchbox .
 
@@ -339,17 +374,19 @@
 
             kb:objectClassConstraint kb:LinkValue ;
 
-            rdfs:subPropertyOf kb:hasLinkToValue ;
+            rdfs:comment    """Diese Property identifiziert eine Instanz von F2 Expression, die als charakteristischster Ausdruck der Instanz von F1 Work gewählt wurde, deren Ausdruck sie ist."""@de ,
+                            """This property identifies an instance of F2 Expression that has been chosen as the most characteristic expression of the instance of F1 Work of which it is an expression."""@en ,
+                            """Cette propriété identifie une instance d'Expression F2 qui a été choisie comme l'expression la plus caractéristique de l'instance de l'Œuvre F1 dont elle est une expression."""@fr ,
+                            """Questa proprietà identifica un'istanza di F2 Expression che è stata scelta come espressione più caratteristica dell'istanza di F1 Work di cui è espressione."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
 
             rdfs:label  "R40 hat eine repräsentative Expression (value)"@de ,
                         "R40 has representative expression (value)"@en ,
                         "R40 a une expression représentative (value)"@fr ,
                         "R40 ha un'espressione rappresentativa (value)"@it ;
 
-            rdfs:comment    """Diese Property identifiziert eine Instanz von F2 Expression, die als charakteristischster Ausdruck der Instanz von F1 Work gewählt wurde, deren Ausdruck sie ist."""@de ,
-                            """This property identifies an instance of F2 Expression that has been chosen as the most characteristic expression of the instance of F1 Work of which it is an expression."""@en ,
-                            """Cette propriété identifie une instance d'Expression F2 qui a été choisie comme l'expression la plus caractéristique de l'instance de l'Œuvre F1 dont elle est une expression."""@fr ,
-                            """Questa proprietà identifica un'istanza di F2 Expression che è stata scelta come espressione più caratteristica dell'istanza di F1 Work di cui è espressione."""@it .
+            rdfs:subPropertyOf kb:hasLinkToValue .
 
 
     ### ###########################################
@@ -357,42 +394,42 @@
 
     :U2_foreseesUseOfMediumOfPerformance rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :E29_DesignOrProcedure ;
+            kb:subjectClassConstraint :E29_DesignOrProcedure ;
 
-              kb:objectClassConstraint :M14_MediumOfPerformance ;
+            kb:objectClassConstraint :M14_MediumOfPerformance ;
 
-              rdfs:subPropertyOf kb:hasLinkTo, doremus:U2_foresees_use_of_medium_of_performance ;    # TODO: subProp of P67 refers to
+            rdfs:comment    """Diese Property beschreibt das M14 Medium of Performance, der auf eine Instanz von E29 Design or Procedure angewendet wird."""@de ,
+                            """This property describes the M14 Medium of Performance applied to an instance of E29 Design or Procedure."""@en ,
+                            """Cette propriété décrit le M14 Medium of Performance appliquée à une instance de E29 Design or Procedure."""@fr ,
+                            """Questa proprietà descrive il M14 Medium of Performance applicata ad un'istanza di E29 Design or Procedure."""@it ;
 
-              rdfs:label "U2 sieht den Einsatz eines Performance-Mediums vor"@de ,
-                         "U2 foresees use of medium of performance"@en ,
-                         "U2 prévoit l'utilisation d'un médium de performance"@fr ,
-                         "U2 prevede l'utilizzo di mezzi di comunicazione di performance"@it ;
+            rdfs:label  "U2 sieht den Einsatz eines Performance-Mediums vor"@de ,
+                        "U2 foresees use of medium of performance"@en ,
+                        "U2 prévoit l'utilisation d'un médium de performance"@fr ,
+                        "U2 prevede l'utilizzo di mezzi di comunicazione di performance"@it ;
 
-              rdfs:comment """Diese Property beschreibt das M14 Medium of Performance, der auf eine Instanz von E29 Design or Procedure angewendet wird."""@de ,
-                           """This property describes the M14 Medium of Performance applied to an instance of E29 Design or Procedure."""@en ,
-                           """Cette propriété décrit le M14 Medium of Performance appliquée à une instance de E29 Design or Procedure."""@fr ,
-                           """Questa proprietà descrive il M14 Medium of Performance applicata ad un'istanza di E29 Design or Procedure."""@it ;
+            rdfs:subPropertyOf kb:hasLinkTo, doremus:U2_foresees_use_of_medium_of_performance ;    # TODO: subProp of P67 refers to
 
-              salsah-gui:guiElement salsah-gui:Searchbox .
+            salsah-gui:guiElement salsah-gui:Searchbox .
 
 
     :U2_foreseesUseOfMediumOfPerformanceValue rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :E29_DesignOrProcedure ;
+            kb:subjectClassConstraint :E29_DesignOrProcedure ;
 
-              kb:objectClassConstraint kb:LinkValue ;
+            kb:objectClassConstraint kb:LinkValue ;
 
-              rdfs:subPropertyOf kb:hasLinkToValue ;
+            rdfs:comment    """Diese Property beschreibt das M14 Medium of Performance, der auf eine Instanz von E29 Design or Procedure angewendet wird."""@de ,
+                            """This property describes the M14 Medium of Performance applied to an instance of E29 Design or Procedure."""@en ,
+                            """Cette propriété décrit le M14 Medium of Performance appliquée à une instance de E29 Design or Procedure."""@fr ,
+                            """Questa proprietà descrive il M14 Medium of Performance applicata ad un'istanza di E29 Design or Procedure."""@it ;
 
-              rdfs:label "U2 sieht den Einsatz eines Aufführungsmediums vor (value)"@de ,
-                         "U2 foresees use of medium of performance (value)"@en ,
-                         "U2 prévoit l'utilisation d'un médium de performance (value)"@fr ,
-                         "U2 prevede l'utilizzo di mezzi di comunicazione di performance (value)"@it ;
+            rdfs:label  "U2 sieht den Einsatz eines Aufführungsmediums vor (value)"@de ,
+                        "U2 foresees use of medium of performance (value)"@en ,
+                        "U2 prévoit l'utilisation d'un médium de performance (value)"@fr ,
+                        "U2 prevede l'utilizzo di mezzi di comunicazione di performance (value)"@it ;
 
-              rdfs:comment """Diese Property beschreibt das M14 Medium of Performance, der auf eine Instanz von E29 Design or Procedure angewendet wird."""@de ,
-                           """This property describes the M14 Medium of Performance applied to an instance of E29 Design or Procedure."""@en ,
-                           """Cette propriété décrit le M14 Medium of Performance appliquée à une instance de E29 Design or Procedure."""@fr ,
-                           """Questa proprietà descrive il M14 Medium of Performance applicata ad un'istanza di E29 Design or Procedure."""@it .
+            rdfs:subPropertyOf kb:hasLinkToValue .
 
 
     ### ###########################################
@@ -404,17 +441,17 @@
 
             kb:objectClassConstraint :F30_PublicationEvent ;
 
-            rdfs:subPropertyOf kb:hasLinkTo, doremus:U4_had_princeps_publication ;
+            rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit einem F30 Publication Event, in dem es seine Erstveröffentlichung hatte."""@de ,
+                            """This property associates an F14 Individual Work with an F30 Publication Event in which it had its princeps publication."""@en ,
+                            """Cette propriété associe un F14 Individual Work à un F30 Publication Event dans lequel elle a fait l'objet d'une publication princeps."""@fr ,
+                            """Questa proprietà associa un F14 Individual Work a un F30 Publication Event in cui ha avuto luogo la pubblicazione principi."""@it ;
 
             rdfs:label  "U4 hatte Erstveröffentlichung"@de ,
                         "U4 had princeps publication"@en ,
                         "U4 avait une publication princeps"@fr ,
                         "U4 aveva pubblicazione principi"@it ;
 
-            rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit einem F30 Publication Event, in dem es seine Erstveröffentlichung hatte."""@de ,
-                            """This property associates an F14 Individual Work with an F30 Publication Event in which it had its princeps publication."""@en ,
-                            """Cette propriété associe un F14 Individual Work à un F30 Publication Event dans lequel elle a fait l'objet d'une publication princeps."""@fr ,
-                            """Questa proprietà associa un F14 Individual Work a un F30 Publication Event in cui ha avuto luogo la pubblicazione principi."""@it ;
+            rdfs:subPropertyOf kb:hasLinkTo, doremus:U4_had_princeps_publication ;
 
             salsah-gui:guiElement salsah-gui:Searchbox .
 
@@ -425,17 +462,17 @@
 
             kb:objectClassConstraint kb:LinkValue ;
 
-            rdfs:subPropertyOf kb:hasLinkToValue ;
+            rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit einem F30 Publication Event, in dem es seine Erstveröffentlichung hatte."""@de ,
+                            """This property associates an F14 Individual Work with an F30 Publication Event in which it had its princeps publication."""@en ,
+                            """Cette propriété associe un F14 Individual Work à un F30 Publication Event dans lequel elle a fait l'objet d'une publication princeps."""@fr ,
+                            """Questa proprietà associa un F14 Individual Work a un F30 Publication Event in cui ha avuto luogo la pubblicazione principi."""@it ;
 
             rdfs:label  "U4 hatte Erstveröffentlichung (value)"@de ,
                         "U4 had princeps publication (value)"@en ,
                         "U4 avait une publication princeps (value)"@fr ,
                         "U4 aveva pubblicazione principi (value)"@it ;
 
-            rdfs:comment    """Diese Property verbindet ein F14 Individual Work mit einem F30 Publication Event, in dem es seine Erstveröffentlichung hatte."""@de ,
-                            """This property associates an F14 Individual Work with an F30 Publication Event in which it had its princeps publication."""@en ,
-                            """Cette propriété associe un F14 Individual Work à un F30 Publication Event dans lequel elle a fait l'objet d'une publication princeps."""@fr ,
-                            """Questa proprietà associa un F14 Individual Work a un F30 Publication Event in cui ha avuto luogo la pubblicazione principi."""@it .
+            rdfs:subPropertyOf kb:hasLinkToValue .
 
 
     ### ###########################################
@@ -443,23 +480,23 @@
 
     :U11_hasKey rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :F22_SelfContainedExpression ;
+            kb:subjectClassConstraint :F22_SelfContainedExpression ;
 
-              kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Verweis auf M4 Key
+            kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Verweis auf M4 Key
 
-              rdfs:subPropertyOf kb:hasValue, doremus:U11_has_key ;
+            rdfs:comment    """Diese Property beschreibt den M4 Key, der auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
+                            """This property describes the M4 Key applied to an instance of F22 Self-Contained Expression."""@en ,
+                            """Cette propriété décrit le M4 Key appliquée à une instance de F22 Self-Contained Expression."""@fr ,
+                            """Questa proprietà descrive il M4 Key applicata ad un'istanza di F22 Self-Contained Expression."""@it ;
 
-              rdfs:label "U11 hat Tonart"@de ,
-                         "U11 has key"@en ,
-                         "U11 a la clé"@fr ,
-                         "U11 ha chiave"@it ;
+            rdfs:label  "U11 hat Tonart"@de ,
+                        "U11 has key"@en ,
+                        "U11 a la clé"@fr ,
+                        "U11 ha chiave"@it ;
 
-              rdfs:comment """Diese Property beschreibt den M4 Key, der auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
-                           """This property describes the M4 Key applied to an instance of F22 Self-Contained Expression."""@en ,
-                           """Cette propriété décrit le M4 Key appliquée à une instance de F22 Self-Contained Expression."""@fr ,
-                           """Questa proprietà descrive il M4 Key applicata ad un'istanza di F22 Self-Contained Expression."""@it ;
+            rdfs:subPropertyOf kb:hasValue, doremus:U11_has_key ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            salsah-gui:guiElement salsah-gui:SimpleText .
 
 
     ### ###########################################
@@ -467,23 +504,23 @@
 
     :U12_hasGenre rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :F22_SelfContainedExpression ;
+            kb:subjectClassConstraint :F22_SelfContainedExpression ;
 
-              kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Verweis auf M5_Genre
+            kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Verweis auf M5_Genre
 
-              rdfs:subPropertyOf kb:hasValue, doremus:U12_has_genre ;
+            rdfs:comment    """Diese Property beschreibt das M5 Genre, das auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
+                            """This property describes the M5 Genre applied to an instance of F22 Self-Contained Expression."""@en ,
+                            """Cette propriété décrit le M5 Genre appliquée à une instance de F22 Self-Contained Expression."""@fr ,
+                            """Questa proprietà descrive il M5 Genre applicato ad un'istanza di F22 Self-Contained Expression."""@it ;
 
-              rdfs:label "U12 hat Genre"@de ,
-                         "U12 has genre"@en ,
-                         "U12 a le genre"@fr ,
-                         "U12 ha genere"@it ;
+            rdfs:label      "U12 hat Genre"@de ,
+                            "U12 has genre"@en ,
+                            "U12 a le genre"@fr ,
+                            "U12 ha genere"@it ;
 
-              rdfs:comment """Diese Property beschreibt das M5 Genre, das auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
-                           """This property describes the M5 Genre applied to an instance of F22 Self-Contained Expression."""@en ,
-                           """Cette propriété décrit le M5 Genre appliquée à une instance de F22 Self-Contained Expression."""@fr ,
-                           """Questa proprietà descrive il M5 Genre applicato ad un'istanza di F22 Self-Contained Expression."""@it ;
+            rdfs:subPropertyOf kb:hasValue, doremus:U12_has_genre ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            salsah-gui:guiElement salsah-gui:SimpleText .
 
 
     ### ###########################################
@@ -491,65 +528,67 @@
 
     :U13_hasCasting rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :F22_SelfContainedExpression ;
+            kb:subjectClassConstraint :F22_SelfContainedExpression ;
 
-              kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Link auf M6_Casting
+            kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Link auf M6_Casting
 
-              rdfs:subPropertyOf kb:hasValue, doremus:U13_has_casting ;
+            rdfs:comment    """Diese Property beschreibt das M6 Casting, das auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
+                            """This property describes the M6 Casting applied to an instance of F22 Self-Contained Expression."""@en ,
+                            """Cette propriété décrit le M6 Casting appliquée à une instance de F22 Self-Contained Expression."""@fr ,
+                            """Questa proprietà descrive il M6 Casting applicato ad un'istanza di F22 Self-Contained Expression."""@it ;
 
-              rdfs:label "U13 hat Besetzung"@de ,
-                         "U13 has casting"@en ,
-                         "U13 a le casting"@fr ,
-                         "U13 ha cast"@it ;
 
-              rdfs:comment """Diese Property beschreibt das M6 Casting, das auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
-                           """This property describes the M6 Casting applied to an instance of F22 Self-Contained Expression."""@en ,
-                           """Cette propriété décrit le M6 Casting appliquée à une instance de F22 Self-Contained Expression."""@fr ,
-                           """Questa proprietà descrive il M6 Casting applicato ad un'istanza di F22 Self-Contained Expression."""@it ;
+            rdfs:label  "U13 hat Besetzung"@de ,
+                        "U13 has casting"@en ,
+                        "U13 a le casting"@fr ,
+                        "U13 ha cast"@it ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            rdfs:subPropertyOf kb:hasValue, doremus:U13_has_casting ;
+
+            salsah-gui:guiElement salsah-gui:SimpleText .
+
 
     ### ###########################################
     ### webern:U16_hasCatalogueStatement
 
     :U16_hasCatalogueStatement rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :F22_SelfContainedExpression ;
+            kb:subjectClassConstraint :F22_SelfContainedExpression ;
 
-              kb:objectClassConstraint :M1_CatalogueStatement ;       # TODO: eigentlich Verweis auf M1 Catalogue Statement
+            kb:objectClassConstraint :M1_CatalogueStatement ;       # TODO: eigentlich Verweis auf M1 Catalogue Statement
 
-              rdfs:subPropertyOf kb:hasLinkTo, doremus:U16_has_catalogue_statement ;
+            rdfs:comment    """Diese Property beschreibt das M1 Catalogue Statement, die auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
+                            """This property describes the M1 Catalogue Statement applied to an instance of F22 Self-Contained Expression."""@en ,
+                            """Cette propriété décrit le M1 Catalogue Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
+                            """Questa proprietà descrive il M1 Catalogue Statement applicata a un'istanza di F22 Self-Contained Expression."""@it ;
 
-              rdfs:label "U16 hat Katalog-Statement"@de ,
-                         "U16 has catalogue statment"@en ,
-                         "U16 a catalogue statment"@fr ,
-                         "U16 ha statment catalogo"@it ;
+            rdfs:label  "U16 hat Katalog-Statement"@de ,
+                        "U16 has catalogue statment"@en ,
+                        "U16 a catalogue statment"@fr ,
+                        "U16 ha statment catalogo"@it ;
 
-              rdfs:comment """Diese Property beschreibt das M1 Catalogue Statement, die auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
-                           """This property describes the M1 Catalogue Statement applied to an instance of F22 Self-Contained Expression."""@en ,
-                           """Cette propriété décrit le M1 Catalogue Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
-                           """Questa proprietà descrive il M1 Catalogue Statement applicata a un'istanza di F22 Self-Contained Expression."""@it ;
+            rdfs:subPropertyOf kb:hasLinkTo, doremus:U16_has_catalogue_statement  ;
 
-              salsah-gui:guiElement salsah-gui:Searchbox .
+            salsah-gui:guiElement salsah-gui:Searchbox .
 
 
     :U16_hasCatalogueStatementValue rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :F22_SelfContainedExpression ;
+            kb:subjectClassConstraint :F22_SelfContainedExpression ;
 
-              kb:objectClassConstraint kb:LinkValue ;
+            kb:objectClassConstraint kb:LinkValue ;
 
-              rdfs:subPropertyOf kb:hasLinkToValue ;
+            rdfs:comment    """Diese Property beschreibt das M1 Catalogue Statement, die auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
+                            """This property describes the M1 Catalogue Statement applied to an instance of F22 Self-Contained Expression."""@en ,
+                            """Cette propriété décrit le M1 Catalogue Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
+                            """Questa proprietà descrive il M1 Catalogue Statement applicata a un'istanza di F22 Self-Contained Expression."""@it ;
 
-              rdfs:label "U16 hat Katalog-Statement (value)"@de ,
-                         "U16 has catalogue statment (value)"@en ,
-                         "U16 a catalogue statment (value)"@fr ,
-                         "U16 ha statment catalogo (value)"@it ;
+            rdfs:label  "U16 hat Katalog-Statement (value)"@de ,
+                        "U16 has catalogue statment (value)"@en ,
+                        "U16 a catalogue statment (value)"@fr ,
+                        "U16 ha statment catalogo (value)"@it ;
 
-              rdfs:comment """Diese Property beschreibt das M1 Catalogue Statement, die auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
-                           """This property describes the M1 Catalogue Statement applied to an instance of F22 Self-Contained Expression."""@en ,
-                           """Cette propriété décrit le M1 Catalogue Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
-                           """Questa proprietà descrive il M1 Catalogue Statement applicata a un'istanza di F22 Self-Contained Expression."""@it .
+            rdfs:subPropertyOf kb:hasLinkToValue .
 
 
     ### ###########################################
@@ -557,42 +596,42 @@
 
     :U17_hasOpusStatement rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :F22_SelfContainedExpression ;
+            kb:subjectClassConstraint :F22_SelfContainedExpression ;
 
-              kb:objectClassConstraint :M2_OpusStatement ;
+            kb:objectClassConstraint :M2_OpusStatement ;
 
-              rdfs:subPropertyOf kb:hasLinkTo, doremus:U17_has_opus_statement ;
+            rdfs:comment    """Diese Property beschreibt das M2 Opus Satement, die auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
+                            """This property describes the M2 Opus Statement applied to an instance of F22 Self-Contained Expression."""@en ,
+                            """Cette propriété décrit le M2 Opus Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
+                            """Questa proprietà descrive il M2 Opus Statement applicata a un'istanza di F22 Self-Contained Expression."""@it ;
 
-              rdfs:label "U17 hat Opus-Statement"@de ,
-                         "U17 has opus statment"@en ,
-                         "U17 a opus statment"@fr ,
-                         "U17 ha statment opus"@it ;
+            rdfs:label  "U17 hat Opus-Statement"@de ,
+                        "U17 has opus statment"@en ,
+                        "U17 a opus statment"@fr ,
+                        "U17 ha statment opus"@it ;
 
-              rdfs:comment """Diese Property beschreibt das M2 Opus Satement, die auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
-                           """This property describes the M2 Opus Statement applied to an instance of F22 Self-Contained Expression."""@en ,
-                           """Cette propriété décrit le M2 Opus Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
-                           """Questa proprietà descrive il M2 Opus Statement applicata a un'istanza di F22 Self-Contained Expression."""@it ;
+            rdfs:subPropertyOf kb:hasLinkTo, doremus:U17_has_opus_statement ;
 
-              salsah-gui:guiElement salsah-gui:Searchbox .
+            salsah-gui:guiElement salsah-gui:Searchbox .
 
 
     :U17_hasOpusStatementValue rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :F22_SelfContainedExpression ;
+            kb:subjectClassConstraint :F22_SelfContainedExpression ;
 
-              kb:objectClassConstraint kb:LinkValue ;
+            kb:objectClassConstraint kb:LinkValue ;
 
-              rdfs:subPropertyOf kb:hasLinkToValue ;
+            rdfs:comment """Diese Property beschreibt das M2 Opus Satement, die auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
+                    """This property describes the M2 Opus Statement applied to an instance of F22 Self-Contained Expression."""@en ,
+                    """Cette propriété décrit le M2 Opus Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
+                    """Questa proprietà descrive il M2 Opus Statement applicata a un'istanza di F22 Self-Contained Expression."""@it ;
 
-              rdfs:label "U17 hat Opus-Statement (value)"@de ,
-                         "U17 has opus statment (value)"@en ,
-                         "U17 a opus statment (value)"@fr ,
-                         "U17 ha statment opus (value)"@it ;
+            rdfs:label "U17 hat Opus-Statement (value)"@de ,
+                        "U17 has opus statment (value)"@en ,
+                        "U17 a opus statment (value)"@fr ,
+                        "U17 ha statment opus (value)"@it ;
 
-              rdfs:comment """Diese Property beschreibt das M2 Opus Satement, die auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
-                           """This property describes the M2 Opus Statement applied to an instance of F22 Self-Contained Expression."""@en ,
-                           """Cette propriété décrit le M2 Opus Statement appliquée à une instance de F22 Self-Contained Expression."""@fr ,
-                           """Questa proprietà descrive il M2 Opus Statement applicata a un'istanza di F22 Self-Contained Expression."""@it .
+            rdfs:subPropertyOf kb:hasLinkToValue .
 
 
     ### ###########################################
@@ -600,42 +639,42 @@
 
     :U23_hasCastingDetail rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :M6_Casting ;
+            kb:subjectClassConstraint :M6_Casting ;
 
-              kb:objectClassConstraint :M23_CastingDetail ;
+            kb:objectClassConstraint :M23_CastingDetail ;
 
-              rdfs:subPropertyOf kb:hasLinkTo, doremus:U17_has_opus_statement ; # TODO: subProp of P69 has association with
+            rdfs:comment    """Diese Property beschreibt das M23 Casting Detail, die auf eine Instanz von M6 Casting angewendet wird."""@de ,
+                            """This property describes the M23 Casting Detail applied to an instance of M6 Casting."""@en ,
+                            """Cette propriété décrit le M23 Casting Detail appliquée à une instance de M6 Casting."""@fr ,
+                            """Questa proprietà descrive il M23 Casting Detail applicata a un'istanza di M6 Casting."""@it ;
 
-              rdfs:label "U23 hat Besetzungsangabe"@de ,
-                         "U23 has casting detail"@en ,
-                         "U23 a détail de la distribution"@fr ,
-                         "U23 ha dettagli distribuzione"@it ;
+            rdfs:label  "U23 hat Besetzungsangabe"@de ,
+                        "U23 has casting detail"@en ,
+                        "U23 a détail de la distribution"@fr ,
+                        "U23 ha dettagli distribuzione"@it ;
 
-              rdfs:comment """Diese Property beschreibt das M23 Casting Detail, die auf eine Instanz von M6 Casting angewendet wird."""@de ,
-                           """This property describes the M23 Casting Detail applied to an instance of M6 Casting."""@en ,
-                           """Cette propriété décrit le M23 Casting Detail appliquée à une instance de M6 Casting."""@fr ,
-                           """Questa proprietà descrive il M23 Casting Detail applicata a un'istanza di M6 Casting."""@it ;
+            rdfs:subPropertyOf kb:hasLinkTo, doremus:U17_has_opus_statement ; # TODO: subProp of P69 has association with
 
-              salsah-gui:guiElement salsah-gui:Searchbox .
+            salsah-gui:guiElement salsah-gui:Searchbox .
 
 
     :U23_hasCastingDetailValue rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :M6_Casting ;
+            kb:subjectClassConstraint :M6_Casting ;
 
-              kb:objectClassConstraint kb:LinkValue ;
+            kb:objectClassConstraint kb:LinkValue ;
 
-              rdfs:subPropertyOf kb:hasLinkToValue ;
+            rdfs:comment """Diese Property beschreibt das M23 Casting Detail, die auf eine Instanz von M6 Casting angewendet wird."""@de ,
+            """This property describes the M23 Casting Detail applied to an instance of M6 Casting."""@en ,
+            """Cette propriété décrit le M23 Casting Detail appliquée à une instance de M6 Casting."""@fr ,
+            """Questa proprietà descrive il M23 Casting Detail applicata a un'istanza di M6 Casting."""@it ;
 
-              rdfs:label "U23 hat Besetzungsangabe (value)"@de ,
-                         "U23 has casting detail (value)"@en ,
-                         "U23 a détail de la distribution (value)"@fr ,
-                         "U23 ha dettagli distribuzione (value)"@it ;
+            rdfs:label "U23 hat Besetzungsangabe (value)"@de ,
+            "U23 has casting detail (value)"@en ,
+            "U23 a détail de la distribution (value)"@fr ,
+            "U23 ha dettagli distribuzione (value)"@it ;
 
-              rdfs:comment """Diese Property beschreibt das M23 Casting Detail, die auf eine Instanz von M6 Casting angewendet wird."""@de ,
-                           """This property describes the M23 Casting Detail applied to an instance of M6 Casting."""@en ,
-                           """Cette propriété décrit le M23 Casting Detail appliquée à une instance de M6 Casting."""@fr ,
-                           """Questa proprietà descrive il M23 Casting Detail applicata a un'istanza di M6 Casting."""@it .
+            rdfs:subPropertyOf kb:hasLinkToValue .
 
 
     ### ###########################################
@@ -643,23 +682,23 @@
 
     :U30_foreseesQuantityOfMop rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :M23_CastingDetail ;
+            kb:subjectClassConstraint :M23_CastingDetail ;
 
-              kb:objectClassConstraint kb:IntValue ;
+            kb:objectClassConstraint kb:IntValue ;
 
-              rdfs:subPropertyOf kb:hasValue, doremus:U30_foresees_quantity_of_mop ;
+            rdfs:comment    """Diese Property beschreibt die vorgesehene Menge an Aufführungs-Medien, die auf eine Instanz von M23 Casting Detail angewendet wird."""@de ,
+                            """This property describes the foreseen quantity of mop applied to an instance of M23 Casting Detail."""@en ,
+                            """Cette propriété décrit la quantité prévoitée de mop appliqué à une instance de M23 Casting Detail."""@fr ,
+                            """Questa proprietà descrive la quantità di mop applicato a un'istanza di M23 Casting Detail."""@it ;
 
-              rdfs:label "U30 vorgesehene Menge an Aufführungs-Medien"@de ,
-                         "U30 foresees quantity of mop"@en ,
-                         "U30 prévoit la quantité de mop"@fr ,
-                         "U30 prevede la quantità di mop"@it ;
+            rdfs:label  "U30 vorgesehene Menge an Aufführungs-Medien"@de ,
+                        "U30 foresees quantity of mop"@en ,
+                        "U30 prévoit la quantité de mop"@fr ,
+                        "U30 prevede la quantità di mop"@it ;
 
-              rdfs:comment """Diese Property beschreibt die vorgesehene Menge an Aufführungs-Medien, die auf eine Instanz von M23 Casting Detail angewendet wird."""@de ,
-                           """This property describes the foreseen quantity of mop applied to an instance of M23 Casting Detail."""@en ,
-                           """Cette propriété décrit la quantité prévoitée de mop appliqué à une instance de M23 Casting Detail."""@fr ,
-                           """Questa proprietà descrive la quantità di mop applicato a un'istanza di M23 Casting Detail."""@it ;
+            rdfs:subPropertyOf kb:hasValue, doremus:U30_foresees_quantity_of_mop ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            salsah-gui:guiElement salsah-gui:SimpleText .
 
 
     ### ###########################################
@@ -667,23 +706,23 @@
 
     :U40_hasCatalogueName rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :M1_CatalogueStatement ;
+            kb:subjectClassConstraint :M1_CatalogueStatement ;
 
-              kb:objectClassConstraint kb:TextValue ;                           #TODO: M10 Catalogue Name
+            kb:objectClassConstraint kb:TextValue ;                           #TODO: M10 Catalogue Name
 
-              rdfs:subPropertyOf kb:hasValue, doremus:U40_has_catalogue_name ;     #TODO: subProp of P106 is composed of; inverse of U40i ..
+            rdfs:comment    """Diese Property beschreibt den Katalognamen, der auf eine Instanz von M1 Catalogue Statment angewendet wird."""@de ,
+                            """This property describes the catalogue name applied to an instance of M1 Catalogue Statment."""@en ,
+                            """Cette propriété décrit le nom de catalogue appliqué à une instance de M1 Catalogue Statment."""@fr ,
+                            """Questa proprietà descrive il nome catalogo applicato a un'istanza di M1 Catalogue Statment."""@it ;
 
-              rdfs:label "U40 hat Katalogname"@de ,
-                         "U40 has catalogue name"@en ,
-                         "U40 a nom de catalogue"@fr ,
-                         "U40 ha nome catalogo"@it ;
+            rdfs:label  "U40 hat Katalogname"@de ,
+                        "U40 has catalogue name"@en ,
+                        "U40 a nom de catalogue"@fr ,
+                        "U40 ha nome catalogo"@it ;
 
-              rdfs:comment """Diese Property beschreibt den Katalognamen, der auf eine Instanz von M1 Catalogue Statment angewendet wird."""@de ,
-                           """This property describes the catalogue name applied to an instance of M1 Catalogue Statment."""@en ,
-                           """Cette propriété décrit le nom de catalogue appliqué à une instance de M1 Catalogue Statment."""@fr ,
-                           """Questa proprietà descrive il nome catalogo applicato a un'istanza di M1 Catalogue Statment."""@it ;
+            rdfs:subPropertyOf kb:hasValue, doremus:U40_has_catalogue_name ;     #TODO: subProp of P106 is composed of; inverse of U40i ..
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            salsah-gui:guiElement salsah-gui:SimpleText .
 
 
     ### ###########################################
@@ -691,23 +730,23 @@
 
     :U41_hasCatalogueNumber rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :M1_CatalogueStatement ;
+            kb:subjectClassConstraint :M1_CatalogueStatement ;
 
-              kb:objectClassConstraint kb:TextValue ;
+            kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf kb:hasValue, doremus:U41_has_catalogue_number ;
+            rdfs:comment    """Diese Property beschreibt die Katalognummer, die auf eine Instanz von M1 Catalogue Statment angewendet wird."""@de ,
+                            """This property describes the catalogue number applied to an instance of M1 Catalogue Statment."""@en ,
+                            """Cette propriété décrit le numéro dde catalogue appliqué à une instance de M1 Catalogue Statment."""@fr ,
+                            """Questa proprietà descrive il numero catalogo applicato a un'istanza di M1 Catalogue Statment."""@it ;
 
-              rdfs:label "U41 hat Katalognummer"@de ,
-                         "U41 has catalogue number"@en ,
-                         "U41 a numéro de catalogue"@fr ,
-                         "U41 ha numero catalogo"@it ;
+            rdfs:label  "U41 hat Katalognummer"@de ,
+                        "U41 has catalogue number"@en ,
+                        "U41 a numéro de catalogue"@fr ,
+                        "U41 ha numero catalogo"@it ;
 
-              rdfs:comment """Diese Property beschreibt die Katalognummer, die auf eine Instanz von M1 Catalogue Statment angewendet wird."""@de ,
-                           """This property describes the catalogue number applied to an instance of M1 Catalogue Statment."""@en ,
-                           """Cette propriété décrit le numéro dde catalogue appliqué à une instance de M1 Catalogue Statment."""@fr ,
-                           """Questa proprietà descrive il numero catalogo applicato a un'istanza di M1 Catalogue Statment."""@it ;
+            rdfs:subPropertyOf kb:hasValue, doremus:U41_has_catalogue_number ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            salsah-gui:guiElement salsah-gui:SimpleText .
 
 
     ### ###########################################
@@ -715,23 +754,23 @@
 
     :U42_hasOpusNumber rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :M2_OpusStatement ;
+            kb:subjectClassConstraint :M2_OpusStatement ;
 
-              kb:objectClassConstraint kb:TextValue ;
+            kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf kb:hasValue, doremus:U42_has_opus_number ;
+            rdfs:comment    """Diese Property beschreibt die Opusnummer, die auf eine Instanz von M2 Opus Statment angewendet wird."""@de ,
+                            """This property describes the opus number applied to an instance of M2 Opus Statment."""@en ,
+                            """Cette propriété décrit le numéro d'opus appliqué à une instance de M2 Opus Statment."""@fr ,
+                            """Questa proprietà descrive il numero dell'opus applicato a un'istanza di M2 Opus Statment."""@it ;
 
-              rdfs:label "U42 hat Opusnummer"@de ,
-                         "U42 has opus number"@en ,
-                         "U42 a numéro d'opus"@fr ,
-                         "U42 ha numero opus"@it ;
+            rdfs:label  "U42 hat Opusnummer"@de ,
+                        "U42 has opus number"@en ,
+                        "U42 a numéro d'opus"@fr ,
+                        "U42 ha numero opus"@it ;
 
-              rdfs:comment """Diese Property beschreibt die Opusnummer, die auf eine Instanz von M2 Opus Statment angewendet wird."""@de ,
-                           """This property describes the opus number applied to an instance of M2 Opus Statment."""@en ,
-                           """Cette propriété décrit le numéro d'opus appliqué à une instance de M2 Opus Statment."""@fr ,
-                           """Questa proprietà descrive il numero dell'opus applicato a un'istanza di M2 Opus Statment."""@it ;
+            rdfs:subPropertyOf kb:hasValue, doremus:U42_has_opus_number ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            salsah-gui:guiElement salsah-gui:SimpleText .
 
 
     ### ###########################################
@@ -739,23 +778,23 @@
 
     :U43_hasOpusSubnumber rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :M2_OpusStatement ;
+            kb:subjectClassConstraint :M2_OpusStatement ;
 
-              kb:objectClassConstraint kb:TextValue ;
+            kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf kb:hasValue, doremus:U43_has_opus_subnumber ;
+            rdfs:comment    """Diese Property beschreibt die Opussubnummer, die auf eine Instanz von M2 Opus Statment angewendet wird."""@de ,
+                            """This property describes the opus subnumber applied to an instance of M2 Opus Statment."""@en ,
+                            """Cette propriété décrit le sous-numéro d'opus appliqué à une instance de M2 Opus Statment."""@fr ,
+                            """Questa proprietà descrive il sottonumero dell'opus applicato a un'istanza di M2 Opus Statment."""@it ;
 
-              rdfs:label "U43 hat Opussubnummer"@de ,
-                         "U43 has opus subnumber"@en ,
-                         "U43 a un sous-numéro d'opus"@fr ,
-                         "U43 ha un sottonumero di opus"@it ;
+            rdfs:label  "U43 hat Opussubnummer"@de ,
+                        "U43 has opus subnumber"@en ,
+                        "U43 a un sous-numéro d'opus"@fr ,
+                        "U43 ha un sottonumero di opus"@it ;
 
-              rdfs:comment """Diese Property beschreibt die Opussubnummer, die auf eine Instanz von M2 Opus Statment angewendet wird."""@de ,
-                           """This property describes the opus subnumber applied to an instance of M2 Opus Statment."""@en ,
-                           """Cette propriété décrit le sous-numéro d'opus appliqué à une instance de M2 Opus Statment."""@fr ,
-                           """Questa proprietà descrive il sottonumero dell'opus applicato a un'istanza di M2 Opus Statment."""@it ;
+            rdfs:subPropertyOf kb:hasValue, doremus:U43_has_opus_subnumber ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            salsah-gui:guiElement salsah-gui:SimpleText .
 
 
     ### ###########################################
@@ -763,23 +802,23 @@
 
     :U69_hasWoONumber rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :M2_OpusStatement ;
+            kb:subjectClassConstraint :M2_OpusStatement ;
 
-              kb:objectClassConstraint kb:TextValue ;
+            kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf kb:hasValue, doremus:U69_has_WoO_Number ;
+            rdfs:comment    """Diese Property beschreibt die WoO-Nummer, die auf eine Instanz von M2 Opus Statment angewendet wird."""@de ,
+                            """This property describes the WoO number applied to an instance of M2 Opus Statment."""@en ,
+                            """Cette propriété décrit le pour numéro de WoO appliqué à une instance de M2 Opus Statment."""@fr ,
+                            """Questa proprietà descrive il numero WoO applicato a un'istanza di M2 Opus Statment."""@it ;
 
-              rdfs:label "U69 hat WoO Nummer"@de ,
-                         "U69 has WoO number"@en ,
-                         "U69 a pour numéro de WoO"@fr ,
-                         "U69 ha numero WoO"@it ;
+            rdfs:label  "U69 hat WoO Nummer"@de ,
+                        "U69 has WoO number"@en ,
+                        "U69 a pour numéro de WoO"@fr ,
+                        "U69 ha numero WoO"@it ;
 
-              rdfs:comment """Diese Property beschreibt die WoO-Nummer, die auf eine Instanz von M2 Opus Statment angewendet wird."""@de ,
-                           """This property describes the WoO number applied to an instance of M2 Opus Statment."""@en ,
-                           """Cette propriété décrit le pour numéro de WoO appliqué à une instance de M2 Opus Statment."""@fr ,
-                           """Questa proprietà descrive il numero WoO applicato a un'istanza di M2 Opus Statment."""@it ;
+            rdfs:subPropertyOf kb:hasValue, doremus:U69_has_WoO_Number ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            salsah-gui:guiElement salsah-gui:SimpleText .
 
 
     ### ###########################################
@@ -787,23 +826,23 @@
 
     :U76_hasWoOSubnumber rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :M2_OpusStatement ;
+            kb:subjectClassConstraint :M2_OpusStatement ;
 
-              kb:objectClassConstraint kb:TextValue ;
+            kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf kb:hasValue, doremus:U76_has_WoO_Subnumber ;
+            rdfs:comment    """Diese Property beschreibt die WoO-Subnummer, die auf eine Instanz von M2 Opus Statment angewendet wird."""@de ,
+                            """This property describes the WoO subnumber applied to an instance of M2 Opus Statment."""@en ,
+                            """Cette propriété décrit le sous-numéro de WoO appliqué à une instance de M2 Opus Statment."""@fr ,
+                            """Questa proprietà descrive il sottonumero WoO applicato a un'istanza di M2 Opus Statment."""@it ;
 
-              rdfs:label "U76 hat WoO Subnummer"@de ,
-                         "U76 has WoO subnumber"@en ,
-                         "U76 a un sous-numéro WoO"@fr ,
-                         "U76 ha il sottonumero WoO"@it ;
+            rdfs:label  "U76 hat WoO Subnummer"@de ,
+                        "U76 has WoO subnumber"@en ,
+                        "U76 a un sous-numéro WoO"@fr ,
+                        "U76 ha il sottonumero WoO"@it ;
 
-              rdfs:comment """Diese Property beschreibt die WoO-Subnummer, die auf eine Instanz von M2 Opus Statment angewendet wird."""@de ,
-                           """This property describes the WoO subnumber applied to an instance of M2 Opus Statment."""@en ,
-                           """Cette propriété décrit le sous-numéro de WoO appliqué à une instance de M2 Opus Statment."""@fr ,
-                           """Questa proprietà descrive il sottonumero WoO applicato a un'istanza di M2 Opus Statment."""@it ;
+            rdfs:subPropertyOf kb:hasValue, doremus:U76_has_WoO_Subnumber ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            salsah-gui:guiElement salsah-gui:SimpleText .
 
 
 
@@ -819,25 +858,24 @@
 
     :E1_Entity rdf:type owl:Class ;
 
-        rdfs:subClassOf kb:Resource, ecrm:E1_CRM_Entity ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :P3_hasNote ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
-                        ];
+            kb:resourceIcon "default.png" ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:comment    """Diese Klasse umfasst alle Dinge im Diskursuniversum des CIDOC Conceptual Reference Model."""@de ,
+                            """This class comprises all things in the universe of discourse of the CIDOC Conceptual Reference Model."""@en ,
+                            """Cette classe comprend toutes les choses de l'univers du discours du CIDOC Conceptual Reference Model."""@fr ,
+                            """Questa classe comprende tutte le cose dell'universo del discorso del CIDOC Conceptual Reference Model."""@it ;
 
-        rdfs:label  "E1 Entität"@de ,
-                    "E1 Entity"@en ,
-                    "E1 Entité"@fr ,
-                    "E1 Entità"@it ;
+            rdfs:label  "E1 Entität"@de ,
+                        "E1 Entity"@en ,
+                        "E1 Entité"@fr ,
+                        "E1 Entità"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst alle Dinge im Diskursuniversum des CIDOC Conceptual Reference Model."@de ,
-                        "This class comprises all things in the universe of discourse of the CIDOC Conceptual Reference Model. "@en ,
-                        "Cette classe comprend toutes les choses de l'univers du discours du CIDOC Conceptual Reference Model."@fr ,
-                        "Questa classe comprende tutte le cose dell'universo del discorso del CIDOC Conceptual Reference Model. "@it .
-
+            rdfs:subClassOf kb:Resource, ecrm:E1_CRM_Entity ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :P3_hasNote ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+                            ] .
 
 
 #E77 Persistent item
@@ -849,19 +887,19 @@
 
     :E28_ConceptualObject rdf:type owl:Class ;
 
-        rdfs:subClassOf :E1_Entity, ecrm:E28_Conceptual_Object ;    # TODO: eigentlich E71_Man-Made_Thing -> E70 Thing -> E77 Persistent Item
+            kb:resourceIcon "default.png" ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:comment    """Diese Klasse umfasst immaterielle Produkte unseres Geistes und andere von Menschen produzierte Daten, die zu Objekten eines Diskurses über ihre Identität, Schöpfungsumstände oder historische Implikationen geworden sind."""@de ,
+                            """This class comprises non-material products of our minds and other human produced data that have become objects of a discourse about their identity, circumstances of creation or historical implication."""@en ,
+                            """Cette classe comprend les produits non matériels de notre esprit et d'autres données produites par l'homme qui sont devenus des objets d'un discours sur leur identité, les circonstances de leur création ou leur implication historique."""@fr ,
+                            """Questa classe comprende prodotti immateriali della nostra mente e altri dati prodotti dall'uomo che sono diventati oggetto di un discorso sulla loro identità, sulle circostanze della creazione o sulle implicazioni storiche."""@it ;
 
-        rdfs:label  "E28 Konzeptuelles Objekt"@de ,
-                    "E28 Conceptual Object"@en ,
-                    "E28 Objet conceptuel"@fr ,
-                    "E28 Oggetto concettuale"@it ;
+            rdfs:label  "E28 Konzeptuelles Objekt"@de ,
+                        "E28 Conceptual Object"@en ,
+                        "E28 Objet conceptuel"@fr ,
+                        "E28 Oggetto concettuale"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst immaterielle Produkte unseres Geistes und andere von Menschen produzierte Daten, die zu Objekten eines Diskurses über ihre Identität, Schöpfungsumstände oder historische Implikationen geworden sind."@de ,
-                        "This class comprises non-material products of our minds and other human produced data that have become objects of a discourse about their identity, circumstances of creation or historical implication."@en ,
-                        "Cette classe comprend les produits non matériels de notre esprit et d'autres données produites par l'homme qui sont devenus des objets d'un discours sur leur identité, les circonstances de leur création ou leur implication historique."@fr ,
-                        "Questa classe comprende prodotti immateriali della nostra mente e altri dati prodotti dall'uomo che sono diventati oggetto di un discorso sulla loro identità, sulle circostanze della creazione o sulle implicazioni storiche."@it .
+            rdfs:subClassOf :E1_Entity, ecrm:E28_Conceptual_Object .    # TODO: eigentlich E71_Man-Made_Thing -> E70 Thing -> E77 Persistent Item
 
 
     ### ###########################################
@@ -869,19 +907,19 @@
 
     :E29_DesignOrProcedure rdf:type owl:Class ;
 
-        rdfs:subClassOf :E28_ConceptualObject, :E73_InformationObject, ecrm:E29_Design_or_Procedure ;
+            kb:resourceIcon "default.png" ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:comment    """Diese Klasse umfasst dokumentierte Pläne für die Durchführung von Aktionen, um ein Ergebnis einer bestimmten Qualität, Form oder eines bestimmten Inhalts zu erzielen."""@de ,
+                            """This class comprises documented plans for the execution of actions in order to achieve a result of a specific quality, form or contents."""@en ,
+                            """Cette classe comprend des plans documentés pour l'exécution d'actions en vue d'atteindre un résultat d'une qualité, d'une forme ou d'un contenu spécifique."""@fr ,
+                            """Questa classe comprende i piani documentati per l'esecuzione delle azioni al fine di ottenere un risultato di una qualità, forma o contenuto specifici."""@it ;
 
-        rdfs:label  "E29 Design oder Verfahren"@de ,
-                    "E29 Design or Procedure"@en ,
-                    "E29 Conception ou procédure"@fr ,
-                    "E29 Progettazione o procedura"@it ;
+            rdfs:label  "E29 Design oder Verfahren"@de ,
+                        "E29 Design or Procedure"@en ,
+                        "E29 Conception ou procédure"@fr ,
+                        "E29 Progettazione o procedura"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst dokumentierte Pläne für die Durchführung von Aktionen, um ein Ergebnis einer bestimmten Qualität, Form oder eines bestimmten Inhalts zu erzielen."@de ,
-                        "This class comprises documented plans for the execution of actions in order to achieve a result of a specific quality, form or contents."@en ,
-                        "Cette classe comprend des plans documentés pour l'exécution d'actions en vue d'atteindre un résultat d'une qualité, d'une forme ou d'un contenu spécifique."@fr ,
-                        "Questa classe comprende i piani documentati per l'esecuzione delle azioni al fine di ottenere un risultato di una qualità, forma o contenuto specifici."@it .
+            rdfs:subClassOf :E28_ConceptualObject, :E73_InformationObject, ecrm:E29_Design_or_Procedure .
 
 
     ### ###########################################
@@ -889,19 +927,19 @@
 
     :E41_Appellation rdf:type owl:Class ;
 
-        rdfs:subClassOf :E90_SymbolicObject, ecrm:E41_Appellation ;
+            kb:resourceIcon "default.png" ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:comment    """Diese Klasse umfasst Zeichen, ob sinnhaft oder nicht, oder Anordnungen von Zeichen nach einer bestimmten Syntax, die verwendet werden oder verwendet werden können, um eine bestimmte Instanz einer Klasse oder Kategorie in einem bestimmten Kontext zu referenzieren und zu identifizieren."""@de ,
+                            """This class comprises signs, either meaningful or not, or arrangements of signs following a specific syntax, that are used or can be used to refer to and identify a specific instance of some class or category within a certain context."""@en ,
+                            """Cette classe comprend les signes, significatifs ou non, ou les agencements de signes suivant une syntaxe spécifique, qui sont utilisés ou peuvent être utilisés pour se référer et identifier une instance spécifique d'une certaine classe ou catégorie dans un certain contexte."""@fr ,
+                            """Questa classe comprende segni, significativi o meno, o composizioni di segni che seguono una sintassi specifica, che sono usati o possono essere usati per riferirsi e identificare un'istanza specifica di una certa classe o categoria all'interno di un certo contesto."""@it ;
 
-        rdfs:label  "E41 Bezeichnung"@de ,
-                    "E41 Appellation"@en ,
-                    "E41 Appellation"@fr ,
-                    "E41 Denominazione"@it ;
+            rdfs:label  "E41 Bezeichnung"@de ,
+                        "E41 Appellation"@en ,
+                        "E41 Appellation"@fr ,
+                        "E41 Denominazione"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst Zeichen, ob sinnhaft oder nicht, oder Anordnungen von Zeichen nach einer bestimmten Syntax, die verwendet werden oder verwendet werden können, um eine bestimmte Instanz einer Klasse oder Kategorie in einem bestimmten Kontext zu referenzieren und zu identifizieren."@de ,
-                        "This class comprises signs, either meaningful or not, or arrangements of signs following a specific syntax, that are used or can be used to refer to and identify a specific instance of some class or category within a certain context."@en ,
-                        "Cette classe comprend les signes, significatifs ou non, ou les agencements de signes suivant une syntaxe spécifique, qui sont utilisés ou peuvent être utilisés pour se référer et identifier une instance spécifique d'une certaine classe ou catégorie dans un certain contexte."@fr ,
-                        "Questa classe comprende segni, significativi o meno, o composizioni di segni che seguono una sintassi specifica, che sono usati o possono essere usati per riferirsi e identificare un'istanza specifica di una certa classe o categoria all'interno di un certo contesto."@it .
+            rdfs:subClassOf :E90_SymbolicObject, ecrm:E41_Appellation .
 
 
     ### ###########################################
@@ -909,19 +947,19 @@
 
     :E73_InformationObject rdf:type owl:Class ;
 
-        rdfs:subClassOf :E89_PropositionalObject, ecrm:E73_Information_Object ;
+            kb:resourceIcon "default.png" ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:comment    """Diese Klasse umfasst identifizierbare immaterielle Gegenstände wie Gedichte, Witze, Datensätze, Bilder, Texte, Multimedia-Objekte, Verfahrensvorschriften, Computerprogrammcode, Algorithmen oder mathematische Formeln, die eine objektiv erkennbare Struktur haben und als einzelne Einheiten dokumentiert sind."""@de ,
+                            """This class comprises identifiable immaterial items, such as a poems, jokes, data sets, images, texts, multimedia objects, procedural prescriptions, computer program code, algorithm or mathematical formulae, that have an objectively recognizable structure and are documented as single units."""@en ,
+                            """Cette classe comprend les articles immatériels identifiables, tels que poèmes, blagues, ensembles de données, images, textes, objets multimédias, prescriptions procédurales, code de programme informatique, algorithme ou formules mathématiques, qui ont une structure objectivement reconnaissable et sont documentés en tant qu'unités individuelles."""@fr ,
+                            """Questa classe comprende gli elementi immateriali identificabili, quali poesie, barzellette, set di dati, immagini, testi, oggetti multimediali, prescrizioni procedurali, codici di programmi per elaboratore, algoritmi o formule matematiche, che hanno una struttura oggettivamente riconoscibile e sono documentati come unità singole."""@it ;
 
-        rdfs:label  "E73 Informationsobjekt"@de ,
-                    "E73 Information Object"@en ,
-                    "E73 Objet d'information"@fr ,
-                    "E73 Oggetto d'informazione"@it ;
+            rdfs:label  "E73 Informationsobjekt"@de ,
+                        "E73 Information Object"@en ,
+                        "E73 Objet d'information"@fr ,
+                        "E73 Oggetto d'informazione"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst identifizierbare immaterielle Gegenstände wie Gedichte, Witze, Datensätze, Bilder, Texte, Multimedia-Objekte, Verfahrensvorschriften, Computerprogrammcode, Algorithmen oder mathematische Formeln, die eine objektiv erkennbare Struktur haben und als einzelne Einheiten dokumentiert sind."@de ,
-                        "This class comprises identifiable immaterial items, such as a poems, jokes, data sets, images, texts, multimedia objects, procedural prescriptions, computer program code, algorithm or mathematical formulae, that have an objectively recognizable structure and are documented as single units."@en ,
-                        "Cette classe comprend les articles immatériels identifiables, tels que poèmes, blagues, ensembles de données, images, textes, objets multimédias, prescriptions procédurales, code de programme informatique, algorithme ou formules mathématiques, qui ont une structure objectivement reconnaissable et sont documentés en tant qu'unités individuelles."@fr ,
-                        "Questa classe comprende gli elementi immateriali identificabili, quali poesie, barzellette, set di dati, immagini, testi, oggetti multimediali, prescrizioni procedurali, codici di programmi per elaboratore, algoritmi o formule matematiche, che hanno una struttura oggettivamente riconoscibile e sono documentati come unità singole."@it .
+            rdfs:subClassOf :E89_PropositionalObject, ecrm:E73_Information_Object .
 
 
     ### ###########################################
@@ -929,19 +967,19 @@
 
     :E89_PropositionalObject rdf:type owl:Class ;
 
-        rdfs:subClassOf :E28_ConceptualObject, ecrm:E89_Propositional_Object ;
+            kb:resourceIcon "default.png" ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:comment    """Diese Klasse umfasst immaterielle Gegenstände, einschließlich, aber nicht beschränkt auf Geschichten, Plots, Verfahrensvorschriften, Algorithmen, Gesetze der Physik oder Bilder, die in gewissem Sinne Sätze von Sätzen über reale oder imaginäre Dinge sind oder darstellen und die als einzelne Einheiten dokumentiert sind oder als Thema des Diskurses dienen."""@de ,
+                            """This class comprises immaterial items, including but not limited to stories, plots, procedural prescriptions, algorithms, laws of physics or images that are, or represent in some sense, sets of propositions about real or imaginary things and that are documented as single units or serve as topic of discourse."""@en ,
+                            """Cette classe comprend les éléments immatériels, y compris, mais sans s'y limiter, les histoires, les intrigues, les prescriptions procédurales, les algorithmes, les lois de la physique ou les images qui sont, ou représentent dans un certain sens, des ensembles de propositions sur des choses réelles ou imaginaires et qui sont documentés en tant qu'unités individuelles ou servent de sujet de discours."""@fr ,
+                            """Questa classe comprende elementi immateriali, tra cui, ma non solo, storie, trame, prescrizioni procedurali, algoritmi, leggi della fisica o immagini che sono, o rappresentano in qualche modo, insiemi di proposizioni su cose reali o immaginarie e che sono documentati come singole unità o servono come argomento di discussione."""@it ;
 
-        rdfs:label  "E89 Aussageobjekt"@de ,
-                    "E89 Propositional Object"@en ,
-                    "E89 Objet propositionnel"@fr ,
-                    "E89 Oggetto proposizionale"@it ;
+            rdfs:label  "E89 Aussageobjekt"@de ,
+                        "E89 Propositional Object"@en ,
+                        "E89 Objet propositionnel"@fr ,
+                        "E89 Oggetto proposizionale"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst immaterielle Gegenstände, einschließlich, aber nicht beschränkt auf Geschichten, Plots, Verfahrensvorschriften, Algorithmen, Gesetze der Physik oder Bilder, die in gewissem Sinne Sätze von Sätzen über reale oder imaginäre Dinge sind oder darstellen und die als einzelne Einheiten dokumentiert sind oder als Thema des Diskurses dienen."@de ,
-                        "This class comprises immaterial items, including but not limited to stories, plots, procedural prescriptions, algorithms, laws of physics or images that are, or represent in some sense, sets of propositions about real or imaginary things and that are documented as single units or serve as topic of discourse."@en ,
-                        "Cette classe comprend les éléments immatériels, y compris, mais sans s'y limiter, les histoires, les intrigues, les prescriptions procédurales, les algorithmes, les lois de la physique ou les images qui sont, ou représentent dans un certain sens, des ensembles de propositions sur des choses réelles ou imaginaires et qui sont documentés en tant qu'unités individuelles ou servent de sujet de discours."@fr ,
-                        "Questa classe comprende elementi immateriali, tra cui, ma non solo, storie, trame, prescrizioni procedurali, algoritmi, leggi della fisica o immagini che sono, o rappresentano in qualche modo, insiemi di proposizioni su cose reali o immaginarie e che sono documentati come singole unità o servono come argomento di discussione."@it .
+            rdfs:subClassOf :E28_ConceptualObject, ecrm:E89_Propositional_Object .
 
 
     ### ###########################################
@@ -949,19 +987,19 @@
 
     :E90_SymbolicObject rdf:type owl:Class ;
 
-        rdfs:subClassOf :E28_ConceptualObject, ecrm:E90_Symbolic_Object ;
+            kb:resourceIcon "default.png" ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:comment    """Diese Klasse umfasst identifizierbare Symbole und jegliche Aggregation von Symbolen, wie Zeichen, Identifikatoren, Verkehrszeichen, Embleme, Texte, Datensätze, Bilder, Partituren, Multimedia-Objekte, Computerprogrammcode oder mathematische Formeln, die eine objektiv erkennbare Struktur haben und als einzelne Einheiten dokumentiert sind."""@de ,
+                            """This class comprises identifiable symbols and any aggregation of symbols, such as characters, identifiers, traffic signs, emblems, texts, data sets, images, musical scores, multimedia objects, computer program code or mathematical formulae that have an objectively recognizable structure and that are documented as single units."""@en ,
+                            """Cette classe comprend les symboles identifiables et toute agrégation de symboles, tels que les caractères, les identificateurs, les panneaux de signalisation, les emblèmes, les textes, les ensembles de données, les images, les partitions musicales, les objets multimédias, les codes de programmes informatiques ou les formules mathématiques qui ont une structure objectivement reconnaissable et qui sont documentés en tant qu'unités individuelles."""@fr ,
+                            """Questa classe comprende i simboli identificabili e qualsiasi aggregazione di simboli, quali caratteri, identificatori, segnali stradali, emblemi, testi, set di dati, immagini, spartiti musicali, oggetti multimediali, codici di programmi per elaboratore o formule matematiche che hanno una struttura oggettivamente riconoscibile e che sono documentati come unità singole."""@it ;
 
-        rdfs:label  "E90 Symbolisches Objekt"@de ,
-                    "E90 Symbolic Object"@en ,
-                    "E90 Objet symbolique"@fr ,
-                    "E90 Oggetto simbolico"@it ;
+            rdfs:label  "E90 Symbolisches Objekt"@de ,
+                        "E90 Symbolic Object"@en ,
+                        "E90 Objet symbolique"@fr ,
+                        "E90 Oggetto simbolico"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst identifizierbare Symbole und jegliche Aggregation von Symbolen, wie Zeichen, Identifikatoren, Verkehrszeichen, Embleme, Texte, Datensätze, Bilder, Partituren, Multimedia-Objekte, Computerprogrammcode oder mathematische Formeln, die eine objektiv erkennbare Struktur haben und als einzelne Einheiten dokumentiert sind."@de ,
-                        "This class comprises identifiable symbols and any aggregation of symbols, such as characters, identifiers, traffic signs, emblems, texts, data sets, images, musical scores, multimedia objects, computer program code or mathematical formulae that have an objectively recognizable structure and that are documented as single units."@en ,
-                        "Cette classe comprend les symboles identifiables et toute agrégation de symboles, tels que les caractères, les identificateurs, les panneaux de signalisation, les emblèmes, les textes, les ensembles de données, les images, les partitions musicales, les objets multimédias, les codes de programmes informatiques ou les formules mathématiques qui ont une structure objectivement reconnaissable et qui sont documentés en tant qu'unités individuelles."@fr ,
-                        "Questa classe comprende i simboli identificabili e qualsiasi aggregazione di simboli, quali caratteri, identificatori, segnali stradali, emblemi, testi, set di dati, immagini, spartiti musicali, oggetti multimediali, codici di programmi per elaboratore o formule matematiche che hanno una struttura oggettivamente riconoscibile e che sono documentati come unità singole."@it .
+            rdfs:subClassOf :E28_ConceptualObject, ecrm:E90_Symbolic_Object .
 
 
     ### ###########################################
@@ -969,19 +1007,19 @@
 
     :F1_Work rdf:type owl:Class ;
 
-        rdfs:subClassOf :E89_PropositionalObject, ecrm:F1_Work ;
+            kb:resourceIcon "default.png" ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:comment    """Diese Klasse umfasst die Summen von Konzepten, die im Laufe der kohärenten Entwicklung einer ursprünglichen Idee zu einer oder mehreren von der ursprünglichen Idee dominierten Expressions erscheinen."""@de ,
+                            """This class comprises works that are realised by one and only one self-contained expression, i.e., works representing the concept as expressed by precisely this expression, and that do not have other works as parts."""@en ,
+                            """Cette classe comprend les sommes de concepts qui apparaissent au cours de l'évolution cohérente d'une idée originale en une ou plusieurs expressions dominées par l'idée originale."""@fr ,
+                            """Questa classe comprende le somme dei concetti che appaiono nel corso dell'evoluzione coerente di un'idea originale in una o più espressioni dominate dall'idea originale."""@it ;
 
-        rdfs:label  "F1 Werk"@de ,
-                    "F1 Work"@en ,
-                    "F1 Oeuvre"@fr ,
-                    "F1 Opera"@it ;
+            rdfs:label  "F1 Werk"@de ,
+                        "F1 Work"@en ,
+                        "F1 Oeuvre"@fr ,
+                        "F1 Opera"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst die Summen von Konzepten, die im Laufe der kohärenten Entwicklung einer ursprünglichen Idee zu einer oder mehreren von der ursprünglichen Idee dominierten Expressions erscheinen."@de ,
-                        "This class comprises works that are realised by one and only one self-contained expression, i.e., works representing the concept as expressed by precisely this expression, and that do not have other works as parts."@en ,
-                        "Cette classe comprend les sommes de concepts qui apparaissent au cours de l'évolution cohérente d'une idée originale en une ou plusieurs expressions dominées par l'idée originale."@fr ,
-                        "Questa classe comprende le somme dei concetti che appaiono nel corso dell'evoluzione coerente di un'idea originale in una o più espressioni dominate dall'idea originale."@it .
+            rdfs:subClassOf :E89_PropositionalObject, ecrm:F1_Work .
 
 
     ### ###########################################
@@ -989,19 +1027,19 @@
 
     :F2_Expression rdf:type owl:Class ;
 
-        rdfs:subClassOf :E73_InformationObject, ecrm:F2_Expression ;
+            kb:resourceIcon "default.png" ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:comment    """Diese Klasse umfasst die intellektuelle oder künstlerische Umsetzung von Werken in Form von identifizierbaren immateriellen Objekten, wie Texte, Gedichte, Witze, musikalische oder choreographische Notationen, Bewegungsmuster, Klangmuster, Bilder, Multimedia-Objekte oder jede Kombination solcher Formen, die objektiv erkennbare Strukturen aufweisen."""@de ,
+                            """This class comprises the intellectual or artistic realisations of works in the form of identifiable immaterial objects, such as texts, poems, jokes, musical or choreographic notations, movement pattern, sound pattern, images, multimedia objects, or any combination of such forms that have objectively recognisable structures."""@en ,
+                            """Cette classe comprend les réalisations intellectuelles ou artistiques d'œuvres sous forme d'objets immatériels identifiables, tels que textes, poèmes, blagues, notations musicales ou chorégraphiques, modèles de mouvement, modèles sonores, images, objets multimédias ou toute combinaison de ces formes ayant des structures objectivement reconnaissables."""@fr ,
+                            """La presente classe comprende le realizzazioni intellettuali o artistiche di opere in forma di oggetti immateriali identificabili, quali testi, poesie, barzellette, notazioni musicali o coreografiche, modelli di movimento, modelli sonori, immagini, oggetti multimediali o qualsiasi combinazione di tali forme con strutture oggettivamente riconoscibili."""@it ;
 
-        rdfs:label  "F2 Expression"@de ,
-                    "F2 Expression"@en ,
-                    "F2 Expression"@fr ,
-                    "F2 Espressione"@it ;
+            rdfs:label  "F2 Expression"@de ,
+                        "F2 Expression"@en ,
+                        "F2 Expression"@fr ,
+                        "F2 Espressione"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst die intellektuelle oder künstlerische Umsetzung von Werken in Form von identifizierbaren immateriellen Objekten, wie Texte, Gedichte, Witze, musikalische oder choreographische Notationen, Bewegungsmuster, Klangmuster, Bilder, Multimedia-Objekte oder jede Kombination solcher Formen, die objektiv erkennbare Strukturen aufweisen."@de ,
-                        "This class comprises the intellectual or artistic realisations of works in the form of identifiable immaterial objects, such as texts, poems, jokes, musical or choreographic notations, movement pattern, sound pattern, images, multimedia objects, or any combination of such forms that have objectively recognisable structures."@en ,
-                        "Cette classe comprend les réalisations intellectuelles ou artistiques d'œuvres sous forme d'objets immatériels identifiables, tels que textes, poèmes, blagues, notations musicales ou chorégraphiques, modèles de mouvement, modèles sonores, images, objets multimédias ou toute combinaison de ces formes ayant des structures objectivement reconnaissables."@fr ,
-                        "La presente classe comprende le realizzazioni intellettuali o artistiche di opere in forma di oggetti immateriali identificabili, quali testi, poesie, barzellette, notazioni musicali o coreografiche, modelli di movimento, modelli sonori, immagini, oggetti multimediali o qualsiasi combinazione di tali forme con strutture oggettivamente riconoscibili."@it .
+            rdfs:subClassOf :E73_InformationObject, ecrm:F2_Expression .
 
 
     ### ###########################################
@@ -1009,49 +1047,49 @@
 
     :F14_IndividualWork rdf:type owl:Class ;
 
-        rdfs:subClassOf :F1_Work , ecrm:F14_Individual_Work ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :R9_isRealisedIn ;
-                          owl:cardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :R9_isRealisedInValue ;
-                          owl:cardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U4_hadPrincepsPublication ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U4_hadPrincepsPublicationValue ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :P148_hasComponent ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :P148_hasComponentValue ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
-                        ] ;
+            kb:resourceIcon "default.png" ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:comment    """Diese Klasse umfasst Werke, die durch eine und nur eine in sich geschlossene Expression realisiert werden, d.h. Werke, die den Begriff repräsentieren, wie er durch genau diese Expression ausgedrückt wird, und die keine anderen Werke als Teile haben."""@de ,
+                            """This class comprises works that are realised by one and only one self-contained expression, i.e., works representing the concept as expressed by precisely this expression, and that do not have other works as parts."""@en ,
+                            """Cette classe comprend les œuvres qui sont réalisées par une seule et unique expression autonome, c'est-à-dire les œuvres représentant le concept tel qu'il est exprimé par cette expression, et qui n'ont pas d'autres œuvres comme parties."""@fr ,
+                            """Questa classe comprende opere che sono realizzate da una sola e unica espressione autonoma, cioè opere che rappresentano il concetto espresso proprio da questa espressione, e che non hanno altri lavori come parti."""@it ;
 
-        rdfs:label "F14 Einzelwerk"@de ,
-                   "F14 Individual Work"@en ,
-                   "F14 Oeuvre individuelle"@fr ,
-                   "F14 Opera individuala"@it ;
+            rdfs:label "F14 Einzelwerk"@de ,
+                       "F14 Individual Work"@en ,
+                       "F14 Oeuvre individuelle"@fr ,
+                       "F14 Opera individuala"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst Werke, die durch eine und nur eine in sich geschlossene Expression realisiert werden, d.h. Werke, die den Begriff repräsentieren, wie er durch genau diese Expression ausgedrückt wird, und die keine anderen Werke als Teile haben."@de ,
-                        "This class comprises works that are realised by one and only one self-contained expression, i.e., works representing the concept as expressed by precisely this expression, and that do not have other works as parts."@en ,
-                        "Cette classe comprend les œuvres qui sont réalisées par une seule et unique expression autonome, c'est-à-dire les œuvres représentant le concept tel qu'il est exprimé par cette expression, et qui n'ont pas d'autres œuvres comme parties."@fr ,
-                        "Questa classe comprende opere che sono realizzate da una sola e unica espressione autonoma, cioè opere che rappresentano il concetto espresso proprio da questa espressione, e che non hanno altri lavori come parti."@it .
+            rdfs:subClassOf :F1_Work , ecrm:F14_Individual_Work ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :R9_isRealisedIn ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :R9_isRealisedInValue ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U4_hadPrincepsPublication ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            ],
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U4_hadPrincepsPublicationValue ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            ],
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :P148_hasComponent ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :P148_hasComponentValue ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+                            ] .
 
 
     ### ###########################################
@@ -1059,39 +1097,39 @@
 
     :F15_ComplexWork rdf:type owl:Class ;
 
-        rdfs:subClassOf :F1_Work , ecrm:F15_Complex_Work ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :R40_hasRepresentativeExpression ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :R40_hasRepresentativeExpressionValue ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :R10_hasMember ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :R10_hasMemberValue ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                        ] ;
+            kb:resourceIcon "default.png" ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:comment    """Diese Klasse umfasst Werke, die andere Werke als Mitglieder haben. Die Mitglieder eines komplexen Werkes stellen Alternativen zu anderen Mitgliedern des Werkes dar."""@de ,
+                            """This class comprises works that have other works as members. The members of a Complex Work constitute alternatives to other members of the work."""@en ,
+                            """Cette classe comprend les œuvres qui ont d'autres œuvres comme membres. Les membres d'une œuvre complexe constituent des alternatives aux autres membres de l'œuvre."""@fr ,
+                            """Questa classe comprende opere che hanno altre opere come membri. I membri di un'opera complessa costituiscono un'alternativa agli altri membri dell'opera."""@it ;
 
-        rdfs:label "F15 Werkkomplex"@de ,
-                   "F15 Complex Work"@en ,
-                   "F15 Oeuvre complexe"@fr ,
-                   "F15 Opera complessa"@it ;
+            rdfs:label "F15 Werkkomplex"@de ,
+                       "F15 Complex Work"@en ,
+                       "F15 Oeuvre complexe"@fr ,
+                       "F15 Opera complessa"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst Werke, die andere Werke als Mitglieder haben. Die Mitglieder eines komplexen Werkes stellen Alternativen zu anderen Mitgliedern des Werkes dar."@de ,
-                        "This class comprises works that have other works as members. The members of a Complex Work constitute alternatives to other members of the work."@en ,
-                        "Cette classe comprend les œuvres qui ont d'autres œuvres comme membres. Les membres d'une œuvre complexe constituent des alternatives aux autres membres de l'œuvre."@fr ,
-                        "Questa classe comprende opere che hanno altre opere come membri. I membri di un'opera complessa costituiscono un'alternativa agli altri membri dell'opera."@it .
+            rdfs:subClassOf :F1_Work , ecrm:F15_Complex_Work ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :R40_hasRepresentativeExpression ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :R40_hasRepresentativeExpressionValue ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :R10_hasMember ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :R10_hasMemberValue ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            ] .
 
 
     ### ###########################################
@@ -1099,64 +1137,64 @@
 
     :F22_SelfContainedExpression rdf:type owl:Class ;
 
-        rdfs:subClassOf :F2_Expression, efrbroo:F22_Self-Contained_Expression ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :P102_hasTitle ;
-                          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                        ] ,
-                        # [ rdf:type owl:Restriction ;
-                        #  owl:onProperty :U10_hasOrderNumber ;
-                        #  owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                        #  salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                        # ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U17_hasOpusStatement ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U17_hasOpusStatementValue ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U16_hasCatalogueStatement ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U16_hasCatalogueStatementValue ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U12_hasGenre ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U13_hasCasting ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U11_hasKey ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
-                        ];
+            kb:resourceIcon "default.png" ;
 
-        rdfs:label  "F22 Eigenständige Expression"@de ,
-                    "F22 Self-contained Expression"@en ,
-                    "F22 Expression autonome"@fr ,
-                    "F22 Espressione autonoma"@it ;
+            rdfs:comment    """Diese Klasse umfasst die immateriellen Realisationen einzelner Werke zu einem bestimmten Zeitpunkt, die als Ganzes betrachtet werden. Die Qualität der Ganzheit spiegelt die Absicht des Schöpfers wider, dass diese Expression das Konzept des Werkes vermitteln soll."""@de ,
+                            """This class comprises the immaterial realisations of individual works at a particular time that are regarded as a complete whole. The quality of wholeness reflects the intention of its creator that this expression should convey the concept of the work."""@en ,
+                            """Cette classe comprend les réalisations immatérielles d'œuvres individuelles à un moment donné qui sont considérées comme un tout complet. La qualité de l'intégralité reflète l'intention de son créateur que cette expression exprime le concept de l'œuvre."""@fr ,
+                            """Questa classe comprende le realizzazioni immateriali di singole opere in un determinato momento che sono considerate come un insieme completo. La qualità dell'integrità riflette l'intenzione del suo creatore che questa espressione trasmetta il concetto di opera."""@it ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:label  "F22 Eigenständige Expression"@de ,
+                        "F22 Self-contained Expression"@en ,
+                        "F22 Expression autonome"@fr ,
+                        "F22 Espressione autonoma"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst die immateriellen Realisationen einzelner Werke zu einem bestimmten Zeitpunkt, die als Ganzes betrachtet werden. Die Qualität der Ganzheit spiegelt die Absicht des Schöpfers wider, dass diese Expression das Konzept des Werkes vermitteln soll."@de ,
-                        "This class comprises the immaterial realisations of individual works at a particular time that are regarded as a complete whole. The quality of wholeness reflects the intention of its creator that this expression should convey the concept of the work."@en ,
-                        "Cette classe comprend les réalisations immatérielles d'œuvres individuelles à un moment donné qui sont considérées comme un tout complet. La qualité de l'intégralité reflète l'intention de son créateur que cette expression exprime le concept de l'œuvre."@fr ,
-                        "Questa classe comprende le realizzazioni immateriali di singole opere in un determinato momento che sono considerate come un insieme completo. La qualità dell'integrità riflette l'intenzione del suo creatore che questa espressione trasmetta il concetto di opera."@it .
+            rdfs:subClassOf :F2_Expression, efrbroo:F22_Self-Contained_Expression ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :P102_hasTitle ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            # [ rdf:type owl:Restriction ;
+                            #  owl:onProperty :U10_hasOrderNumber ;
+                            #  owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                            #  salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            # ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U17_hasOpusStatement ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+                            ],
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U17_hasOpusStatementValue ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+                            ],
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U16_hasCatalogueStatement ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+                            ],
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U16_hasCatalogueStatementValue ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+                            ],
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U12_hasGenre ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U13_hasCasting ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U11_hasKey ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+                            ] .
 
 
     ### ###########################################
@@ -1164,39 +1202,39 @@
 
     :F28_ExpressionCreation rdf:type owl:Class ;
 
-        rdfs:subClassOf kb:Resource, efrbroo:F28_Expression_Creation ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :R17_created ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :R17_createdValue ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :R19_createdARealisationOf ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :R19_createdARealisationOfValue ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                        ];
+            kb:resourceIcon "default.png" ;
 
-        rdfs:label  "F28 Erzeugung einer Expression"@de ,
-                    "F28 Expression Creation"@en ,
-                    "F28 Création d'expressions"@fr ,
-                    "F28 Creazione di espressioni"@it ;
+            rdfs:comment    """Diese Klasse umfasst Aktivitäten, die dazu führen, dass Instanzen von F2 Expression entstehen."""@de ,
+                            """This class comprises activities that result in instances of F2 Expression coming into existence."""@en ,
+                            """Cette classe comprend les activités qui aboutissent à la création d'instances de F2 Expression."""@fr ,
+                            """Questa classe comprende le attività che danno luogo a istanze di F2 Expression che nascono."""@it ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:label  "F28 Erzeugung einer Expression"@de ,
+                        "F28 Expression Creation"@en ,
+                        "F28 Création d'expressions"@fr ,
+                        "F28 Creazione di espressioni"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst Aktivitäten, die dazu führen, dass Instanzen von F2 Expression entstehen."@de ,
-                        "This class comprises activities that result in instances of F2 Expression coming into existence."@en ,
-                        "Cette classe comprend les activités qui aboutissent à la création d'instances de F2 Expression."@fr ,
-                        "Questa classe comprende le attività che danno luogo a istanze di F2 Expression che nascono."@it .
+            rdfs:subClassOf kb:Resource, efrbroo:F28_Expression_Creation ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :R17_created ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :R17_createdValue ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :R19_createdARealisationOf ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            ],
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :R19_createdARealisationOfValue ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            ] .
 
 
     ### ###########################################
@@ -1204,19 +1242,19 @@
 
     :F30_PublicationEvent rdf:type owl:Class ;
 
-        rdfs:subClassOf :F28_ExpressionCreation, efrbroo:F30_Publication_Event ;
+            kb:resourceIcon "default.png" ;
 
-        rdfs:label  "F30 Publikationsereignis"@de ,
-                    "F30 Publication Event"@en ,
-                    "F30 Événement de publication"@fr ,
-                    "F30 Événement de publication"@it ;
+            rdfs:comment    """Diese Klasse umfasst die Aussagen zu einem F30 Publikationsereignis."""@de ,
+                            """This class comprises statements for an F30 Publication Event."""@en ,
+                            """Cette classe contient les instructions d'un F30 Événement de publication."""@fr ,
+                            """Questa classe contiene le istruzioni per uno F30 Événement de publication."""@it ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:label  "F30 Publikationsereignis"@de ,
+                        "F30 Publication Event"@en ,
+                        "F30 Événement de publication"@fr ,
+                        "F30 Événement de publication"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst die Aussagen zu einem F30 Publikationsereignis."@de ,
-                        "This class comprises statements for an F30 Publication Event."@en ,
-                        "Cette classe contient les instructions d'un F30 Événement de publication."@fr ,
-                        "Questa classe contiene le istruzioni per uno F30 Événement de publication."@it .
+            rdfs:subClassOf :F28_ExpressionCreation, efrbroo:F30_Publication_Event .
 
 
     ### ###########################################
@@ -1224,70 +1262,68 @@
 
     :M1_CatalogueStatement rdf:type owl:Class ;
 
-        rdfs:subClassOf :E41_Appellation, doremus:M1_Catalolgue_Statement ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U40_hasCatalogueName ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U41_hasCatalogueNumber ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                        ] ;
+            kb:resourceIcon "default.png" ;
 
+            rdfs:comment    """Diese Klasse umfasst die Aussagen zu einem M1 Katalog Statement."""@de ,
+                            """This class comprises statements for an M1 Catalogue Statement."""@en ,
+                            """Cette classe contient les instructions d'une M1 Mention de catalogue."""@fr ,
+                            """Questa classe contiene le istruzioni per M1 Menzione di catalogo."""@it ;
 
-        rdfs:label  "M1 Katalog Statement"@de ,
-                    "M1 Catalogue Statement"@en ,
-                    "M1 Mention de catalogue"@fr ,
-                    "M1 Menzione di catalogo"@it ;
+            rdfs:label  "M1 Katalog Statement"@de ,
+                        "M1 Catalogue Statement"@en ,
+                        "M1 Mention de catalogue"@fr ,
+                        "M1 Menzione di catalogo"@it ;
 
-        kb:resourceIcon "default.png" ;
-
-        rdfs:comment    "Diese Klasse umfasst die Aussagen zu einem M1 Katalog Statement."@de ,
-                        "This class comprises statements for an M1 Catalogue Statement."@en ,
-                        "Cette classe contient les instructions d'une M1 Mention de catalogue."@fr ,
-                        "Questa classe contiene le istruzioni per M1 Menzione di catalogo."@it .
-
+            rdfs:subClassOf :E41_Appellation, doremus:M1_Catalolgue_Statement ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U40_hasCatalogueName ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U41_hasCatalogueNumber ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            ] .
 
     ### ###########################################
     ### webern:M2_OpusStatement
 
     :M2_OpusStatement rdf:type owl:Class ;
 
-        rdfs:subClassOf :E41_Appellation, doremus:M2_Opus_Statement ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U42_hasOpusNumber ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U43_hasOpusSubnumber ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U69_hasWoONumber ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U76_hasWoOSubnumber ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
-                        ] ;
+            kb:resourceIcon "default.png" ;
 
-        rdfs:label  "M2 Opus Statement"@de ,
-                    "M2 Opus Statement"@en ,
-                    "M2 Mention d'opus"@fr ,
-                    "M2 Menzione di opus"@it ;
+            rdfs:comment    """Diese Klasse umfasst die Aussagen zu einem M2 Opus Statement."""@de ,
+                            """This class comprises statements for an M2 Opus Statement."""@en ,
+                            """Cette classe contient les instructions d'un M2 Mention d'opus."""@fr ,
+                            """Questa classe contiene le istruzioni per M2 Menzione di opus."""@it ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:label  "M2 Opus Statement"@de ,
+                        "M2 Opus Statement"@en ,
+                        "M2 Mention d'opus"@fr ,
+                        "M2 Menzione di opus"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst die Aussagen zu einem M2 Opus Statement."@de ,
-                        "This class comprises statements for an M2 Opus Statement."@en ,
-                        "Cette classe contient les instructions d'un M2 Mention d'opus."@fr ,
-                        "Questa classe contiene le istruzioni per M2 Menzione di opus."@it .
+            rdfs:subClassOf :E41_Appellation, doremus:M2_Opus_Statement ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U42_hasOpusNumber ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U43_hasOpusSubnumber ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U69_hasWoONumber ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U76_hasWoOSubnumber ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+                            ] .
 
 
     ### ###########################################
@@ -1295,29 +1331,29 @@
 
     :M6_Casting rdf:type owl:Class ;
 
-        rdfs:subClassOf :E29_DesignOrProcedure, doremus:M6_Casting ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U23_hasCastingDetail ;
-                          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U23_hasCastingDetailValue ;
-                          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-                        ] ;
+            kb:resourceIcon "default.png" ;
 
-        rdfs:label  "M6 Besetzung"@de ,
-                    "M6 Casting"@en ,
-                    "M6 Distribution vocale ou instrumentale"@fr ,
-                    "M6 Distribuzione vocale o strumentale"@it ;
+            rdfs:comment    """Diese Klasse beschreibt das 'Aufführungsmedium' eines Werkes, d.h. die Instrumente, Maschinen, Interpreten (Tänzer, Schauspieler, Rezitatoren usw.), für die das Werk komponiert wurde."""@de ,
+                            """This class describes the 'medium of performance' of a work, i.e. the instruments, machines, performers other than musicians (dancers, actors, reciters, etc.) for which the work was composed."""@en ,
+                            """CCette classe permet de décrire les 'medium of performance' d’une œuvre, c’est-à-dire les instruments, machines, exécutants autres que musiciens (danseurs, acteurs, récitants,…) pour lesquels l’œuvre a été composée."""@fr ,
+                            """Questa classe descrive il 'mezzo di esecuzione' di un'opera, cioè gli strumenti, le macchine, gli interpreti diversi dai musicisti (ballerini, attori, recitatori, ecc.) per i quali l'opera è stata composta."""@it ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:label  "M6 Besetzung"@de ,
+                        "M6 Casting"@en ,
+                        "M6 Distribution vocale ou instrumentale"@fr ,
+                        "M6 Distribuzione vocale o strumentale"@it ;
 
-        rdfs:comment    "Diese Klasse beschreibt das 'Aufführungsmedium' eines Werkes, d.h. die Instrumente, Maschinen, Interpreten (Tänzer, Schauspieler, Rezitatoren usw.), für die das Werk komponiert wurde."@de ,
-                        "This class describes the 'medium of performance' of a work, i.e. the instruments, machines, performers other than musicians (dancers, actors, reciters, etc.) for which the work was composed."@en ,
-                        "CCette classe permet de décrire les 'medium of performance' d’une œuvre, c’est-à-dire les instruments, machines, exécutants autres que musiciens (danseurs, acteurs, récitants,…) pour lesquels l’œuvre a été composée."@fr ,
-                        "Questa classe descrive il 'mezzo di esecuzione' di un'opera, cioè gli strumenti, le macchine, gli interpreti diversi dai musicisti (ballerini, attori, recitatori, ecc.) per i quali l'opera è stata composta."@it .
+            rdfs:subClassOf :E29_DesignOrProcedure, doremus:M6_Casting ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U23_hasCastingDetail ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U23_hasCastingDetailValue ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] .
 
 
     ### ###########################################
@@ -1325,19 +1361,19 @@
 
     :M14_MediumOfPerformance rdf:type owl:Class ;
 
-        rdfs:subClassOf kb:Resource, doremus:M14_Medium_Of_Performance ;      #TODO: subClassOf E55_Type
+            kb:resourceIcon "default.png" ;
 
-        rdfs:label  "M14 Aufführungsmedium"@de ,
-                    "M14 Medium of Performance"@en ,
-                    "M14 Médium de performance"@fr ,
-                    "M14 Mezzo di performance"@it ;
+            rdfs:comment    """Diese Klasse umfasst die Aussagen zu einem M14 Medium Of Performance."""@de ,
+            """This class comprises statements for an M14 Medium Of Performance."""@en ,
+            """Cette classe contient les instructions d'un M14 Medium Of Performance."""@fr ,
+            """Questa classe contiene le istruzioni per uno M14 Medium Of Performance."""@it ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:label  "M14 Aufführungsmedium"@de ,
+                        "M14 Medium of Performance"@en ,
+                        "M14 Médium de performance"@fr ,
+                        "M14 Mezzo di performance"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst die Aussagen zu einem M14 Medium Of Performance."@de ,
-                        "This class comprises statements for an M14 Medium Of Performance."@en ,
-                        "Cette classe contient les instructions d'un M14 Medium Of Performance."@fr ,
-                        "Questa classe contiene le istruzioni per uno M14 Medium Of Performance."@it .
+            rdfs:subClassOf kb:Resource, doremus:M14_Medium_Of_Performance .      #TODO: subClassOf E55_Type
 
 
     ### ###########################################
@@ -1345,31 +1381,31 @@
 
     :M23_CastingDetail rdf:type owl:Class ;
 
-        rdfs:subClassOf :E29_DesignOrProcedure, doremus:M23_Casting_Detail ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U2_foreseesUseOfMediumOfPerformance ;
-                          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U2_foreseesUseOfMediumOfPerformanceValue ;
-                          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :U30_foreseesQuantityOfMop ;
-                          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                        ] ;
+            kb:resourceIcon "default.png" ;
 
-        rdfs:label  "M23 Besetzungsdetail"@de ,
-                    "M23 Casting Detail"@en ,
-                    "M23 Détail de la distribution"@fr ,
-                    "M23 Dettagli distribuzione"@it ;
+            rdfs:comment    """Diese Klasse umfasst die Aussagen zu einem M23 Casting Detail."""@de ,
+                            """This class comprises statements for an M23 Casting Detail."""@en ,
+                            """Cette classe contient les instructions d'un M23 Détail de la distribution."""@fr ,
+                            """Questa classe contiene le istruzioni per uno M23 Dettagli distribuzione."""@it ;
 
-        kb:resourceIcon "default.png" ;
+            rdfs:label  "M23 Besetzungsdetail"@de ,
+                        "M23 Casting Detail"@en ,
+                        "M23 Détail de la distribution"@fr ,
+                        "M23 Dettagli distribuzione"@it ;
 
-        rdfs:comment    "Diese Klasse umfasst die Aussagen zu einem M23 Casting Detail."@de ,
-                        "This class comprises statements for an M23 Casting Detail."@en ,
-                        "Cette classe contient les instructions d'un M23 Détail de la distribution."@fr ,
-                        "Questa classe contiene le istruzioni per uno M23 Dettagli distribuzione."@it .
+            rdfs:subClassOf :E29_DesignOrProcedure, doremus:M23_Casting_Detail ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U2_foreseesUseOfMediumOfPerformance ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U2_foreseesUseOfMediumOfPerformanceValue ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :U30_foreseesQuantityOfMop ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            ] .
