@@ -22,7 +22,7 @@
 	### webern:testperson1
 
 	<http://rdfh.ch/08AE/testperson1> a webern:Person ;
-			webern:comment <http://rdfh.ch/08AE/testperson1/values/df1260ad43d5> ;
+			webern:comment <http://rdfh.ch/08AE/testperson1/values/comment> ;
 			webern:hasAlternativeName <http://rdfh.ch/08AE/testperson1/values/hasAlternativeName> ;
 			webern:hasBiography <http://rdfh.ch/08AE/testperson1/values/hasBiography> ;
 			webern:hasBiographySource <http://rdfh.ch/08AE/testperson1/values/hasBiographySource> ;
@@ -164,7 +164,7 @@
 			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
-			rdfs:label "ComplexWork4" ;
+			rdfs:label "ComplexWork1" ;
 			webern:R10_hasMember <http://rdfh.ch/08AE/work/IndividualWork1> ;
 			webern:R10_hasMemberValue <http://rdfh.ch/08AE/work/ComplexWork1/values/R10_hasMember/IndividualWork1_L> ;
 			webern:R40_hasRepresentativeExpression <http://rdfh.ch/08AE/expression/Expression1> ;
@@ -745,7 +745,7 @@
 	### ###########################################
 	### M1_CatalogueStatement
 
-	<http://rdfh.ch/08AE/cataloguestatement/M127> a webern:M1_CatalogueStatement .
+	<http://rdfh.ch/08AE/cataloguestatement/M127> a webern:M1_CatalogueStatement ;
 			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
 			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
