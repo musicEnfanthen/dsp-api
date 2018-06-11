@@ -82,6 +82,209 @@
 
 
     ### ###########################################
+    ### webern:P4_hasTimeSpan
+
+    :P4_hasTimeSpan rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :E2_TemporalEntity ;
+
+            kb:objectClassConstraint :E52_TimeSpan ;
+
+            prov:wasDerivedFrom ecrm:P4_has_time-span ;
+
+            rdfs:comment    """Diese Property beschreibt die zeitliche Einschränkung einer Instanz von E2 Temporal Entity."""@de ,
+                            """This property describes the temporal confinement of an instance of an E2 Temporal Entity."""@en ,
+                            """Cette propriété décrit le confinement temporel d'une instance d'une entité temporelle E2."""@fr ,
+                            """Questa proprietà descrive il confinamento temporale di un'istanza di un'Entità Temporale E2."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "P4 hat Zeitspanne"@de ,
+                        "P4 has time-span"@en ,
+                        "P4 a une période de temps"@fr ,
+                        "P4 ha un intervallo di tempo"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, ecrm:P4_has_time-span ;
+
+            salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    :P4_hasTimeSpanValue rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :E2_TemporalEntity ;
+
+            kb:objectClassConstraint kb:LinkValue ;
+
+            prov:wasDerivedFrom ecrm:P4_has_time-span ;
+
+            rdfs:comment    """Diese Property beschreibt die zeitliche Einschränkung einer Instanz von E2 Temporal Entity."""@de ,
+                            """This property describes the temporal confinement of an instance of an E2 Temporal Entity."""@en ,
+                            """Cette propriété décrit le confinement temporel d'une instance d'une entité temporelle E2."""@fr ,
+                            """Questa proprietà descrive il confinamento temporale di un'istanza di un'Entità Temporale E2."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "P4 hat Zeitspanne (value)"@de ,
+                        "P4 has time-span (value)"@en ,
+                        "P4 a une période de temps (value)"@fr ,
+                        "P4 ha un intervallo di tempo (value)"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkToValue .
+
+    ### ###########################################
+    ### webern:P7_tookPlaceAt
+
+    :P7_tookPlaceAt rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :E4_Period ;
+
+            kb:objectClassConstraint :E53_Place ;
+
+            prov:wasDerivedFrom ecrm:P7_took_place_at ;
+
+            rdfs:comment    """Diese Property beschreibt die räumliche Lage einer Instanz von E4 Period."""@de ,
+                            """This property describes the spatial location of an instance of E4 Period."""@en ,
+                            """Cette propriété décrit l'emplacement spatial d'une instance de la période E4."""@fr ,
+                            """Questa proprietà descrive la posizione spaziale di un'istanza di E4 Period."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "P7 fand statt in"@de ,
+                        "P7 took place at"@en ,
+                        "P7 a eu lieu à"@fr ,
+                        "P7 ha avuto luogo a"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, ecrm:P7_took_place_at ;
+
+            salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    :P7_tookPlaceAtValue rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :E4_Period ;
+
+            kb:objectClassConstraint kb:LinkValue ;
+
+            prov:wasDerivedFrom ecrm:P7_took_place_at ;
+
+            rdfs:comment    """Diese Property beschreibt die räumliche Lage einer Instanz von E4 Period."""@de ,
+                            """This property describes the spatial location of an instance of E4 Period."""@en ,
+                            """Cette propriété décrit l'emplacement spatial d'une instance de la période E4."""@fr ,
+                            """Questa proprietà descrive la posizione spaziale di un'istanza di E4 Period."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "P7 fand statt in (value)"@de ,
+                        "P7 took place at (value)"@en ,
+                        "P7 a eu lieu à (value)"@fr ,
+                        "P7 ha avuto luogo a (value)"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkToValue .
+
+
+    ### ###########################################
+    ### webern:P9_consistsOf
+
+    :P9_consistsOf rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :E4_Period ;
+
+            kb:objectClassConstraint :E4_Period ;
+
+            prov:wasDerivedFrom ecrm:P9_consists_of ;
+
+            rdfs:comment    """Diese Property verbindet eine Instanz von E4 Period mit einer anderen Instanz von E4 Period, die durch eine Teilmenge der Phänomene definiert ist, die die erste definieren."""@de ,
+                            """This property associates an instance of E4 Period with another instance of E4 Period that is defined by a subset of the phenomena that define the former."""@en ,
+                            """Cette propriété associe une instance de Période E4 à une autre instance de Période E4 qui est définie par un sous-ensemble des phénomènes qui définissent la première."""@fr ,
+                            """Questa proprietà associa un'istanza di E4 Periodo ad un'altra istanza di E4 Periodo che è definita da un sottoinsieme dei fenomeni che la definiscono."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "P9 setzt sich zusammen aus"@de ,
+                        "P9 consists of"@en ,
+                        "P9 consiste en"@fr ,
+                        "P9 è composto da"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, ecrm:P9_consists_of ;
+
+            salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    :P9_consistsOfValue rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :E4_Period ;
+
+            kb:objectClassConstraint kb:LinkValue ;
+
+            prov:wasDerivedFrom ecrm:P9_consists_of ;
+
+            rdfs:comment    """Diese Property verbindet eine Instanz von E4 Period mit einer anderen Instanz von E4 Period, die durch eine Teilmenge der Phänomene definiert ist, die die erste definieren."""@de ,
+                            """This property associates an instance of E4 Period with another instance of E4 Period that is defined by a subset of the phenomena that define the former."""@en ,
+                            """Cette propriété associe une instance de Période E4 à une autre instance de Période E4 qui est définie par un sous-ensemble des phénomènes qui définissent la première."""@fr ,
+                            """Questa proprietà associa un'istanza di E4 Periodo ad un'altra istanza di E4 Periodo che è definita da un sottoinsieme dei fenomeni che la definiscono."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "P9 setzt sich zusammen aus (value)"@de ,
+                        "P9 consists of (value)"@en ,
+                        "P9 consiste en (value)"@fr ,
+                        "P9 è composto da (value)"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkToValue .
+
+
+    ### ###########################################
+    ### webern:P14_carriedOutBy
+
+    :P14_carriedOutBy rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :E7_Activity ;
+
+            kb:objectClassConstraint :E39_Actor ;
+
+            prov:wasDerivedFrom ecrm:P14_carried_out_by ;
+
+            rdfs:comment    """Diese Eigenschaft beschreibt die aktive Teilnahme eines E39 Akteurs an einer E7 Aktivität."""@de ,
+                            """This property describes the active participation of an E39 Actor in an E7 Activity."""@en ,
+                            """Cette propriété décrit la participation active d'un E39 Acteur à une E7 Activité."""@fr ,
+                            """Questa proprietà descrive la partecipazione attiva di un E39 Attore a una E7 Attività."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "P14 durchgeführt von"@de ,
+                        "P14 carried out by"@en ,
+                        "P14 réalisé par"@fr ,
+                        "P14 realizzato da"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, ecrm:P14_carried_out_by ;
+
+            salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    :P14_carriedOutByValue rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint :E7_Activity ;
+
+            kb:objectClassConstraint kb:LinkValue ;
+
+            prov:wasDerivedFrom ecrm:P9_consists_of ;
+
+            rdfs:comment    """Diese Eigenschaft beschreibt die aktive Teilnahme eines E39 Akteurs an einer E7 Aktivität."""@de ,
+                            """This property describes the active participation of an E39 Actor in an E7 Activity."""@en ,
+                            """Cette propriété décrit la participation active d'un E39 Acteur à une E7 Activité."""@fr ,
+                            """Questa proprietà descrive la partecipazione attiva di un E39 Attore a una E7 Attività."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "P14 durchgeführt von (value)"@de ,
+                        "P14 carried out by (value)"@en ,
+                        "P14 réalisé par (value)"@fr ,
+                        "P14 realizzato da (value)"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkToValue .
+
+
+    ### ###########################################
     ### webern:P102_hasTitle
 
     :P102_hasTitle rdf:type owl:ObjectProperty ;
@@ -983,11 +1186,172 @@
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :P3_hasNote ;
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                              salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
                             ] .
 
-#E77 Persistent item
-#E70 THing
+
+    ### ###########################################
+    ### webern:E2_TemporalEntity
+
+    :E2_TemporalEntity rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E2_Temporal_Entity ;
+
+            rdfs:comment    """Diese Klasse umfasst alle Phänomene, wie z.B. die Instanzen von E4 Perioden, E5 Ereignissen und Zuständen, die zeitlich begrenzt auftreten."""@de ,
+                            """This class comprises all phenomena, such as the instances of E4 Periods, E5 Events and states, which happen over a limited extent in time"""@en ,
+                            """Cette classe comprend tous les phénomènes, tels que les instances de E4 Périodes, E5 Événements et les états, qui se produisent sur une période limitée dans le temps."""@fr ,
+                            """Questa classe comprende tutti i fenomeni, quali i casi di E4 Periodi, E5 Eventi e stati, che si verificano in misura limitata nel tempo."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "E2 Zeitliche Entität"@de ,
+                        "E2 Temporal Entity"@en ,
+                        "E2 Entité temporelle"@fr ,
+                        "E2 Entità temporale"@it ;
+
+            rdfs:subClassOf :E1_Entity , ecrm:E2_Temporal_Entity ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :P4_hasTimeSpan ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :P4_hasTimeSpanValue ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] .
+
+
+    ### ###########################################
+    ### webern:E4_Period
+
+    :E4_Period rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E4_Period ;
+
+            rdfs:comment    """Diese Klasse umfasst eine Reihe von kohärenten Phänomenen oder kulturellen Manifestationen, die in Zeit und Raum auftreten."""@de ,
+                            """This class comprises sets of coherent phenomena or cultural manifestations occurring in time and space."""@en ,
+                            """Cette classe comprend des ensembles de phénomènes cohérents ou de manifestations culturelles se produisant dans le temps et l'espace."""@fr ,
+                            """Questa classe comprende insiemi di fenomeni coerenti o di manifestazioni culturali che si verificano nel tempo e nello spazio."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "E4 Periode"@de ,
+                        "E4 Period"@en ,
+                        "E4 Période"@fr ,
+                        "E4 Periodo"@it ;
+
+            rdfs:subClassOf :E2_TemporalEntity , :E92_SpacetimeVolume , ecrm:E4_Period ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :P7_tookPlaceAt ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :P7_tookPlaceAtValue ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :P9_consistsOf ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :P9_consistsOfValue ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] .
+            # domain of P8_took place_on_or_within; P9_forms_part_of
+            # range of P7_witnessed; P8_witnessed; P9_forms_part_of
+
+
+    ### ###########################################
+    ### webern:E5_Event
+
+    :E5_Event rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E5_Event ;
+
+            rdfs:comment    """Diese Klasse umfasst Veränderungen von Zuständen in kulturellen, sozialen oder physischen Systemen, unabhängig vom Ausmaß, die durch eine Reihe oder Gruppe von kohärenten physischen, kulturellen, technologischen oder rechtlichen Phänomenen hervorgerufen werden."""@de ,
+                            """This class comprises changes of states in cultural, social or physical systems, regardless of scale, brought about by a series or group of coherent physical, cultural, technological or legal phenomena."""@en ,
+                            """Cette classe comprend les changements d'état des systèmes culturels, sociaux ou physiques, quelle qu'en soit l'échelle, provoqués par une série ou un groupe de phénomènes physiques, culturels, technologiques ou juridiques cohérents."""@fr ,
+                            """Questa classe comprende i cambiamenti di stato dei sistemi culturali, sociali o fisici, indipendentemente dalle loro dimensioni, determinati da una serie o da un gruppo di fenomeni fisici, culturali, tecnologici o giuridici coerenti."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "E5 Ereignis"@de ,
+                        "E5 Event"@en ,
+                        "E5 Événement"@fr ,
+                        "E5 Evento"@it ;
+
+            rdfs:subClassOf :E4_Period , ecrm:E5_Event .
+
+
+    ### ###########################################
+    ### webern:E7_Activity
+
+    :E7_Activity rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E7_Activity ;
+
+            rdfs:comment    """Diese Klasse umfasst Handlungen, die absichtlich von Instanzen von E39 Actor durchgeführt werden und zu Zustandsänderungen in den dokumentierten kulturellen, sozialen oder physischen Systemen führen."""@de ,
+                            """This class comprises actions intentionally carried out by instances of E39 Actor that result in changes of state in the cultural, social, or physical systems documented."""@en ,
+                            """Cette classe comprend les actions menées intentionnellement par des instances de l'acteur E39 qui entraînent des changements d'état dans les systèmes culturels, sociaux ou physiques documentés."""@fr ,
+                            """Questa classe comprende le azioni intenzionalmente condotte da istanze di E39 attore che comportano cambiamenti di stato nei sistemi culturali, sociali o fisici documentati."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "E7 Aktivität"@de ,
+                        "E7 Activity"@en ,
+                        "E7 Activité"@fr ,
+                        "E7 Attività"@it ;
+
+            rdfs:subClassOf :E5_Event , ecrm:E7_Activity ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :P14_carriedOutBy ;
+                              owl:someValuesFrom :E39_Actor ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :P14_carriedOutByValue ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] .
+
+
+    ### ###########################################
+    ### webern:E21_Person
+
+    :E21_Person rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E21_Person ;
+
+            rdfs:comment    """Diese Klasse umfasst reale Personen, die leben oder von denen angenommen wird, dass sie gelebt haben."""@de ,
+                            """This class comprises real persons who live or are assumed to have lived."""@en ,
+                            """Cette classe comprend les personnes réelles qui vivent ou sont présumées avoir vécu."""@fr ,
+                            """Questa classe comprende le persone reali che vivono o si suppone che abbiano vissuto."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "E21 Person"@de ,
+                        "E21 Person"@en ,
+                        "E21 Personne"@fr ,
+                        "E21 Persona"@it ;
+
+            rdfs:subClassOf :E39_Actor , ecrm:E21_Person .      # TODO: E20 Biological Object
+
 
     ### ###########################################
     ### webern:E28_ConceptualObject
@@ -1038,6 +1402,30 @@
 
 
     ### ###########################################
+    ### webern:E39_Actor
+
+    :E39_Actor rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E39_Actor ;
+
+            rdfs:comment    """Diese Klasse umfasst Personen, entweder einzeln oder in Gruppen, die das Potenzial haben, absichtliche Handlungen durchzuführen, für die jemand verantwortlich gemacht werden kann."""@de ,
+                            """This class comprises people, either individually or in groups, who have the potential to perform intentional actions of kinds for which someone may be held responsible."""@en ,
+                            """Cette classe comprend les personnes, individuellement ou en groupe, qui ont le potentiel d'accomplir des actions intentionnelles dont quelqu'un peut être tenu responsable."""@fr ,
+                            """Questa classe comprende persone, sia individualmente che in gruppo, che hanno il potenziale per compiere azioni intenzionali di tipo di cui qualcuno può essere ritenuto responsabile."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "E39 Akteur"@de ,
+                        "E39 Actor"@en ,
+                        "E39 Acteur"@fr ,
+                        "E39 Attore"@it ;
+
+            rdfs:subClassOf :E77_PersistentItem , ecrm:E39_Actor .
+
+
+    ### ###########################################
     ### webern:E41_Appellation
 
     :E41_Appellation rdf:type owl:Class ;
@@ -1062,6 +1450,78 @@
 
 
     ### ###########################################
+    ### webern:E52_TimeSpan
+
+    :E52_TimeSpan rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E52_Time-Span ;
+
+            rdfs:comment    """Diese Klasse umfasst abstrakte zeitliche Ausdehnungen im Sinne der galiläischen Physik, die einen Anfang, ein Ende und eine Dauer haben."""@de ,
+                            """This class comprises abstract temporal extents, in the sense of Galilean physics, having a beginning, an end and a duration."""@en ,
+                            """Cette classe comprend des étendues temporelles abstraites, au sens de la physique galiléenne, ayant un début, une fin et une durée."""@fr ,
+                            """Questa classe comprende le estensioni temporali astratte, nel senso della fisica galileiana, che hanno un inizio, una fine e una durata."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "E52 Zeitspanne"@de ,
+                        "E52 Time-Span"@en ,
+                        "E52 Période de temps"@fr ,
+                        "E52 Periodo di tempo"@it ;
+
+            rdfs:subClassOf :E1_Entity , ecrm:E52_Time-Span .
+
+
+    ### ###########################################
+    ### webern:E53_Place
+
+    :E53_Place rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E53_Place-Span ;
+
+            rdfs:comment    """Diese Klasse umfasst Ausdehnungen im Raum, insbesondere auf der Erdoberfläche, im reinen Sinne der Physik: unabhängig von zeitlichen Phänomenen und Materie."""@de ,
+                            """This class comprises extents in space, in particular on the surface of the earth, in the pure sense of physics: independent from temporal phenomena and matter."""@en ,
+                            """Cette classe comprend des étendues dans l'espace, en particulier à la surface de la terre, au sens pur de la physique : indépendant des phénomènes temporels et de la matière."""@fr ,
+                            """Questa classe comprende le estensioni nello spazio, in particolare sulla superficie della terra, nel puro senso della fisica: indipendenti dai fenomeni temporali e dalla materia."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "E53 Ort"@de ,
+                        "E53 Place"@en ,
+                        "E53 Lieu"@fr ,
+                        "E53 Posto"@it ;
+
+            rdfs:subClassOf :E1_Entity , ecrm:E53_Place .
+
+
+    ### ###########################################
+    ### webern:E70_Thing
+
+    :E70_Thing rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E70_Thing ;
+
+            rdfs:comment    """DDiese allgemeine Klasse umfasst diskrete, identifizierbare Instanzen von E77 Persistent Item, die als einzelne Einheiten dokumentiert sind, die entweder aus Materie bestehen oder von der Materie getragen werden und sich durch relative Stabilität auszeichnen."""@de ,
+                            """This general class comprises discrete, identifiable, instances of E77 Persistent Item that are documented as single units, that either consist of matter or depend on being carried by matter and are characterized by relative stability."""@en ,
+                            """Cette classe générale comprend les instances discrètes et identifiables de l'article persistant E77 qui sont documentées en tant qu'unités individuelles, qui consistent en matière ou dépendent d'être transportées par la matière et qui sont caractérisées par une stabilité relative."""@fr ,
+                            """Questa classe generale comprende casi distinti, identificabili, di Elementi Persistenti E77 che sono documentati come unità singole, che consistono di materia o dipendono dal fatto di essere trasportati dalla materia e sono caratterizzati da stabilità relativa."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "E70 Sache"@de ,
+                        "E70 Thing"@en ,
+                        "E70 Chose"@fr ,
+                        "E70 Cose"@it ;
+
+            rdfs:subClassOf :E77_PersistentItem, ecrm:E70_Thing .
+
+
+    ### ###########################################
     ### webern:E71_ManMadeThing
 
     :E71_ManMadeThing rdf:type owl:Class ;
@@ -1077,12 +1537,12 @@
 
             rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
 
-            rdfs:label  "E1 Menschengemachte Sache"@de ,
+            rdfs:label  "E71 Menschengemachte Sache"@de ,
                         "E71 Man-Made Thing"@en ,
                         "E71 Chose faite par l'homme"@fr ,
                         "E71 Cose da fare per l'uomo"@it ;
 
-            rdfs:subClassOf :E1_Entity, ecrm:E71_Man-Made_Thing ,           # TODO: eigentlich E70 Thing -> E77 Persistent Item
+            rdfs:subClassOf :E70_Thing , ecrm:E71_Man-Made_Thing ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :P102_hasTitle ;
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1112,6 +1572,30 @@
                         "E73 Oggetto d'informazione"@it ;
 
             rdfs:subClassOf :E89_PropositionalObject , ecrm:E73_Information_Object .
+
+
+    ### ###########################################
+    ### webern:E77_PersistentItem
+
+    :E77_PersistentItem rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E77_Persistent_Item ;
+
+            rdfs:comment    """Diese Klasse umfasst Gegenstände, die eine dauerhafte Identität haben, in der Philosophie manchmal als 'Beständigkeit' bezeichnet."""@de ,
+                            """TThis class comprises items that have a persistent identity, sometimes known as 'endurants' in philosophy."""@en ,
+                            """Cette classe comprend les objets qui ont une identité persistante, parfois appelés 'endurannts' en philosophie."""@fr ,
+                            """Questa classe comprende oggetti che hanno un'identità persistente, a volte noti come 'enduranti' in filosofia."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "E77 Persistentes Element"@de ,
+                        "E77 Persistent Item"@en ,
+                        "E77 Élément persistant"@fr ,
+                        "E77 Elemento persistente"@it ;
+
+            rdfs:subClassOf :E1_Entity , ecrm:E77_Persistent_Item .     # TODO: disjointWith E2_TemporalEntity
 
 
     ### ###########################################
@@ -1160,6 +1644,30 @@
                         "E90 Oggetto simbolico"@it ;
 
             rdfs:subClassOf :E28_ConceptualObject , ecrm:E90_Symbolic_Object .
+
+
+    ### ###########################################
+    ### webern:E92_SpacetimeVolume
+
+    :E92_SpacetimeVolume rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E92_Spacetime_Volume ;
+
+            rdfs:comment    """Diese Klasse umfasst 4 dimensionale Punktmengen (Volumen) in physikalischer Raumzeit, unabhängig von ihrer wahren geometrischen Form."""@de ,
+                            """This class comprises 4 dimensional point sets (volumes) in physical spacetime regardless its true geometric form."""@en ,
+                            """Cette classe comprend 4 ensembles de points dimensionnels (volumes) dans l'espace-temps physique, quelle que soit sa forme géométrique réelle."""@fr ,
+                            """Questa classe comprende 4 insiemi di punti dimensionali (volumi) nello spazio-tempo fisico, indipendentemente dalla sua forma geometrica reale."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern> ;
+
+            rdfs:label  "E92 Raumzeit-Volumen"@de ,
+                        "E92 Spacetime Volume"@en ,
+                        "E92 Volume spatio-temporel"@fr ,
+                        "E92 Volume spazio-temporale"@it ;
+
+            rdfs:subClassOf :E1_Entity , ecrm:E92_Spacetime_Volume .
 
 
     ### ###########################################
@@ -1246,12 +1754,12 @@
                               owl:onProperty :U4_hadPrincepsPublication ;
                               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                            ],
+                            ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :U4_hadPrincepsPublicationValue ;
                               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                            ],
+                            ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :P148_hasComponent ;
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1339,22 +1847,22 @@
                               owl:onProperty :U17_hasOpusStatement ;
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
-                            ],
+                            ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :U17_hasOpusStatementValue ;
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
-                            ],
+                            ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :U16_hasCatalogueStatement ;
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
-                            ],
+                            ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :U16_hasCatalogueStatementValue ;
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
-                            ],
+                            ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :U12_hasGenre ;
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1408,7 +1916,7 @@
                               owl:onProperty :R19_createdARealisationOf ;
                               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                            ],
+                            ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :R19_createdARealisationOfValue ;
                               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
