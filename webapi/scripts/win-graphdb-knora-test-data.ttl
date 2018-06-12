@@ -19,8 +19,8 @@ load ../_test_data/all_data/system-data.ttl into http://www.knora.org/data/FFFF/
 # load ../_test_data/all_data/beol-data.ttl into http://www.knora.org/data/0801/beol .
 # load ../_test_data/ontologies/biblio-onto.ttl into http://www.knora.org/ontology/0802/biblio .
 # load ../_test_data/all_data/biblio-data.ttl into http://www.knora.org/data/biblio .
-load ../_test_data/ontologies/webern-onto_persons.ttl into http://www.knora.org/ontology/08AE/webern .
-load ../_test_data/ontologies/webern-onto_works.ttl into http://www.knora.org/ontology/08AE/webern .
+load ../_test_data/ontologies/webern-onto_persons.ttl into http://www.knora.org/ontology/08AE/webern-person .
+load ../_test_data/ontologies/webern-onto_works.ttl into http://www.knora.org/ontology/08AE/webern-works .
 load ../_test_data/all_data/webern-data.ttl into http://www.knora.org/data/08AE/webern .
 close .
 exit .

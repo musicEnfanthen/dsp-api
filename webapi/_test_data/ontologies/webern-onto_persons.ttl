@@ -1,79 +1,110 @@
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix kb: <http://www.knora.org/ontology/knora-base#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cc:             <http://creativecommons.org/ns#> .
+@prefix dcterms:        <http://purl.org/dc/terms/> .
+@prefix doremus:        <http://data.doremus.org/ontology#> .
+@prefix ecrm:           <http://erlangen-crm.org/current/> .
+@prefix efrbroo:        <http://erlangen-crm.org/erfrbroo/> .
+@prefix foaf:           <http://xmlns.com/foaf/0.1/> .
+@prefix kb:             <http://www.knora.org/ontology/knora-base#> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#> .
+@prefix prov:           <http://www.w3.org/ns/prov#> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix salsah-gui:     <http://www.knora.org/ontology/salsah-gui#> .
+@prefix schema:         <http://schema.org/> .
+@prefix xml:            <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann:           <http://purl.org/vocab/vann/> .
+@prefix webern-works:   <http://www.knora.org/ontology/08AE/webern-works#> .
 
-@prefix : <http://www.knora.org/ontology/08AE/webern#> .
-@base <http://www.knora.org/ontology/08AE/webern> .
+@prefix webern-person:  <http://www.knora.org/ontology/08AE/webern-person#> .
+@base                   <http://www.knora.org/ontology/08AE/webern-person> .
 
 
-<http://www.knora.org/ontology/08AE/webern> rdf:type owl:Ontology ;
-    rdfs:label "The Anton Webern persons ontology" ;
-    kb:attachedToProject <http://rdfh.ch/projects/08AE> .
+##########################################################
+#
+# AWG PERSON ONTOLOGY
+#
+##########################################################
 
-    ##########################################################
-    #
-    # PROPERTIES
-    #
-    ##########################################################
+    <http://www.knora.org/ontology/08AE/webern-person> rdf:type owl:Ontology ;
+            cc:license  <http://creativecommons.org/licenses/by/4.0/> ;
+            dcterms:created "2018-05-22T12:00:00Z"^^xsd:dateTimeStamp ;
+            dcterms:creator [foaf:name "Stefan Münnich"; foaf:mbox <mailto:stefan.muennich@unibas.ch> ; schema:affiliation [foaf:homepage <http://www.anton-webern.ch>; foaf:name "Anton Webern Gesamtausgabe, Musikwissenschaftliches Seminar, Universität Basel" ; foaf:mbox <mailto:info-awg@unibas.ch>]] ;
+            dcterms:description """Formal description of works for the AWG project ontology, general subclasses, related classes and properties."""@en ;
+            # dcterms:issued ""^^xsd:dateTimeStamp ;   # TODO: to be issued
+            dcterms:modified "2018-06-07T12:00:00Z"^^xsd:dateTimeStamp ;
+            dcterms:publisher <http://rdfh.ch/projects/08AE> ;
+            dcterms:title "The AWG project ontology" ;
+            kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+            owl:versionInfo "0.0.1" ;
+            prov:wasDerivedFrom <http://data.doremus.org/ontology#> ,
+                                <http://erlangen-crm.org/current/> ,
+                                <http://erlangen-crm.org/erfrbroo/> ;
+            rdfs:label "The AWG project ontology" ;
+            vann:preferredNamespaceUri "http://www.knora.org/ontology/08AE/webern-person#" ;
+            vann:preferredNamespacePrefix "webern-person" .
+
+##########################################################
+#
+# PROPERTIES
+#
+##########################################################
 
 
     ### ###########################################
     ### webern:hasFamilyName
 
-    :hasFamilyName rdf:type owl:ObjectProperty ;
+    webern-person:hasFamilyName rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :Person ;
+            kb:subjectClassConstraint webern-person:E21_Person ;
 
-              kb:objectClassConstraint kb:TextValue ;
+            kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf kb:hasValue ;
+            rdfs:subPropertyOf kb:hasValue ;
 
-              rdfs:label "Nachname"@de ,
-                         "family name"@en ,
-                         "nom de famille"@fr ,
-                         "nome di famiglia"@it ;
+            rdfs:label  "Nachname"@de ,
+                        "family name"@en ,
+                        "nom de famille"@fr ,
+                        "nome di famiglia"@it ;
 
-              rdfs:comment """Repräsentiert den Nachnamen einer Person."""@de ,
-                           """Represents the family name of a person."""@en ,
-                           """Représente le nom de famille d'une personne."""@fr ,
-                           """Rappresenta il nome di famiglia di una persona."""@it ;
+            rdfs:comment    """Repräsentiert den Nachnamen einer Person."""@de ,
+                            """Represents the family name of a person."""@en ,
+                            """Représente le nom de famille d'une personne."""@fr ,
+                            """Rappresenta il nome di famiglia di una persona."""@it ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            salsah-gui:guiElement salsah-gui:SimpleText .
+
 
     ### ###########################################
     ### webern:hasGivenName
 
-    :hasGivenName rdf:type owl:ObjectProperty ;
+    webern-person:hasGivenName rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :Person ;
+            kb:subjectClassConstraint webern-person:E21_Person ;
 
-              kb:objectClassConstraint kb:TextValue ;
+            kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf kb:hasValue ;
+            rdfs:subPropertyOf kb:hasValue ;
 
-              rdfs:label "Vorname"@de ,
+            rdfs:label "Vorname"@de ,
                          "given name"@en ,
                          "prénom"@fr ,
                          "nome di battesimo"@it ;
 
-              rdfs:comment """Repräsentiert den Vornamen einer Person."""@de ,
+            rdfs:comment """Repräsentiert den Vornamen einer Person."""@de ,
                            """Represents the given name of a person."""@en ,
                            """Représente le prénom d'une personne."""@fr ,
                            """Rappresenta il nome di battesimo di una persona."""@it ;
 
-              salsah-gui:guiElement salsah-gui:SimpleText .
+            salsah-gui:guiElement salsah-gui:SimpleText .
+
 
     ### ###########################################
     ### webern:hasAlternativeName
 
-    :hasAlternativeName rdf:type owl:ObjectProperty ;
+    webern-person:hasAlternativeName rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint webern-person:E21_Person ;
 
               kb:objectClassConstraint kb:TextValue ;
 
@@ -91,12 +122,13 @@
 
               salsah-gui:guiElement salsah-gui:Richtext .
 
+
     ### ###########################################
     ### webern:hasIAFIdentifier
 
-    :hasIAFIdentifier rdf:type owl:ObjectProperty ;
+    webern-person:hasIAFIdentifier rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint webern-person:E21_Person ;
 
               kb:objectClassConstraint kb:TextValue ;
 
@@ -114,12 +146,13 @@
 
               salsah-gui:guiElement salsah-gui:SimpleText .
 
+
     ### ###########################################
     ### webern:hasBirthPlace
 
-    :hasBirthPlace rdf:type owl:ObjectProperty ;
+    webern-person:hasBirthPlace rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint webern-person:E21_Person ;
 
               kb:objectClassConstraint kb:TextValue ;
 
@@ -137,12 +170,13 @@
 
               salsah-gui:guiElement salsah-gui:SimpleText .
 
+
     ### ###########################################
     ### webern:hasBirthDate
 
-    :hasBirthDate rdf:type owl:ObjectProperty ;
+    webern-person:hasBirthDate rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint webern-person:E21_Person ;
 
               kb:objectClassConstraint kb:DateValue ;
 
@@ -160,12 +194,13 @@
 
               salsah-gui:guiElement salsah-gui:Date .
 
+
     ### ###########################################
     ### webern:hasDeathDate
 
-    :hasDeathDate rdf:type owl:ObjectProperty ;
+    webern-person:hasDeathDate rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint webern-person:E21_Person ;
 
               kb:objectClassConstraint kb:DateValue ;
 
@@ -183,12 +218,13 @@
 
               salsah-gui:guiElement salsah-gui:Date .
 
+
     ### ###########################################
     ### webern:hasDeathPlace
 
-    :hasDeathPlace rdf:type owl:ObjectProperty ;
+    webern-person:hasDeathPlace rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint webern-person:E21_Person ;
 
               kb:objectClassConstraint kb:TextValue ;
 
@@ -206,12 +242,13 @@
 
               salsah-gui:guiElement salsah-gui:SimpleText .
 
+
     ### ###########################################
     ### webern:hasBiography
 
-    :hasBiography rdf:type owl:ObjectProperty ;
+    webern-person:hasBiography rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint webern-person:E21_Person ;
 
               kb:objectClassConstraint kb:TextValue ;
 
@@ -229,12 +266,13 @@
 
               salsah-gui:guiElement salsah-gui:Richtext .
 
+
     ### ###########################################
     ### webern:hasBiographySource
 
-    :hasBiographySource rdf:type owl:ObjectProperty ;
+    webern-person:hasBiographySource rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint webern-person:E21_Person ;
 
               kb:objectClassConstraint kb:TextValue ;
 
@@ -252,12 +290,13 @@
 
               salsah-gui:guiElement salsah-gui:Richtext .
 
+
     ### ###########################################
     ### webern:hasRelation
 
-    :hasRelation rdf:type owl:ObjectProperty ;
+    webern-person:hasRelation rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint :Person ;
+              kb:subjectClassConstraint webern-person:E21_Person ;
 
               kb:objectClassConstraint kb:TextValue ;
 
@@ -275,110 +314,118 @@
 
               salsah-gui:guiElement salsah-gui:Richtext .
 
+
     ### ###########################################
     ### webern:comment
 
-    :comment rdf:type owl:ObjectProperty ;
+    webern-person:comment rdf:type owl:ObjectProperty ;
 
-              kb:subjectClassConstraint kb:Resource ;
+            kb:subjectClassConstraint webern-person:E21_Person ;
 
-              kb:objectClassConstraint kb:TextValue ;
+            kb:objectClassConstraint kb:TextValue ;
 
-              rdfs:subPropertyOf kb:hasComment ;
+            rdfs:subPropertyOf kb:hasComment ;
 
-              rdfs:label "Kommentar"@de ,
+            rdfs:label "Kommentar"@de ,
                          "Comment"@en ,
                          "Commentaire"@fr ,
                          "Commento"@it ;
 
-              rdfs:comment """Repräsentiert einen Kommentar zur Ressource."""@de ,
+            rdfs:comment """Repräsentiert einen Kommentar zur Ressource."""@de ,
                            """Represents a comment on the resource."""@en ,
                            """Représente un commentaire sur la ressource."""@fr ,
                            """Rappresenta un commento sulla risorsa."""@it ;
 
-              salsah-gui:guiElement salsah-gui:Richtext .
+            salsah-gui:guiElement salsah-gui:Richtext .
 
 
-    ##########################################################
-    #
-    # RESOURCES
-    #
-    ##########################################################
 
 
+##########################################################
+#
+# RESOURCES
+#
+##########################################################
 
     ### ###########################################
     ### webern:Person
 
-    :Person rdf:type owl:Class ;
+    webern-person:E21_Person rdf:type owl:Class ;
 
-        rdfs:subClassOf kb:Resource, foaf:Person ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasFamilyName ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasGivenName ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasAlternativeName ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasIAFIdentifier ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasBirthPlace ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasBirthDate ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasDeathDate ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasDeathPlace ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasBiography ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasBiographySource ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasRelation ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
-                        ],
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :comment ;
-                          owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-                          salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
-                        ] ;
+            kb:resourceIcon "default.png" ;
 
-        kb:resourceIcon "person.png" ;
+            prov:wasDerivedFrom ecrm:E21_Person ;
 
-        rdfs:label "Person"@de ,
-                   "Person"@en ,
-                   "Personne"@fr ,
-                   "Persona"@it ;
+            rdfs:comment    """Diese Klasse umfasst reale Personen, die leben oder von denen angenommen wird, dass sie gelebt haben."""@de ,
+                            """This class comprises real persons who live or are assumed to have lived."""@en ,
+                            """Cette classe comprend les personnes réelles qui vivent ou sont présumées avoir vécu."""@fr ,
+                            """Questa classe comprende le persone reali che vivono o si suppone che abbiano vissuto."""@it ;
 
-        rdfs:comment "A resource representing a person"@en .
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-person> ;
+
+            rdfs:label  "E21 Person"@de ,
+                        "E21 Person"@en ,
+                        "E21 Personne"@fr ,
+                        "E21 Persona"@it ;
+
+            rdfs:subClassOf kb:Resource ,  ecrm:E21_Person ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-person:hasFamilyName ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-person:hasGivenName ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-person:hasAlternativeName ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-person:hasIAFIdentifier ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-person:hasBirthPlace ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-person:hasBirthDate ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-person:hasDeathDate ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-person:hasDeathPlace ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-person:hasBiography ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-person:hasBiographySource ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-person:hasRelation ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-person:comment ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
+                            ] .
