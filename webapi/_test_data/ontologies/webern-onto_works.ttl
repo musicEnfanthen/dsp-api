@@ -14,6 +14,7 @@
 @prefix xml:            <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
 @prefix vann:           <http://purl.org/vocab/vann/> .
+@prefix webern-person:  <http://www.knora.org/ontology/08AE/webern-person#> .
 
 @prefix webern-works:   <http://www.knora.org/ontology/08AE/webern-works#> .
 @base                   <http://www.knora.org/ontology/08AE/webern-works> .
@@ -240,7 +241,7 @@
 
             kb:subjectClassConstraint webern-works:E7_Activity ;
 
-            kb:objectClassConstraint webern-works:E39_Actor ;
+            kb:objectClassConstraint webern-person:E39_Actor ;
 
             prov:wasDerivedFrom ecrm:P14_carried_out_by ;
 
@@ -777,7 +778,7 @@
 
 
     ### ###########################################
-    ### webern-works:U12_hasGenre
+    ### webern-works:U13_hasCasting
 
     webern-works:U13_hasCasting rdf:type owl:ObjectProperty ;
 
@@ -1385,27 +1386,11 @@
 
 
     ### ###########################################
-    ### webern-works:E39_Actor
-
-    webern-works:E39_Actor rdf:type owl:Class ;
-
-            kb:resourceIcon "default.png" ;
-
-            prov:wasDerivedFrom ecrm:E39_Actor ;
-
-            rdfs:comment    """Diese Klasse umfasst Personen, entweder einzeln oder in Gruppen, die das Potenzial haben, absichtliche Handlungen durchzuführen, für die jemand verantwortlich gemacht werden kann."""@de ,
-                            """This class comprises people, either individually or in groups, who have the potential to perform intentional actions of kinds for which someone may be held responsible."""@en ,
-                            """Cette classe comprend les personnes, individuellement ou en groupe, qui ont le potentiel d'accomplir des actions intentionnelles dont quelqu'un peut être tenu responsable."""@fr ,
-                            """Questa classe comprende persone, sia individualmente che in gruppo, che hanno il potenziale per compiere azioni intenzionali di tipo di cui qualcuno può essere ritenuto responsabile."""@it ;
-
-            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
-
-            rdfs:label  "E39 Akteur"@de ,
-                        "E39 Actor"@en ,
-                        "E39 Acteur"@fr ,
-                        "E39 Attore"@it ;
-
-            rdfs:subClassOf webern-works:E77_PersistentItem , ecrm:E39_Actor .
+    ### :E39_Actor
+    ###
+    ### see webern-person
+    ###
+    ### ###########################################
 
 
     ### ###########################################

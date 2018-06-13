@@ -348,6 +348,30 @@
 ##########################################################
 
     ### ###########################################
+    ### webern-person:E39_Actor
+
+    webern-person:E39_Actor rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E39_Actor ;
+
+            rdfs:comment    """Diese Klasse umfasst Personen, entweder einzeln oder in Gruppen, die das Potenzial haben, absichtliche Handlungen durchzuführen, für die jemand verantwortlich gemacht werden kann."""@de ,
+                            """This class comprises people, either individually or in groups, who have the potential to perform intentional actions of kinds for which someone may be held responsible."""@en ,
+                            """Cette classe comprend les personnes, individuellement ou en groupe, qui ont le potentiel d'accomplir des actions intentionnelles dont quelqu'un peut être tenu responsable."""@fr ,
+                            """Questa classe comprende persone, sia individualmente che in gruppo, che hanno il potenziale per compiere azioni intenzionali di tipo di cui qualcuno può essere ritenuto responsabile."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-person> ;
+
+            rdfs:label  "E39 Akteur"@de ,
+                        "E39 Actor"@en ,
+                        "E39 Acteur"@fr ,
+                        "E39 Attore"@it ;
+
+            rdfs:subClassOf webern-works:E77_PersistentItem , ecrm:E39_Actor .
+
+
+    ### ###########################################
     ### webern:Person
 
     webern-person:E21_Person rdf:type owl:Class ;
@@ -368,7 +392,7 @@
                         "E21 Personne"@fr ,
                         "E21 Persona"@it ;
 
-            rdfs:subClassOf kb:Resource ,  ecrm:E21_Person ,
+            rdfs:subClassOf webern-person:E39_Actor ,  ecrm:E21_Person ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty webern-person:hasFamilyName ;
                               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
