@@ -784,7 +784,7 @@
 
             kb:subjectClassConstraint webern-works:F22_SelfContainedExpression ;
 
-            kb:objectClassConstraint kb:TextValue ;       # TODO: eigentlich Link auf M6_Casting
+            kb:objectClassConstraint webern-works:M6_Casting ;
 
             prov:wasDerivedFrom doremus:U13_has_casting ;
 
@@ -800,9 +800,32 @@
                         "U13 a le casting"@fr ,
                         "U13 ha cast"@it ;
 
-            rdfs:subPropertyOf kb:hasValue, doremus:U13_has_casting ;
+            rdfs:subPropertyOf kb:hasLinkTo, doremus:U13_has_casting ;
 
             salsah-gui:guiElement salsah-gui:SimpleText .
+
+
+    webern-works:U13_hasCastingValue rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint webern-works:F22_SelfContainedExpression ;
+
+            kb:objectClassConstraint kb:LinkValue ;
+
+            prov:wasDerivedFrom doremus:U13_has_casting ;
+
+            rdfs:comment    """Diese Property beschreibt das M6 Casting, das auf eine Instanz von F22 Self-Contained Expression angewendet wird."""@de ,
+                            """This property describes the M6 Casting applied to an instance of F22 Self-Contained Expression."""@en ,
+                            """Cette propriété décrit le M6 Casting appliquée à une instance de F22 Self-Contained Expression."""@fr ,
+                            """Questa proprietà descrive il M6 Casting applicato ad un'istanza di F22 Self-Contained Expression."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "U13 hat Besetzung (value)"@de ,
+                        "U13 has casting (value)"@en ,
+                        "U13 a le casting (value)"@fr ,
+                        "U13 ha cast (value)"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkToValue .
 
 
     ### ###########################################
@@ -1466,6 +1489,29 @@
 
 
     ### ###########################################
+    ### webern-works:E55_Type
+
+    webern-works:E55_Type rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E55_Type ;
+
+            rdfs:comment    """Diese Klasse umfasst Konzepte, die mit Begriffen aus Thesauri und kontrollierten Vokabularen zur Charakterisierung und Klassifizierung von Instanzen von CRM-Klassen bezeichnet werden."""@de ,
+                            """This class comprises concepts denoted by terms from thesauri and controlled vocabularies used to characterize and classify instances of CRM classes."""@en ,
+                            """Cette classe comprend des concepts dénotés par des termes de thésaurus et des vocabulaires contrôlés utilisés pour caractériser et classer les instances des classes CRM."""@fr ,
+                            """Questa classe comprende concetti denotati da termini dei thesauri e vocabolari controllati usati per caratterizzare e classificare le istanze delle classi CRM."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "E55 Typ"@de ,
+                        "E55 Type"@en ,
+                        "E55 Type"@fr ,
+                        "E55 Tipo"@it ;
+
+            rdfs:subClassOf webern-works:E28_ConceptualObject , ecrm:E55_Type .
+
+    ### ###########################################
     ### webern-works:E70_Thing
 
     webern-works:E70_Thing rdf:type owl:Class ;
@@ -1842,6 +1888,11 @@
                               salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
                             ] ,
                             [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-works:U13_hasCastingValue ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
                               owl:onProperty webern-works:U11_hasKey ;
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
@@ -1923,7 +1974,7 @@
 
             kb:resourceIcon "default.png" ;
 
-            prov:wasDerivedFrom doremus:M1_Catalolgue_Statement ;
+            prov:wasDerivedFrom doremus:M1_Catalogue_Statement ;
 
             rdfs:comment    """Diese Klasse umfasst die Aussagen zu einem M1 Katalog Statement."""@de ,
                             """This class comprises statements for an M1 Catalogue Statement."""@en ,
@@ -1937,7 +1988,7 @@
                         "M1 Mention de catalogue"@fr ,
                         "M1 Menzione di catalogo"@it ;
 
-            rdfs:subClassOf webern-works:E41_Appellation , doremus:M1_Catalolgue_Statement ,
+            rdfs:subClassOf webern-works:E41_Appellation , doremus:M1_Catalogue_Statement ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty webern-works:U40_hasCatalogueName ;
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
@@ -2046,7 +2097,7 @@
                         "M14 Médium de performance"@fr ,
                         "M14 Mezzo di performance"@it ;
 
-            rdfs:subClassOf kb:Resource , doremus:M14_Medium_Of_Performance .      #TODO: subClassOf E55_Type
+            rdfs:subClassOf webern-works:E55_Type , doremus:M14_Medium_Of_Performance .
 
 
     ### ###########################################
