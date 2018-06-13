@@ -21,7 +21,12 @@
 	### webern-person:testperson1
 
 	<http://rdfh.ch/08AE/testperson1> a webern-person:E21_Person ;
-			webern-person:comment <http://rdfh.ch/08AE/testperson1/values/comment> ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label "Anton Webern (Testperson1)" ;
 			webern-person:hasAlternativeName <http://rdfh.ch/08AE/testperson1/values/hasAlternativeName> ;
 			webern-person:hasBiography <http://rdfh.ch/08AE/testperson1/values/hasBiography> ;
 			webern-person:hasBiographySource <http://rdfh.ch/08AE/testperson1/values/hasBiographySource> ;
@@ -31,14 +36,8 @@
 			webern-person:hasDeathPlace <http://rdfh.ch/08AE/testperson1/values/hasDeathPlace> ;
 			webern-person:hasFamilyName <http://rdfh.ch/08AE/testperson1/values/hasFamilyName> ;
 			webern-person:hasGivenName <http://rdfh.ch/08AE/testperson1/values/hasGivenName> ;
-			webern-person:hasIAFIdentifier <http://rdfh.ch/08AE/testperson1/values/hasIAFIdentifier> ;
-			webern-person:hasRelation <http://rdfh.ch/08AE/testperson1/values/hasRelation> ;
-			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
-			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-			kb:creationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
-			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
-			kb:isDeleted "false"^^xsd:boolean ;
-			rdfs:label "Test person for Webern" .
+			webern-person:hasIAFIdentifier <http://rdfh.ch/08AE/testperson1/values/hasIAFIdentifier> .
+
 
 			<http://rdfh.ch/08AE/testperson1/values/hasFamilyName> a kb:TextValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -46,7 +45,7 @@
 					kb:isDeleted "false"^^xsd:boolean ;
 					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 					kb:valueHasOrder "0"^^xsd:integer ;
-					kb:valueHasString "Polnauer" .
+					kb:valueHasString "Webern" .
 
 			<http://rdfh.ch/08AE/testperson1/values/hasGivenName> a kb:TextValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -54,7 +53,7 @@
 					kb:isDeleted "false"^^xsd:boolean ;
 					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 					kb:valueHasOrder "0"^^xsd:integer ;
-					kb:valueHasString "Josef" .
+					kb:valueHasString "Anton" .
 
 			<http://rdfh.ch/08AE/testperson1/values/hasAlternativeName> a kb:TextValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -62,7 +61,7 @@
 					kb:isDeleted "false"^^xsd:boolean ;
 					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 					kb:valueHasOrder "0"^^xsd:integer ;
-					kb:valueHasString "Josef Maximilian Polnauer" .
+					kb:valueHasString "Anton Friedrich Wilhelm von Webern" .
 
 			<http://rdfh.ch/08AE/testperson1/values/hasIAFIdentifier> a kb:TextValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -70,7 +69,7 @@
 					kb:isDeleted "false"^^xsd:boolean ;
 					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 					kb:valueHasOrder "0"^^xsd:integer ;
-					kb:valueHasString "1017673659" .
+					kb:valueHasString "118629786" .
 
 			<http://rdfh.ch/08AE/testperson1/values/hasBirthDate> a kb:DateValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -78,12 +77,12 @@
 					kb:isDeleted "false"^^xsd:boolean ;
 					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 					kb:valueHasOrder "0"^^xsd:integer ;
-					kb:valueHasString "2011-10-24" ;
+					kb:valueHasString "1883-12-03" ;
 					kb:valueHasCalendar "GREGORIAN" ;
-				    kb:valueHasStartJDN 2455859 ;
-				    kb:valueHasStartPrecision "DAY" ;
-				    kb:valueHasEndJDN 2455859 ;
-				    kb:valueHasEndPrecision "DAY" .
+					kb:valueHasStartJDN 2409148 ;
+					kb:valueHasStartPrecision "DAY" ;
+					kb:valueHasEndJDN 2409148 ;
+					kb:valueHasEndPrecision "DAY" .
 
 			<http://rdfh.ch/08AE/testperson1/values/hasDeathDate> a kb:DateValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -91,12 +90,12 @@
 					kb:isDeleted "false"^^xsd:boolean ;
 					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 					kb:valueHasOrder "0"^^xsd:integer ;
-					kb:valueHasString "2011-10-24" ;
+					kb:valueHasString "1945-09-15" ;
 					kb:valueHasCalendar "GREGORIAN" ;
-				    kb:valueHasStartJDN 2455859 ;
-				    kb:valueHasStartPrecision "DAY" ;
-				    kb:valueHasEndJDN 2455859 ;
-				    kb:valueHasEndPrecision "DAY" .
+					kb:valueHasStartJDN 2431714 ;
+					kb:valueHasStartPrecision "DAY" ;
+					kb:valueHasEndJDN 2431714 ;
+					kb:valueHasEndPrecision "DAY" .
 
 			<http://rdfh.ch/08AE/testperson1/values/hasBirthPlace> a kb:TextValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -120,7 +119,7 @@
 					kb:isDeleted "false"^^xsd:boolean ;
 					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 					kb:valueHasOrder "0"^^xsd:integer ;
-					kb:valueHasString "Musikstudien bei Arnold Schönberg (1909 bis 1911), Alban Berg (1911 bis 1913). Studien bei Guido Adler (1927 Promotion in Innsbruck). Beamter (bei den österreichischen Bundesbahnen, nach dem Zweiten Weltkrieg  beim Finanzministerium), Musikwissenschaftler, Bibliothekar, nach seiner Pensionierung auch Kompositionslehrer. Herausgeber des Briefwechsels Anton Webern und Hildegard Jone (stark gekürzt)." .
+					kb:valueHasString "---" .
 
 			<http://rdfh.ch/08AE/testperson1/values/hasBiographySource> a kb:TextValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -128,9 +127,125 @@
 					kb:isDeleted "false"^^xsd:boolean ;
 					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Hans Moldenhauer: Anton von Webern. Chroniks seines Lebens und Werkes. Zürich, Freiburg i. Br.: Atlantis, 1980." .
+
+
+	### ###########################################
+	### http://rdfh.ch/08AE/testperson2
+	### webern-person:testperson2
+
+	<http://rdfh.ch/08AE/testperson2> a webern-person:E21_Person ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label "Josef Polnauer (Testperson2)" ;
+			webern-person:comment <http://rdfh.ch/08AE/testperson2/values/comment> ;
+			webern-person:hasAlternativeName <http://rdfh.ch/08AE/testperson2/values/hasAlternativeName> ;
+			webern-person:hasBiography <http://rdfh.ch/08AE/testperson2/values/hasBiography> ;
+			webern-person:hasBiographySource <http://rdfh.ch/08AE/testperson2/values/hasBiographySource> ;
+			webern-person:hasBirthDate <http://rdfh.ch/08AE/testperson2/values/hasBirthDate> ;
+			webern-person:hasBirthPlace <http://rdfh.ch/08AE/testperson2/values/hasBirthPlace> ;
+			webern-person:hasDeathDate <http://rdfh.ch/08AE/testperson2/values/hasDeathDate> ;
+			webern-person:hasDeathPlace <http://rdfh.ch/08AE/testperson2/values/hasDeathPlace> ;
+			webern-person:hasFamilyName <http://rdfh.ch/08AE/testperson2/values/hasFamilyName> ;
+			webern-person:hasGivenName <http://rdfh.ch/08AE/testperson2/values/hasGivenName> ;
+			webern-person:hasIAFIdentifier <http://rdfh.ch/08AE/testperson2/values/hasIAFIdentifier> ;
+			webern-person:hasRelation <http://rdfh.ch/08AE/testperson2/values/hasRelation> .
+
+
+			<http://rdfh.ch/08AE/testperson2/values/hasFamilyName> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Polnauer" .
+
+			<http://rdfh.ch/08AE/testperson2/values/hasGivenName> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Josef" .
+
+			<http://rdfh.ch/08AE/testperson2/values/hasAlternativeName> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Josef Maximilian Polnauer" .
+
+			<http://rdfh.ch/08AE/testperson2/values/hasIAFIdentifier> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "1017673659" .
+
+			<http://rdfh.ch/08AE/testperson2/values/hasBirthDate> a kb:DateValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "1888-06-04" ;
+					kb:valueHasCalendar "GREGORIAN" ;
+				    kb:valueHasStartJDN 2410793 ;
+				    kb:valueHasStartPrecision "DAY" ;
+				    kb:valueHasEndJDN 2410793 ;
+				    kb:valueHasEndPrecision "DAY" .
+
+			<http://rdfh.ch/08AE/testperson2/values/hasDeathDate> a kb:DateValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "1969-10-5" ;
+					kb:valueHasCalendar "GREGORIAN" ;
+				    kb:valueHasStartJDN 2440500 ;
+				    kb:valueHasStartPrecision "DAY" ;
+				    kb:valueHasEndJDN 2440500 ;
+				    kb:valueHasEndPrecision "DAY" .
+
+			<http://rdfh.ch/08AE/testperson2/values/hasBirthPlace> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Wien" .
+
+			<http://rdfh.ch/08AE/testperson2/values/hasDeathPlace> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Wien" .
+
+			<http://rdfh.ch/08AE/testperson2/values/hasBiography> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Musikstudien bei Arnold Schönberg (1909 bis 1911), Alban Berg (1911 bis 1913). Studien bei Guido Adler (1927 Promotion in Innsbruck). Beamter (bei den österreichischen Bundesbahnen, nach dem Zweiten Weltkrieg  beim Finanzministerium), Musikwissenschaftler, Bibliothekar, nach seiner Pensionierung auch Kompositionslehrer. Herausgeber des Briefwechsels Anton Webern und Hildegard Jone (stark gekürzt)." .
+
+			<http://rdfh.ch/08AE/testperson2/values/hasBiographySource> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
 					kb:valueHasString "https://www.wien.gv.at/wiki/index.php/Josef_Polnauer" .
 
-			<http://rdfh.ch/08AE/testperson1/values/hasRelation> a kb:TextValue ;
+			<http://rdfh.ch/08AE/testperson2/values/hasRelation> a kb:TextValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 					kb:isDeleted "false"^^xsd:boolean ;
@@ -138,7 +253,7 @@
 					kb:valueHasOrder "0"^^xsd:integer ;
 					kb:valueHasString "Angehöriger des Schönberg-Kreises. Freund." .
 
-			<http://rdfh.ch/08AE/testperson1/values/comment> a kb:TextValue ;
+			<http://rdfh.ch/08AE/testperson2/values/comment> a kb:TextValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 					kb:isDeleted "false"^^xsd:boolean ;
