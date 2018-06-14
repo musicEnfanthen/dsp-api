@@ -40,7 +40,7 @@
             prov:wasDerivedFrom <http://data.doremus.org/ontology#> ,
                                 <http://erlangen-crm.org/current/> ,
                                 <http://erlangen-crm.org/erfrbroo/> ;
-            rdfs:label "The AWG project ontology" ;
+            rdfs:label "The AWG Works Ontology" ;
             vann:preferredNamespaceUri "http://www.knora.org/ontology/08AE/webern-works#" ;
             vann:preferredNamespacePrefix "webern-works" .
             ### TODO: in the future the ontology metadata go into a seperate Ontology Metadata Object (DCAT, VoID)

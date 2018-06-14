@@ -1105,7 +1105,9 @@
 			kb:isDeleted "false"^^xsd:boolean ;
 			rdfs:label "Casting Expression4" ;
 			webern-works:U23_hasCastingDetail <http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/1> ;
-			webern-works:U23_hasCastingDetailValue <http://rdfh.ch/08AE/expression/Expression4/casting/1/values/U23_hasCastingDetail/detail/1_L> .
+			webern-works:U23_hasCastingDetail <http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/2> ;
+			webern-works:U23_hasCastingDetailValue <http://rdfh.ch/08AE/expression/Expression4/casting/1/values/U23_hasCastingDetail/detail/1_L> ;
+			webern-works:U23_hasCastingDetailValue <http://rdfh.ch/08AE/expression/Expression4/casting/1/values/U23_hasCastingDetail/detail/2_L> .
 
 			<http://rdfh.ch/08AE/expression/Expression4/casting/1/values/U23_hasCastingDetail/detail/1_L> a kb:LinkValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -1118,6 +1120,18 @@
 					rdf:subject <http://rdfh.ch/08AE/expression/Expression4/casting/1> ;
 					rdf:predicate  webern-works:U23_hasCastingDetail ;
 					rdf:object <http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/1> .
+
+			<http://rdfh.ch/08AE/expression/Expression4/casting/1/values/U23_hasCastingDetail/detail/2_L> a kb:LinkValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasRefCount "1"^^xsd:integer ;
+					kb:valueHasString "<http://rdfh.ch/08AE/expression/Expression4/casting/1>" ;
+					rdf:subject <http://rdfh.ch/08AE/expression/Expression4/casting/1> ;
+					rdf:predicate  webern-works:U23_hasCastingDetail ;
+					rdf:object <http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/2> .
 
 
 	<http://rdfh.ch/08AE/expression/Expression4_5/casting/1> a webern-works:M6_Casting ;
@@ -1153,7 +1167,7 @@
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
 			rdfs:label "Casting Expression1" ;
-			webern-works:U2_foreseesUseOfMediumOfPerformance <http://rdfh.ch/08AE/mop/flute> ;
+			webern-works:U2_foreseesUseOfMediumOfPerformance <http://rdfh.ch/08AE/mop/wfl> ;
 			webern-works:U2_foreseesUseOfMediumOfPerformanceValue <http://rdfh.ch/08AE/expression/Expression1/casting/1/detail/1/U2_foreseesUseOfMediumOfPerformanceValue/flute_L> ;
 			webern-works:U30_foreseesQuantityOfMop <http://rdfh.ch/08AE/expression/Expression1/casting/1/detail/1/values/U30_foreseesQuantityOfMop> .
 
@@ -1176,7 +1190,7 @@
 					kb:valueHasString "<http://rdfh.ch/08AE/expression/Expression1/casting/1/detail/1>" ;
 					rdf:subject <http://rdfh.ch/08AE/expression/Expression1/casting/1/detail/1> ;
 					rdf:predicate  webern-works:U2_foreseesUseOfMediumOfPerformance ;
-					rdf:object <http://rdfh.ch/08AE/mop/flute> .
+					rdf:object <http://rdfh.ch/08AE/mop/wfl> .
 
 #kb:valueHasString "Orch (3 Fl [1 Picc], 3 Ob [1 EH], 3 Klar [1Bklar], Fg, 1 Kfg, 4 Hn, 3 Trp, 3 Pos, Tuba, P, S, Hfe, Str]" .
 
@@ -1187,7 +1201,7 @@
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
 			rdfs:label "Casting Expression4" ;
-			webern-works:U2_foreseesUseOfMediumOfPerformance <http://rdfh.ch/08AE/mop/piano> ;
+			webern-works:U2_foreseesUseOfMediumOfPerformance <http://rdfh.ch/08AE/mop/kpf> ;
 			webern-works:U2_foreseesUseOfMediumOfPerformanceValue <http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/1/U2_foreseesUseOfMediumOfPerformanceValue/flute_L> ;
 			webern-works:U30_foreseesQuantityOfMop <http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/1/values/U30_foreseesQuantityOfMop> .
 
@@ -1201,9 +1215,42 @@
 					kb:valueHasString "<http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/1>" ;
 					rdf:subject <http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/1> ;
 					rdf:predicate  webern-works:U2_foreseesUseOfMediumOfPerformance ;
-					rdf:object <http://rdfh.ch/08AE/mop/piano> .
+					rdf:object <http://rdfh.ch/08AE/mop/kpf> .
 
 			<http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/1/values/U30_foreseesQuantityOfMop> a kb:IntValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "1" ;
+					kb:valueHasInteger "1"^^xsd:integer .
+
+
+	<http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/2> a webern-works:M23_CastingDetail ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label "Casting Expression4" ;
+			webern-works:U2_foreseesUseOfMediumOfPerformance <http://rdfh.ch/08AE/mop/kpf> ;
+			webern-works:U2_foreseesUseOfMediumOfPerformanceValue <http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/2/U2_foreseesUseOfMediumOfPerformanceValue/flute_L> ;
+			webern-works:U30_foreseesQuantityOfMop <http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/2/values/U30_foreseesQuantityOfMop> .
+
+			<http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/2/U2_foreseesUseOfMediumOfPerformanceValue/flute_L> a kb:LinkValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasRefCount "1"^^xsd:integer ;
+					kb:valueHasString "<http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/2>" ;
+					rdf:subject <http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/2> ;
+					rdf:predicate  webern-works:U2_foreseesUseOfMediumOfPerformance ;
+					rdf:object <http://rdfh.ch/08AE/mop/vun> .
+
+			<http://rdfh.ch/08AE/expression/Expression4/casting/1/detail/2/values/U30_foreseesQuantityOfMop> a kb:IntValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 					kb:isDeleted "false"^^xsd:boolean ;
@@ -1220,7 +1267,7 @@
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
 			rdfs:label "Casting Expression4_5" ;
-			webern-works:U2_foreseesUseOfMediumOfPerformance <http://rdfh.ch/08AE/mop/piano> ;
+			webern-works:U2_foreseesUseOfMediumOfPerformance <http://rdfh.ch/08AE/mop/kpf> ;
 			webern-works:U2_foreseesUseOfMediumOfPerformanceValue <http://rdfh.ch/08AE/expression/Expression4_5/casting/1/detail/1/U2_foreseesUseOfMediumOfPerformanceValue/flute_L> ;
 			webern-works:U30_foreseesQuantityOfMop <http://rdfh.ch/08AE/expression/Expression4_5/casting/1/detail/1/values/U30_foreseesQuantityOfMop> .
 
@@ -1234,7 +1281,7 @@
 					kb:valueHasString "<http://rdfh.ch/08AE/expression/Expression4_5/casting/1/detail/1>" ;
 					rdf:subject <http://rdfh.ch/08AE/expression/Expression4_5/casting/1/detail/1> ;
 					rdf:predicate  webern-works:U2_foreseesUseOfMediumOfPerformance ;
-					rdf:object <http://rdfh.ch/08AE/mop/piano> .
+					rdf:object <http://rdfh.ch/08AE/mop/kpf> .
 
 			<http://rdfh.ch/08AE/expression/Expression4_5/casting/1/detail/1/values/U30_foreseesQuantityOfMop> a kb:IntValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
@@ -1248,16 +1295,435 @@
 	### ###########################################
 	### M14_MediumOfPerformance
 
-	<http://rdfh.ch/08AE/mop/flute> a webern-works:M14_MediumOfPerformance ;
+	# Horn
+	<http://rdfh.ch/08AE/mop/bho> a webern-works:M14_MediumOfPerformance ;
 			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
 			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
-			rdfs:label "Flöte" ;
-			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/flute/values/P3_hasNote> .
+			rdfs:label 	"Horn"@de ;
+						#"horn"@en ,
+						#"cor"@fr ,
+						#"corno"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/bho> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/bho/values/P3_hasNote> .
 
-			<http://rdfh.ch/08AE/mop/flute/values/P3_hasNote> a kb:TextValue ;
+			<http://rdfh.ch/08AE/mop/bho/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString 	"Horn" .
+
+
+	# Posaune
+	<http://rdfh.ch/08AE/mop/btb> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Posaune"@de ,
+						"trombone"@en ,
+						"trombone"@fr ,
+						"trombone"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/btb> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/btb/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/btb/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString 	"Posaune" .
+
+
+	# Trompete
+	<http://rdfh.ch/08AE/mop/btr> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Trompete"@de ,
+						"trumpet"@en ,
+						"trompette"@fr ,
+						"tromba"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/btr> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/btr/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/btr/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString 	"Trompete" .
+
+
+	# Tuba
+	<http://rdfh.ch/08AE/mop/btu> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Tuba"@de ,
+						"tuba"@en ,
+						"tuba"@fr ,
+						"tuba"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/btu> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/btu/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/btu/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString 	"Tuba" .
+
+
+	# Klavier
+	<http://rdfh.ch/08AE/mop/kpf> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Klavier"@de ,
+						"piano"@en ,
+						"piano"@fr ,
+						"pianoforte"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/kpf> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/kpf/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/kpf/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString 	"Klavier" .
+
+
+	# Sinfonieorchester
+	<http://rdfh.ch/08AE/mop/ofu> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Sinfonieorchester"@de ,
+						"full orchestra"@en ,
+						"orchestre symphonique"@fr ,
+						"orchestra sinfonica"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/ofu> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/ofu/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/ofu/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Sinfonieorchester" .
+
+
+	# Große Trommel
+	<http://rdfh.ch/08AE/mop/pbd> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"große Trommel"@de ,
+						"bass drum"@en ,
+						"grand tambours"@fr ,
+						"grancassa"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/pbd> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/pbd/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/pbd/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "große Trommel" .
+
+
+	# Becken
+	<http://rdfh.ch/08AE/mop/pcy> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Becken"@de ,
+						"cymbal"@en ,
+						"cymbale"@fr ,
+						"piatti"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/pcy> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/pcy/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/pcy/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Becken" .
+
+
+	# Tamtam
+	<http://rdfh.ch/08AE/mop/pgo> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Tamtam"@de ,
+						"gong"@en ,
+						"tam-tam"@fr ,
+						"gong"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/pgo> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/pgo/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/pgo/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Tamtam" .
+
+
+	# Pauken
+	<http://rdfh.ch/08AE/mop/pti> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Pauken"@de ,
+						"timpani"@en ,
+						"timbales"@fr ,
+						"timpani"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/pti> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/pti/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/pti/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Pauken" .
+
+
+	# Triangle
+	<http://rdfh.ch/08AE/mop/ptl> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Triangle"@de ,
+						"triangle"@en ,
+						"triangle"@fr ,
+						"triangolo"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/ptl> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/ptl/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/ptl/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Triangle" .
+
+
+	# Schlagwerk
+	<http://rdfh.ch/08AE/mop/pun> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Schlagwerk"@de ,
+						"percussion"@en ,
+						"percussions"@fr ,
+						"percussioni"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/pun> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/pun/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/pun/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Schlagwerk" .
+
+
+	# Harfe
+	<http://rdfh.ch/08AE/mop/tha> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Harfe"@de ,
+						"harp"@en ,
+						"harpe"@fr ,
+						"arpa"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/tha> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/tha/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/tha/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString 	"Harfe" .
+
+
+	# Fagott
+	<http://rdfh.ch/08AE/mop/wba> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Fagott"@de ,
+						"bassoon"@en ,
+						"basson"@fr ,
+						"fagotto"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/wba> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/wba/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/wba/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Fagott" .
+
+
+	# Klarinette
+	<http://rdfh.ch/08AE/mop/wcl> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Klarinette"@de ,
+						"clarinet"@en ,
+						"clarinette"@fr ,
+						"clarinetto"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/wcl> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/wcl/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/wcl/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Klarinette" .
+
+
+	# Bass-Klarinette
+	<http://rdfh.ch/08AE/mop/wclf> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Bass-Klarinette"@de ,
+						"bass clarinet"@en ,
+						"clarinette basse"@fr ,
+						"clarinetto basso"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/wclf> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/wclf/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/wclf/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Bass-Klarinette" .
+
+
+	# Kontrafagott
+	<http://rdfh.ch/08AE/mop/wdb> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Kontrafagott"@de ,
+						"double bassoon"@en ,
+						"contrebasson"@fr ,
+						"controfagotto"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/wdb> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/wdb/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/wdb/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Kontrafagott" .
+
+
+	# Englisch Horn
+	<http://rdfh.ch/08AE/mop/weh> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Englisch Horn"@de ,
+						"english horn"@en ,
+						"cor anglais"@fr ,
+						"corno inglese"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/weh> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/weh/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/weh/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Englisch Horn" .
+
+
+	# Flöte
+	<http://rdfh.ch/08AE/mop/wfl> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Flöte"@de ,
+						"flute"@en ,
+						"flûte"@fr ,
+						"flauto"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/wfl> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/wfl/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/wfl/values/P3_hasNote> a kb:TextValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 					kb:isDeleted "false"^^xsd:boolean ;
@@ -1266,22 +1732,75 @@
 					kb:valueHasString "Flöte" .
 
 
-	<http://rdfh.ch/08AE/mop/piano> a webern-works:M14_MediumOfPerformance ;
+	# Oboe
+	<http://rdfh.ch/08AE/mop/wob> a webern-works:M14_MediumOfPerformance ;
 			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
 			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
-			rdfs:label "Piano" ;
-			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/piano/values/P3_hasNote> .
+			rdfs:label 	"Oboe"@de ,
+						"oboe"@en ,
+						"hautbois"@fr ,
+						"oboe"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/wob> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/wob/values/P3_hasNote> .
 
-			<http://rdfh.ch/08AE/mop/piano/values/P3_hasNote> a kb:TextValue ;
+			<http://rdfh.ch/08AE/mop/wob/values/P3_hasNote> a kb:TextValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 					kb:isDeleted "false"^^xsd:boolean ;
 					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
 					kb:valueHasOrder "0"^^xsd:integer ;
-					kb:valueHasString "Piano" .
+					kb:valueHasString "Oboe" .
+
+
+	# Pikkoloflöte
+	<http://rdfh.ch/08AE/mop/wpi> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Pikkoloflöte"@de ,
+						"piccolo"@en ,
+						"piccolo"@fr ,
+						"ottavino"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/wpi> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/wpi/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/wpi/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString "Pikkoloflöte" .
+
+	# Stimme
+	<http://rdfh.ch/08AE/mop/vun> a webern-works:M14_MediumOfPerformance ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label 	"Stimme"@de ,
+					    "voice"@en ,
+					    "voix"@fr ,
+					    "voce"@it ;
+			skos:exactMatch <http://data.doremus.org/vocabulary/iaml/mop/vun> ;
+			webern-works:P3_hasNote <http://rdfh.ch/08AE/mop/vun/values/P3_hasNote> .
+
+			<http://rdfh.ch/08AE/mop/vun/values/P3_hasNote> a kb:TextValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions  "CR knora-base:Creator,knora-base:ProjectMember|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2017-12-01T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasString 	"Stimme" .
+
+
+
 
 	### ###########################################
 	### F30_PublicationEvent

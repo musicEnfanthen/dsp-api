@@ -40,7 +40,7 @@
             prov:wasDerivedFrom <http://data.doremus.org/ontology#> ,
                                 <http://erlangen-crm.org/current/> ,
                                 <http://erlangen-crm.org/erfrbroo/> ;
-            rdfs:label "The AWG project ontology" ;
+            rdfs:label "The AWG Person Ontology" ;
             vann:preferredNamespaceUri "http://www.knora.org/ontology/08AE/webern-person#" ;
             vann:preferredNamespacePrefix "webern-person" .
 
