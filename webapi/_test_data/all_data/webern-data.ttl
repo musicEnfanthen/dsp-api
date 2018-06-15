@@ -898,7 +898,7 @@
 			rdfs:label "ExpressionCreation1 Activity1" ;
 			webern-works:P14_carriedOutBy <http://rdfh.ch/08AE/testperson1> ;
 			webern-works:P14_carriedOutByValue <http://rdfh.ch/08AE/event/ExpressionCreation1/activity/1/values/P14_carriedOutBy/testperson1_L> ;
-			webern-works:U31_hadFunction <http://rdfh.ch/08AE/event/ExpressionCreation1/function/1> ;
+			webern-works:U31_hadFunction <http://rdfh.ch/08AE/event/ExpressionCreation/activity/function/1> ;
 			webern-works:U31_hadFunctionValue <http://rdfh.ch/08AE/event/ExpressionCreation1/activity/1/values/U31_hadFunction/function1_L> .
 
 			<http://rdfh.ch/08AE/event/ExpressionCreation1/activity/1/values/P14_carriedOutBy/testperson1_L> a kb:LinkValue ;
@@ -920,22 +920,10 @@
 					kb:valueCreationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
 					kb:valueHasOrder "0"^^xsd:integer ;
 					kb:valueHasRefCount "1"^^xsd:integer ;
-					kb:valueHasString "<http://rdfh.ch/08AE/event/ExpressionCreation1/function/1>" ;
+					kb:valueHasString "<http://rdfh.ch/08AE/event/ExpressionCreation/activity/function/1>" ;
 					rdf:subject <http://rdfh.ch/08AE/event/ExpressionCreation1/activity/1> ;
 					rdf:predicate webern-works:U31_hadFunction ;
-					rdf:object <http://rdfh.ch/08AE/event/ExpressionCreation1/function/1> .
-
-
-	### ###########################################
-	### :ExpressionCreation -> :E7_Activity -> webern-works:M31_ActorFunction
-
-	<http://rdfh.ch/08AE/event/ExpressionCreation1/function/1> a webern-works:M31_ActorFunction ;
-			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
-			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
-			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
-			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
-			kb:isDeleted "false"^^xsd:boolean ;
-			rdfs:label "Komponist" .
+					rdf:object <http://rdfh.ch/08AE/event/ExpressionCreation/activity/function/1> .
 
 
 	### ###########################################
@@ -2660,10 +2648,10 @@
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
 			rdfs:label "PublicationWork1" ;
-			webern-works:R9_isRealisedIn <http://rdfh.ch/08AE/expression/PublicationExpression1> ;
-			webern-works:R9_isRealisedInValue <http://rdfh.ch/08AE/work/PublicationWork1/values/R9_isRealisedIn/PublicationExpression1_L> .
+			webern-works:R3_isRealisedIn <http://rdfh.ch/08AE/expression/PublicationExpression1> ;
+			webern-works:R3_isRealisedInValue <http://rdfh.ch/08AE/work/PublicationWork1/values/R3_isRealisedIn/PublicationExpression1_L> .
 
-			<http://rdfh.ch/08AE/work/PublicationWork1/values/R9_isRealisedIn/PublicationExpression1_L> a kb:LinkValue ;
+			<http://rdfh.ch/08AE/work/PublicationWork1/values/R3_isRealisedIn/PublicationExpression1_L> a kb:LinkValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 					kb:isDeleted "false"^^xsd:boolean ;
@@ -2672,7 +2660,7 @@
 					kb:valueHasRefCount "1"^^xsd:integer ;
 					kb:valueHasString "http://rdfh.ch/08AE/expression/PublicationExpression1" ;
 					rdf:subject <http://rdfh.ch/08AE/work/PublicationWork1> ;
-					rdf:predicate webern-works:R9_isRealisedIn;
+					rdf:predicate webern-works:R3_isRealisedIn;
 					rdf:object <http://rdfh.ch/08AE/expression/PublicationExpression1> .
 
 
@@ -2683,10 +2671,10 @@
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
 			rdfs:label "PublicationWork4" ;
-			webern-works:R9_isRealisedIn <http://rdfh.ch/08AE/expression/PublicationExpression4> ;
-			webern-works:R9_isRealisedInValue <http://rdfh.ch/08AE/work/PublicationWork4/values/R9_isRealisedIn/PublicationExpression4_L> .
+			webern-works:R3_isRealisedIn <http://rdfh.ch/08AE/expression/PublicationExpression4> ;
+			webern-works:R3_isRealisedInValue <http://rdfh.ch/08AE/work/PublicationWork4/values/R3_isRealisedIn/PublicationExpression4_L> .
 
-			<http://rdfh.ch/08AE/work/PublicationWork4/values/R9_isRealisedIn/PublicationExpression4_L> a kb:LinkValue ;
+			<http://rdfh.ch/08AE/work/PublicationWork4/values/R3_isRealisedIn/PublicationExpression4_L> a kb:LinkValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 					kb:isDeleted "false"^^xsd:boolean ;
@@ -2695,7 +2683,7 @@
 					kb:valueHasRefCount "1"^^xsd:integer ;
 					kb:valueHasString "http://rdfh.ch/08AE/expression/PublicationExpression4" ;
 					rdf:subject <http://rdfh.ch/08AE/work/PublicationWork4> ;
-					rdf:predicate webern-works:R9_isRealisedIn;
+					rdf:predicate webern-works:R3_isRealisedIn;
 					rdf:object <http://rdfh.ch/08AE/expression/PublicationExpression4> .
 
 
@@ -2706,10 +2694,10 @@
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
 			rdfs:label "PublicationWork4_5" ;
-			webern-works:R9_isRealisedIn <http://rdfh.ch/08AE/expression/PublicationExpression4_5> ;
-			webern-works:R9_isRealisedInValue <http://rdfh.ch/08AE/work/PublicationWork4_5/values/R9_isRealisedIn/PublicationExpression4_5_L> .
+			webern-works:R3_isRealisedIn <http://rdfh.ch/08AE/expression/PublicationExpression4_5> ;
+			webern-works:R3_isRealisedInValue <http://rdfh.ch/08AE/work/PublicationWork4_5/values/R3_isRealisedIn/PublicationExpression4_5_L> .
 
-			<http://rdfh.ch/08AE/work/PublicationWork4_5/values/R9_isRealisedIn/PublicationExpression4_5_L> a kb:LinkValue ;
+			<http://rdfh.ch/08AE/work/PublicationWork4_5/values/R3_isRealisedIn/PublicationExpression4_5_L> a kb:LinkValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 					kb:isDeleted "false"^^xsd:boolean ;
@@ -2718,7 +2706,7 @@
 					kb:valueHasRefCount "1"^^xsd:integer ;
 					kb:valueHasString "http://rdfh.ch/08AE/expression/PublicationExpression4_5" ;
 					rdf:subject <http://rdfh.ch/08AE/work/PublicationWork4_5> ;
-					rdf:predicate webern-works:R9_isRealisedIn;
+					rdf:predicate webern-works:R3_isRealisedIn;
 					rdf:object <http://rdfh.ch/08AE/expression/PublicationExpression4_5> .
 
 
@@ -2760,14 +2748,14 @@
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
 			rdfs:label "PublicationEvent1" ;
-			webern-works:R17_created <http://rdfh.ch/08AE/expression/PublicationExpression1> ;
-			webern-works:R17_createdValue <http://rdfh.ch/08AE/event/PublicationEvent1/values/R17_created/PublicationExpression1_L> ;
+			webern-works:R24_created <http://rdfh.ch/08AE/expression/PublicationExpression1> ;
+			webern-works:R24_createdValue <http://rdfh.ch/08AE/event/PublicationEvent1/values/R24_created/PublicationExpression1_L> ;
 		    webern-works:R19_createdARealisationOf <http://rdfh.ch/08AE/work/PublicationWork1> ;
 			webern-works:R19_createdARealisationOfValue <http://rdfh.ch/08AE/event/PublicationEvent1/values/R19_createdARealisationOf/PublicationWork1_L> ;
 			webern-works:P9_consistsOf <http://rdfh.ch/08AE/event/PublicationEvent1/activity/1> ;
  			webern-works:P9_consistsOfValue <http://rdfh.ch/08AE/event/PublicationEvent1/values/P9_consistsOf/Activity1_L> .
 
-			<http://rdfh.ch/08AE/event/PublicationEvent1/values/R17_created/PublicationExpression1_L> a kb:LinkValue ;
+			<http://rdfh.ch/08AE/event/PublicationEvent1/values/R24_created/PublicationExpression1_L> a kb:LinkValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 					kb:isDeleted "false"^^xsd:boolean ;
@@ -2776,7 +2764,7 @@
 					kb:valueHasRefCount "1"^^xsd:integer ;
 					kb:valueHasString "http://rdfh.ch/08AE/expression/PublicationExpression1" ;
 					rdf:subject <http://rdfh.ch/08AE/event/PublicationEvent1> ;
-					rdf:predicate webern-works:R17_created ;
+					rdf:predicate webern-works:R24_created ;
 					rdf:object <http://rdfh.ch/08AE/expression/PublicationExpression1> .
 
 			<http://rdfh.ch/08AE/event/PublicationEvent1/values/R19_createdARealisationOf/PublicationWork1_L> a kb:LinkValue ;
@@ -2811,14 +2799,14 @@
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
 			rdfs:label "PublicationEvent4" ;
-			webern-works:R17_created <http://rdfh.ch/08AE/expression/PublicationExpression4> ;
-			webern-works:R17_createdValue <http://rdfh.ch/08AE/event/PublicationEvent4/values/R17_created/PublicationExpression4_L> ;
+			webern-works:R24_created <http://rdfh.ch/08AE/expression/PublicationExpression4> ;
+			webern-works:R24_createdValue <http://rdfh.ch/08AE/event/PublicationEvent4/values/R24_created/PublicationExpression4_L> ;
 		    webern-works:R19_createdARealisationOf <http://rdfh.ch/08AE/work/PublicationWork4> ;
 			webern-works:R19_createdARealisationOfValue <http://rdfh.ch/08AE/event/PublicationEvent4/values/R19_createdARealisationOf/PublicationWork4_L> ;
 			webern-works:P9_consistsOf <http://rdfh.ch/08AE/event/PublicationEvent4/activity/1> ;
  			webern-works:P9_consistsOfValue <http://rdfh.ch/08AE/event/PublicationEvent4/values/P9_consistsOf/Activity1_L> .
 
-			<http://rdfh.ch/08AE/event/PublicationEvent4/values/R17_created/PublicationExpression4_L> a kb:LinkValue ;
+			<http://rdfh.ch/08AE/event/PublicationEvent4/values/R24_created/PublicationExpression4_L> a kb:LinkValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 					kb:isDeleted "false"^^xsd:boolean ;
@@ -2827,7 +2815,7 @@
 					kb:valueHasRefCount "1"^^xsd:integer ;
 					kb:valueHasString "http://rdfh.ch/08AE/expression/PublicationExpression4" ;
 					rdf:subject <http://rdfh.ch/08AE/event/PublicationEvent4> ;
-					rdf:predicate webern-works:R17_created ;
+					rdf:predicate webern-works:R24_created ;
 					rdf:object <http://rdfh.ch/08AE/expression/PublicationExpression4> .
 
 			<http://rdfh.ch/08AE/event/PublicationEvent4/values/R19_createdARealisationOf/PublicationWork4_L> a kb:LinkValue ;
@@ -2863,14 +2851,14 @@
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
 			rdfs:label "PublikationEvent4_5" ;
-			webern-works:R17_created <http://rdfh.ch/08AE/expression/PublicationExpression4_5> ;
-			webern-works:R17_createdValue <http://rdfh.ch/08AE/event/PublicationEvent4_5/values/R17_created/PublicationExpression4_5_L> ;
+			webern-works:R24_created <http://rdfh.ch/08AE/expression/PublicationExpression4_5> ;
+			webern-works:R24_createdValue <http://rdfh.ch/08AE/event/PublicationEvent4_5/values/R24_created/PublicationExpression4_5_L> ;
 		    webern-works:R19_createdARealisationOf <http://rdfh.ch/08AE/work/PublicationWork4_5> ;
 			webern-works:R19_createdARealisationOfValue <http://rdfh.ch/08AE/event/PublicationEvent4_5/values/R19_createdARealisationOf/PublicationWork4_5_L> ;
 			webern-works:P9_consistsOf <http://rdfh.ch/08AE/event/PublicationEvent4_5/activity/1> ;
  			webern-works:P9_consistsOfValue <http://rdfh.ch/08AE/event/PublicationEvent4_5/values/P9_consistsOf/Activity1_L> .
 
-			<http://rdfh.ch/08AE/event/PublicationEvent4_5/values/R17_created/PublicationExpression4_5_L> a kb:LinkValue ;
+			<http://rdfh.ch/08AE/event/PublicationEvent4_5/values/R24_created/PublicationExpression4_5_L> a kb:LinkValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 					kb:isDeleted "false"^^xsd:boolean ;
@@ -2915,21 +2903,19 @@
 	### ###########################################
 	### :F30_PublicationEvent -> webern-works:E7_Activity
 
-
-  	## TODO!!!
-	<http://rdfh.ch/08AE/event/PublicationEvent4/activity/1>
+	<http://rdfh.ch/08AE/event/PublicationEvent1/activity/1> a webern-works:E7_Activity ;
 			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
 			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
 			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 			kb:isDeleted "false"^^xsd:boolean ;
-			rdfs:label "ExpressionCreation1 Activity1" ;
+			rdfs:label "PublicationEvent1 Activity1" ;
 			webern-works:P14_carriedOutBy <http://rdfh.ch/08AE/testperson1> ;
-			webern-works:P14_carriedOutByValue <http://rdfh.ch/08AE/event/ExpressionCreation1/activity/1/values/P14_carriedOutBy/testperson1_L> ;
-			webern-works:U31_hadFunction <http://rdfh.ch/08AE/event/ExpressionCreation1/function/1> ;
-			webern-works:U31_hadFunctionValue <http://rdfh.ch/08AE/event/ExpressionCreation1/activity/1/values/U31_hadFunction/function1_L> .
+			webern-works:P14_carriedOutByValue <http://rdfh.ch/08AE/event/PublicationEvent1/activity/1/values/P14_carriedOutBy/testperson1_L> ;
+			webern-works:U31_hadFunction <http://rdfh.ch/08AE/event/ExpressionCreation/activity/function/1> ;
+			webern-works:U31_hadFunctionValue <http://rdfh.ch/08AE/event/PublicationEvent1/activity/1/values/U31_hadFunction/function1_L> .
 
-			<http://rdfh.ch/08AE/event/ExpressionCreation1/activity/1/values/P14_carriedOutBy/testperson1_L> a kb:LinkValue ;
+			<http://rdfh.ch/08AE/event/PublicationEvent1/activity/1/values/P14_carriedOutBy/testperson1_L> a kb:LinkValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 					kb:isDeleted "false"^^xsd:boolean ;
@@ -2937,22 +2923,104 @@
 					kb:valueHasOrder "0"^^xsd:integer ;
 					kb:valueHasRefCount "1"^^xsd:integer ;
 					kb:valueHasString "<http://rdfh.ch/08AE/testperson1>" ;
-					rdf:subject <http://rdfh.ch/08AE/event/ExpressionCreation1/activity/1> ;
+					rdf:subject <http://rdfh.ch/08AE/event/PublicationEvent1/activity/1> ;
 					rdf:predicate webern-works:P14_carriedOutBy ;
 					rdf:object <http://rdfh.ch/08AE/testperson1> .
 
-			<http://rdfh.ch/08AE/event/ExpressionCreation1/activity/1/values/U31_hadFunction/function1_L> a kb:LinkValue ;
+			<http://rdfh.ch/08AE/event/PublicationEvent1/activity/1/values/U31_hadFunction/function1_L> a kb:LinkValue ;
 					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
 					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
 					kb:isDeleted "false"^^xsd:boolean ;
 					kb:valueCreationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
 					kb:valueHasOrder "0"^^xsd:integer ;
 					kb:valueHasRefCount "1"^^xsd:integer ;
-					kb:valueHasString "<http://rdfh.ch/08AE/event/ExpressionCreation1/function/1>" ;
-					rdf:subject <http://rdfh.ch/08AE/event/ExpressionCreation1/activity/1> ;
+					kb:valueHasString "<http://rdfh.ch/08AE/event/ExpressionCreation/activity/function/1>" ;
+					rdf:subject <http://rdfh.ch/08AE/event/PublicationEvent1/activity/1> ;
 					rdf:predicate webern-works:U31_hadFunction ;
-					rdf:object <http://rdfh.ch/08AE/event/ExpressionCreation1/function/1> .
+					rdf:object <http://rdfh.ch/08AE/event/ExpressionCreation/activity/function/1> .
 
 
-	<http://rdfh.ch/08AE/event/PublicationEvent1/activity/1>
-	<http://rdfh.ch/08AE/event/PublicationEvent4_5/activity/1>
+	<http://rdfh.ch/08AE/event/PublicationEvent4/activity/1> a webern-works:E7_Activity ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label "PublicationEvent4 Activity1" ;
+			webern-works:P14_carriedOutBy <http://rdfh.ch/08AE/testperson1> ;
+			webern-works:P14_carriedOutByValue <http://rdfh.ch/08AE/event/PublicationEvent4/activity/1/values/P14_carriedOutBy/testperson1_L> ;
+			webern-works:U31_hadFunction <http://rdfh.ch/08AE/event/ExpressionCreation/activity/function/1> ;
+			webern-works:U31_hadFunctionValue <http://rdfh.ch/08AE/event/PublicationEvent4/activity/1/values/U31_hadFunction/function1_L> .
+
+			<http://rdfh.ch/08AE/event/PublicationEvent4/activity/1/values/P14_carriedOutBy/testperson1_L> a kb:LinkValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasRefCount "1"^^xsd:integer ;
+					kb:valueHasString "<http://rdfh.ch/08AE/testperson1>" ;
+					rdf:subject <http://rdfh.ch/08AE/event/PublicationEvent4/activity/1> ;
+					rdf:predicate webern-works:P14_carriedOutBy ;
+					rdf:object <http://rdfh.ch/08AE/testperson1> .
+
+			<http://rdfh.ch/08AE/event/PublicationEvent4/activity/1/values/U31_hadFunction/function1_L> a kb:LinkValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasRefCount "1"^^xsd:integer ;
+					kb:valueHasString "<http://rdfh.ch/08AE/event/ExpressionCreation/activity/function/1>" ;
+					rdf:subject <http://rdfh.ch/08AE/event/PublicationEvent4/activity/1> ;
+					rdf:predicate webern-works:U31_hadFunction ;
+					rdf:object <http://rdfh.ch/08AE/event/ExpressionCreation/activity/function/1> .
+
+
+	<http://rdfh.ch/08AE/event/PublicationEvent4_5/activity/1> a webern-works:E7_Activity ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label "PublicationEvent4_5 Activity1" ;
+			webern-works:P14_carriedOutBy <http://rdfh.ch/08AE/testperson1> ;
+			webern-works:P14_carriedOutByValue <http://rdfh.ch/08AE/event/PublicationEvent4_5/activity/1/values/P14_carriedOutBy/testperson1_L> ;
+			webern-works:U31_hadFunction <http://rdfh.ch/08AE/event/ExpressionCreation/activity/function/1> ;
+			webern-works:U31_hadFunctionValue <http://rdfh.ch/08AE/event/PublicationEvent4_5/activity/1/values/U31_hadFunction/function1_L> .
+
+			<http://rdfh.ch/08AE/event/PublicationEvent4_5/activity/1/values/P14_carriedOutBy/testperson1_L> a kb:LinkValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasRefCount "1"^^xsd:integer ;
+					kb:valueHasString "<http://rdfh.ch/08AE/testperson1>" ;
+					rdf:subject <http://rdfh.ch/08AE/event/PublicationEvent4_5/activity/1> ;
+					rdf:predicate webern-works:P14_carriedOutBy ;
+					rdf:object <http://rdfh.ch/08AE/testperson1> .
+
+			<http://rdfh.ch/08AE/event/PublicationEvent4_5/activity/1/values/U31_hadFunction/function1_L> a kb:LinkValue ;
+					kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+					kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+					kb:isDeleted "false"^^xsd:boolean ;
+					kb:valueCreationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+					kb:valueHasOrder "0"^^xsd:integer ;
+					kb:valueHasRefCount "1"^^xsd:integer ;
+					kb:valueHasString "<http://rdfh.ch/08AE/event/ExpressionCreation/activity/function/1>" ;
+					rdf:subject <http://rdfh.ch/08AE/event/PublicationEvent4_5/activity/1> ;
+					rdf:predicate webern-works:U31_hadFunction ;
+					rdf:object <http://rdfh.ch/08AE/event/ExpressionCreation/activity/function/1> .
+
+
+	### ###########################################
+	### :ExpressionCreation -> :E7_Activity -> webern-works:M31_ActorFunction
+
+	<http://rdfh.ch/08AE/event/ExpressionCreation/activity/function/1> a webern-works:M31_ActorFunction ;
+			kb:attachedToProject <http://rdfh.ch/projects/08AE> ;
+			kb:attachedToUser <http://rdfh.ch/users/webernProjectMember> ;
+			kb:creationDate "2018-05-19T17:00:00Z"^^xsd:dateTimeStamp ;
+			kb:hasPermissions "CR knora-base:ProjectMember,knora-base:Creator|V knora-base:KnownUser|RV knora-base:UnknownUser" ;
+			kb:isDeleted "false"^^xsd:boolean ;
+			rdfs:label "Komponist" .

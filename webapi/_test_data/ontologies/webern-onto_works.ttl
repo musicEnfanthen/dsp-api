@@ -365,6 +365,57 @@
 
 
     ### ###########################################
+    ### webern-works:R3_isRealisedIn
+
+    webern-works:R3_isRealisedIn rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint webern-works:F1_Work ;
+
+            kb:objectClassConstraint webern-works:F22_SelfContainedExpression ;
+
+            prov:wasDerivedFrom efrbroo:R3_is_realised_in ;
+
+            rdfs:comment    """Diese Property verbindet eine Instanz von F22 Self-Contained Expression mit einer Instanz von F1 Work"""@de ,
+                            """This property associates an instance of F22 Self-Contained Expression with an instance of F1 Work."""@en ,
+                            """Cette propriété associe une instance de F22 Self-Contained Expression à une instance de F1 Work."""@fr ,
+                            """Questa proprietà associa un'istanza di F22 Espressione autonoma a un'istanza di F1 Work."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "R3 ist realisiert in"@de ,
+                        "R3 is realised in"@en ,
+                        "R3 est réalisée en"@fr ,
+                        "R3 hè realizzato in"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R3_is_realised_in ;
+
+            salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    webern-works:R3_isRealisedInValue rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint webern-works:F1_Work ;
+
+            kb:objectClassConstraint kb:LinkValue ;
+
+            prov:wasDerivedFrom efrbroo:R3_is_realised_in ;
+
+            rdfs:comment    """Diese Property verbindet eine Instanz von F22 Self-Contained Expression mit einer Instanz von F1 Work"""@de ,
+                            """This property associates an instance of F22 Self-Contained Expression with an instance of F1 Work."""@en ,
+                            """Cette propriété associe une instance de F22 Self-Contained Expression à une instance de F1 Work."""@fr ,
+                            """Questa proprietà associa un'istanza di F22 Espressione autonoma a un'istanza di F1 Work."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "R3 ist realisiert in (value)"@de ,
+                        "R3 is realised in (value)"@en ,
+                        "R3 est réalisée en (value)"@fr ,
+                        "R3 hè realizzato in (value)"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkToValue .
+
+
+    ### ###########################################
     ### webern-works:R9_isRealisedIn
 
     webern-works:R9_isRealisedIn rdf:type owl:ObjectProperty ;
@@ -387,7 +438,7 @@
                         "R9 est réalisée en"@fr ,
                         "R9 hè realizzato in"@it ;
 
-            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R9_is_realised_in ;
+            rdfs:subPropertyOf webern-works:R3_isRealisedIn , efrbroo:R9_is_realised_in ;
 
             salsah-gui:guiElement salsah-gui:Searchbox .
 
@@ -412,7 +463,7 @@
                         "R9 est réalisée en (value)"@fr ,
                         "R9 hè realizzato in (value)"@it ;
 
-            rdfs:subPropertyOf kb:hasLinkToValue .
+            rdfs:subPropertyOf webern-works:R3_isRealisedInValue .
 
 
     ### ###########################################
@@ -524,7 +575,7 @@
 
             kb:subjectClassConstraint webern-works:F28_ExpressionCreation ;
 
-            kb:objectClassConstraint webern-works:F4_Manifestation_Singleton ;
+            kb:objectClassConstraint webern-works:F4_ManifestationSingleton ;
 
             prov:wasDerivedFrom efrbroo:R18_created ;
 
@@ -566,6 +617,57 @@
                         "R18 ha creato (value)"@it ;
 
             rdfs:subPropertyOf kb:hasLinkToValue .
+
+
+    ### ###########################################
+    ### webern-works:R24_created
+
+    webern-works:R24_created rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint webern-works:F30_PublicationEvent ;
+
+            kb:objectClassConstraint webern-works:F24_PublicationExpression ;
+
+            prov:wasDerivedFrom efrbroo:R24_created ;
+
+            rdfs:comment    """Diese Eigenschaft verknüpft die Instanz von F24 Publication Expression, die während eines bestimmten F30 Publication Events erzeugt wurde. """@de ,
+                            """This property associates the instance of F24 Publication Expression that was created during a particular F30 Publication Event."""@en ,
+                            """Cette propriété associe l'instance de l'expression de publication F24 qui a été créée lors d'un événement de publication F30 particulier. """@fr ,
+                            """Questa proprietà associa l'istanza di F24 Espressione di pubblicazione che è stata creata durante un particolare evento di pubblicazione di F30. """@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "R24 erzeugte"@de ,
+                        "R24 created"@en ,
+                        "R24 créé"@fr ,
+                        "R24 creato"@it ;
+
+            rdfs:subPropertyOf webern-works:R17_created, efrbroo:R24_created ;
+
+            salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    webern-works:R24_createdValue rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint webern-works:F30_PublicationEvent ;
+
+            kb:objectClassConstraint kb:LinkValue ;
+
+            prov:wasDerivedFrom efrbroo:R24_created ;
+
+            rdfs:comment    """Diese Property verbindet die Expression, die während eines bestimmten Erzeuguns-Events erstmalig externalisiert wurde, mit diesem bestimmten Erzeugungs-Event."""@de ,
+                            """This property associates the expression that was first externalised during a particular creation event with that particular creation event."""@en ,
+                            """Cette propriété associe l'expression qui a été externalisée pour la première fois lors d'un événement de création particulier à cet événement de création particulier."""@fr ,
+                            """Questa proprietà associa l'espressione che è stata esternalizzata durante un evento di creazione con quella particolare."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "R17 hat hervorgebracht (value)"@de ,
+                        "R17 created (value)"@en ,
+                        "R17 a créé (value)"@fr ,
+                        "R17 ha creato (value)"@it ;
+
+            rdfs:subPropertyOf webern-works:R17_createdValue .
 
 
     ### ###########################################
@@ -1511,27 +1613,27 @@
 
 
     ### ###########################################
-    ### webern-works:E63_BeginningOfExistence
+    ### webern-works:E18_PhysicalThing
 
-    webern-works:E63_BeginningOfExistence rdf:type owl:Class ;
+    webern-works:E18_PhysicalThing rdf:type owl:Class ;
 
             kb:resourceIcon "default.png" ;
 
-            prov:wasDerivedFrom ecrm:E63_Beginning_of_Existence ;
+            prov:wasDerivedFrom ecrm:E18_Physical_Thing ;
 
-            rdfs:comment    """Diese Klasse umfasst Ereignisse, die ein beliebiges E77 Persistent Item ins Leben rufen."""@de ,
-                            """This class comprises events that bring into existence any E77 Persistent Item."""@en ,
-                            """Cette classe comprend les événements qui donnent naissance à tout élément persistant E77."""@fr ,
-                            """Questa classe comprende gli eventi che danno origine a un elemento persistente E77."""@it ;
+            rdfs:comment    """Diese Klasse umfasst alle dauernden physischen Gegenstände mit einer relativ stabilen Form, von Menschenhand geschaffen oder natürlich."""@de ,
+                            """This class comprises all persistent physical items with a relatively stable form, man-made or natural."""@en ,
+                            """Cette classe comprend tous les articles physiques persistants ayant une forme relativement stable, artificielle ou naturelle."""@fr ,
+                            """Questa classe comprende tutti gli oggetti fisici persistenti di forma relativamente stabile, artificiali o naturali."""@it ;
 
             rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
 
-            rdfs:label  "E63 Beginn der Existenz"@de ,
-                        "E63 Beginning of Existence"@en ,
-                        "E63 Début de l'existence"@fr ,
-                        "E63 Inizio dell'esistenza"@it ;
+            rdfs:label  "E18 Physikalische Sache"@de ,
+                        "E18 Physical Thing"@en ,
+                        "E18 Chose physique"@fr ,
+                        "E18 Cosa fisica"@it ;
 
-            rdfs:subClassOf webern-works:E5_Event , ecrm:E63_Beginning_of_Existence .
+            rdfs:subClassOf webern-works:E72_LegalObject , ecrm:E18_Physical_Thing .
 
 
     ### ###########################################
@@ -1540,6 +1642,30 @@
     ### see webern-person
     ###
     ### ###########################################
+
+
+    ### ###########################################
+    ### webern-works:E24_PhysicalManMadeThing
+
+    webern-works:E24_PhysicalManMadeThing rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E24_Physical_Man-Made_Thing ;
+
+            rdfs:comment    """ Diese Klasse umfasst alle persistenten physischen Objekte, die absichtlich durch menschliche Aktivitäten erzeugt werden."""@de ,
+                            """ This class comprises all persistent physical items that are purposely created by human activity."""@en ,
+                            """ Cette classe comprend tous les objets physiques persistants créés à dessein par l'activité humaine."""@fr ,
+                            """ Questa classe comprende tutti gli oggetti fisici persistenti che sono creati intenzionalmente dall'attività umana."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "E24 Physikalisches von Menschenhand gemachtes Ding"@de ,
+                        "E24 Physical Man-Made Thing"@en ,
+                        "E24 Chose physique fabriquée par l'homme"@fr ,
+                        "E24 Cosa fisica uomo-macchina"@it ;
+
+            rdfs:subClassOf webern-works:E18_PhysicalThing , webern-works:E71_ManMadeThing , ecrm:E24_Physical_Man-Made_Thing .
 
 
     ### ###########################################
@@ -1693,6 +1819,55 @@
 
             rdfs:subClassOf webern-works:E28_ConceptualObject , ecrm:E55_Type .
 
+
+    ### ###########################################
+    ### webern-works:E63_BeginningOfExistence
+
+    webern-works:E63_BeginningOfExistence rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E63_Beginning_of_Existence ;
+
+            rdfs:comment    """Diese Klasse umfasst Ereignisse, die ein beliebiges E77 Persistent Item ins Leben rufen."""@de ,
+                            """This class comprises events that bring into existence any E77 Persistent Item."""@en ,
+                            """Cette classe comprend les événements qui donnent naissance à tout élément persistant E77."""@fr ,
+                            """Questa classe comprende gli eventi che danno origine a un elemento persistente E77."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "E63 Beginn der Existenz"@de ,
+                        "E63 Beginning of Existence"@en ,
+                        "E63 Début de l'existence"@fr ,
+                        "E63 Inizio dell'esistenza"@it ;
+
+            rdfs:subClassOf webern-works:E5_Event , ecrm:E63_Beginning_of_Existence .
+
+
+    ### ###########################################
+    ### webern-works:E65_Creation
+
+    webern-works:E65_Creation rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E65_Creation ;
+
+            rdfs:comment    """Diese Klasse umfasst Ereignisse, die zur Schaffung von konzeptionellen Gegenständen oder immateriellen Produkten führen, wie Legenden, Gedichte, Texte, Musik, Bilder, Filme, Gesetze, Typen etc."""@de ,
+                            """This class comprises events that result in the creation of conceptual items or immaterial products, such as legends, poems, texts, music, images, movies, laws, types etc."""@en ,
+                            """Cette classe comprend les événements qui aboutissent à la création d'éléments conceptuels ou de produits immatériels, tels que les légendes, les poèmes, les textes, la musique, les images, les films, les lois, les types, etc."""@fr ,
+                            """Questa classe comprende eventi che danno luogo alla creazione di elementi concettuali o prodotti immateriali, come leggende, poesie, testi, musica, immagini, filmati, leggi, tipi, ecc."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "E65 Erstellung"@de ,
+                        "E65 Creation"@en ,
+                        "E65 Création"@fr ,
+                        "E65 Creazione"@it ;
+
+            rdfs:subClassOf webern-works:E63_BeginningOfExistence , webern-works:E7_Activity , ecrm:E65_Creation .
+
+
     ### ###########################################
     ### webern-works:E70_Thing
 
@@ -1744,6 +1919,30 @@
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
                             ] .
+
+
+    ### ###########################################
+    ### webern-works:E72_LegalObject
+
+    webern-works:E72_LegalObject rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E72_Legal_Object ;
+
+            rdfs:comment    """Diese Klasse umfasst diejenigen materiellen oder immateriellen Gegenstände, auf die Instanzen von E30 Recht, wie z.B. das Eigentums- oder Nutzungsrecht, angewendet werden können."""@de ,
+                            """This class comprises those material or immaterial items to which instances of E30 Right, such as the right of ownership or use, can be applied."""@en ,
+                            """Cette classe comprend les éléments matériels ou immatériels auxquels peuvent s'appliquer des cas de E30 Droit, tels que le droit de propriété ou d'utilisation."""@fr ,
+                            """Questa classe comprende quegli elementi materiali o immateriali ai quali possono essere applicati i E30 Diritti, quali il diritto di proprietà o di utilizzo."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "E72 Rechtsobjekt"@de ,
+                        "E72 Legal Object"@en ,
+                        "E72 Objet juridique"@fr ,
+                        "E72 Oggetto giuridico"@it ;
+
+            rdfs:subClassOf webern-works:E70_Thing , ecrm:E72_Legal_Object .
 
 
     ### ###########################################
@@ -1915,6 +2114,29 @@
 
 
     ### ###########################################
+    ### webern-works:F4_ManifestationSingleton
+
+    webern-works:F4_ManifestationSingleton rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:F4_Manifestation_Singleton ;
+
+            rdfs:comment    """Diese Klasse umfasst physische Objekte, die jeweils eine Instanz von F2 Expression tragen und die als Unikate produziert wurden, ohne Nebenobjekte, die bei ihrer Herstellung vorgesehen waren."""@de ,
+                            """This class comprises physical objects that each carry an instance of F2 Expression, and that were produced as unique objects, with no siblings intended in the course of their production."""@en ,
+                            """Cette classe comprend les objets physiques qui portent chacun une instance de F2 Expression, et qui ont été produits en tant qu'objets uniques, sans frères et sœurs dans le cadre de leur production."""@fr ,
+                            """Questa classe comprende oggetti fisici che portano ciascuno un'istanza di F2 Expression, e che sono stati prodotti come oggetti unici, senza fratelli destinati nel corso della loro produzione."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "F4 Manifestation Singleton"@de ,
+                        "F4 Manifestation Singleton"@en ,
+                        "F4 Manifestation Singleton"@fr ,
+                        "F4 Manifestation Singleton"@it ;
+
+            rdfs:subClassOf webern-works:E24_PhysicalManMadeThing , ecrm:F4_Manifestation_Singleton .
+
+    ### ###########################################
     ### webern-works:F14_IndividualWork
 
     webern-works:F14_IndividualWork rdf:type owl:Class ;
@@ -2057,7 +2279,18 @@
                        "F19 Oeuvre de publication"@fr ,
                        "F19 Opera di pubblicazione"@it ;
 
-            rdfs:subClassOf webern-works:F16_ContainerWork , ecrm:F19_Publication_Work .
+            rdfs:subClassOf webern-works:F16_ContainerWork , ecrm:F19_Publication_Work ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-works:R3_isRealisedIn ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-works:R3_isRealisedInValue ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] .
+
 
     ### ###########################################
     ### webern-works:F22_SelfContainedExpression
@@ -2149,7 +2382,7 @@
                         "F24 Expression des publications"@fr ,
                         "F24 Espressione di pubblicazione"@it ;
 
-            rdfs:subClassOf webern-works:F2_Expression , efrbroo:F24_Publication_Expression .
+            rdfs:subClassOf webern-works:F22_SelfContainedExpression , efrbroo:F24_Publication_Expression .
 
 
     ### ###########################################
@@ -2227,7 +2460,17 @@
                         "F30 Événement de publication"@fr ,
                         "F30 Événement de publication"@it ;
 
-            rdfs:subClassOf webern-works:F28_ExpressionCreation , efrbroo:F30_Publication_Event .
+            rdfs:subClassOf webern-works:F28_ExpressionCreation , efrbroo:F30_Publication_Event ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-works:R24_created ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-works:R24_createdValue ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] .
 
 
     ### ###########################################
