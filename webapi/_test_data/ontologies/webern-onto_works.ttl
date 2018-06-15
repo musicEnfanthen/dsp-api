@@ -518,6 +518,57 @@
 
 
     ### ###########################################
+    ### webern-works:R18_created
+
+    webern-works:R18_created rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint webern-works:F28_ExpressionCreation ;
+
+            kb:objectClassConstraint webern-works:F4_Manifestation_Singleton ;
+
+            prov:wasDerivedFrom efrbroo:R18_created ;
+
+            rdfs:comment    """Diese Property verknüpft eine Instanz von F28 Expression Creation mit den ersten physischen Objekten, in denen die resultierende Instanz von F2 Expression verkörpert wurde."""@de ,
+                            """This property associates an instance of F28 Expression Creation with the first physical objects in which the resulting instance of F2 Expression was embodied"""@en ,
+                            """Cette propriété associe une instance de F28 Expression Creation avec les premiers objets physiques dans lesquels l'instance résultante de F2 Expression a été incorporée."""@fr ,
+                            """Questa proprietà associa un'istanza di F28 Creazione di Espressioni ai primi oggetti fisici in cui è stata incorporata l'istanza risultante di F2 Espressioni."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "R18 erzeugte"@de ,
+                        "R18 created"@en ,
+                        "R18 créé"@fr ,
+                        "R18 creato"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, efrbroo:R18_created ;
+
+            salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    webern-works:R18_createdValue rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint webern-works:F28_ExpressionCreation ;
+
+            kb:objectClassConstraint kb:LinkValue ;
+
+            prov:wasDerivedFrom efrbroo:R18_created ;
+
+            rdfs:comment    """Diese Property verbindet die Expression, die während eines bestimmten Erzeuguns-Events erstmalig externalisiert wurde, mit diesem bestimmten Erzeugungs-Event."""@de ,
+                            """This property associates the expression that was first externalised during a particular creation event with that particular creation event."""@en ,
+                            """Cette propriété associe l'expression qui a été externalisée pour la première fois lors d'un événement de création particulier à cet événement de création particulier."""@fr ,
+                            """Questa proprietà associa l'espressione che è stata esternalizzata durante un evento di creazione con quella particolare."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "R18 hat hervorgebracht (value)"@de ,
+                        "R18 created (value)"@en ,
+                        "R18 a créé (value)"@fr ,
+                        "R18 ha creato (value)"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkToValue .
+
+
+    ### ###########################################
     ### webern-works:R19_createdARealisationOf
 
     webern-works:R19_createdARealisationOf rdf:type owl:ObjectProperty ;
@@ -1010,6 +1061,57 @@
 
 
     ### ###########################################
+    ### webern-works:U31_hadFunction
+
+    webern-works:U31_hadFunction rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint webern-works:E7_Activity ;
+
+            kb:objectClassConstraint webern-works:M31_ActorFunction ;
+
+            prov:wasDerivedFrom doremus:U31_had_function ;
+
+            rdfs:comment    """Diese Eigenschaft beschreibt die Funktion eines Akteurs, die auf eine Instanz von E7 Activity angewendet wird."""@de ,
+                            """This property describes the actor's function applied to an instance of E7 Activity."""@en ,
+                            """Cette propriété décrit la fonction de l'acteur appliquée à une instance de E7 Activité."""@fr ,
+                            """Questa proprietà descrive la funzione dell'attore applicata a un'istanza di E7 Attività """@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "U31 hatte Funktion"@de ,
+                        "U31 had function"@en ,
+                        "U31 avait fonction"@fr ,
+                        "U31 aveva funzione"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkTo, doremus:U31_had_function ;
+
+            salsah-gui:guiElement salsah-gui:Searchbox .
+
+
+    webern-works:U31_hadFunctionValue rdf:type owl:ObjectProperty ;
+
+            kb:subjectClassConstraint webern-works:E7_Activity ;
+
+            kb:objectClassConstraint kb:LinkValue ;
+
+            prov:wasDerivedFrom doremus:U31_had_function ;
+
+            rdfs:comment    """Diese Eigenschaft beschreibt die Funktion eines Akteurs, die auf eine Instanz von E7 Activity angewendet wird."""@de ,
+                            """This property describes the actor's function applied to an instance of E7 Activity."""@en ,
+                            """Cette propriété décrit la fonction de l'acteur appliquée à une instance de E7 Activité."""@fr ,
+                            """Questa proprietà descrive la funzione dell'attore applicata a un'istanza di E7 Attività """@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "U31 hatte Funktion (value)"@de ,
+                        "U31 had function (value)"@en ,
+                        "U31 avait fonction (value)"@fr ,
+                        "U31 aveva funzione (value)"@it ;
+
+            rdfs:subPropertyOf kb:hasLinkToValue .
+
+
+    ### ###########################################
     ### webern-works:U40_hasCatalogueName
 
     webern-works:U40_hasCatalogueName rdf:type owl:ObjectProperty ;
@@ -1290,8 +1392,6 @@
                               owl:minCardinality "0"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
                             ] .
-            # domain of P8_took place_on_or_within; P9_forms_part_of
-            # range of P7_witnessed; P8_witnessed; P9_forms_part_of
 
 
     ### ###########################################
@@ -1342,14 +1442,96 @@
             rdfs:subClassOf webern-works:E5_Event , ecrm:E7_Activity ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty webern-works:P14_carriedOutBy ;
-                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;      # TODO: eigentlich 1 !
                               salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty webern-works:P14_carriedOutByValue ;
-                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-works:U31_hadFunction ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;      # TODO: eigentlich 1 ?
+                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-works:U31_hadFunctionValue ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;      # TODO: eigentlich 1 ?
+                              salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
                             ] .
+
+
+    ### ###########################################
+    ### webern-works:E11_Modification
+
+    webern-works:E11_Modification rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E11_Modification ;
+
+            rdfs:comment    """Diese Klasse umfasst alle Instanzen von E7 Activity, die E24 Physical Man-Made Thing erstellen, ändern oder ändern."""@de ,
+                            """This class comprises all instances of E7 Activity that create, alter or change E24 Physical Man-Made Thing."""@en ,
+                            """Cette classe comprend toutes les instances de E7 Activité qui créent, modifient ou changent E24 Physical Man-Made Thing."""@fr ,
+                            """Questa classe comprende tutte le istanze di E7 Attività che creano, alterano o modificano la E24 Physical Man-Made Thing."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "E11 Modifikation"@de ,
+                        "E11 Modification"@en ,
+                        "E11 Modification"@fr ,
+                        "E11 Modifiche"@it ;
+
+            rdfs:subClassOf webern-works:E7_Activity , ecrm:E11_Modification .
+
+
+    ### ###########################################
+    ### webern-works:E12_Production
+
+    webern-works:E12_Production rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E12_Production ;
+
+            rdfs:comment    """Diese Klasse umfasst Aktivitäten, die dazu bestimmt sind, eine oder mehrere neue Items anzulegen und darin erfolgreich sind."""@de ,
+                            """This class comprises activities that are designed to, and succeed in, creating one or more new items."""@en ,
+                            """Cette classe comprend des activités qui sont conçues pour créer un ou plusieurs nouveaux articles et qui réussissent à le faire."""@fr ,
+                            """Questa classe comprende le attività che sono progettate per creare uno o più elementi nuovi e che vi riescono."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "E12 Produktion"@de ,
+                        "E12 Production"@en ,
+                        "E12 Production"@fr ,
+                        "E12 Produzione"@it ;
+
+            rdfs:subClassOf webern-works:E11_Modification, webern-works:E63_BeginningOfExistence , ecrm:E12_Production .
+
+
+    ### ###########################################
+    ### webern-works:E63_BeginningOfExistence
+
+    webern-works:E63_BeginningOfExistence rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:E63_Beginning_of_Existence ;
+
+            rdfs:comment    """Diese Klasse umfasst Ereignisse, die ein beliebiges E77 Persistent Item ins Leben rufen."""@de ,
+                            """This class comprises events that bring into existence any E77 Persistent Item."""@en ,
+                            """Cette classe comprend les événements qui donnent naissance à tout élément persistant E77."""@fr ,
+                            """Questa classe comprende gli eventi che danno origine a un elemento persistente E77."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "E63 Beginn der Existenz"@de ,
+                        "E63 Beginning of Existence"@en ,
+                        "E63 Début de l'existence"@fr ,
+                        "E63 Inizio dell'esistenza"@it ;
+
+            rdfs:subClassOf webern-works:E5_Event , ecrm:E63_Beginning_of_Existence .
 
 
     ### ###########################################
@@ -1831,6 +2013,53 @@
 
 
     ### ###########################################
+    ### webern-works:F16_ContainerWork
+
+    webern-works:F16_ContainerWork rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:F16_Container_Work ;
+
+            rdfs:comment    """Diese Klasse umfasst Werke, deren Wesen darin besteht, Expressions eines oder mehrerer anderer Werke durch Auswahl, Anordnung und/oder Hinzufügung von Merkmalen unterschiedlicher Form, wie z.B. Layout zu Wörtern, Rezitation und Bewegung zu Texten, Instrumentierung zu Partituren usw., zu verbessern oder aufzuwerten, ohne sie zu verändern."""@de ,
+                            """This class comprises works whose essence is to enhance or add value to expressions from one or more other works without altering them, by the selection, arrangement and/or addition of features of different form, such as layout to words, recitation and movement to texts, instrumentation to musical scores etc."""@en ,
+                            """Cette classe comprend les œuvres dont l'essence est d'améliorer ou d'ajouter de la valeur aux expressions d'une ou de plusieurs autres œuvres sans les altérer, par la sélection, l'arrangement et/ou l'ajout de caractéristiques de formes différentes, telles que la mise en page des mots, la récitation et le mouvement des textes, l'instrumentation des partitions musicales, etc."""@fr ,
+                            """Questa classe comprende opere la cui essenza è quella di valorizzare o aggiungere valore alle espressioni di una o più altre opere senza alterarle, mediante la selezione, la disposizione e/o l'aggiunta di caratteristiche di forma diversa, quali la disposizione delle parole, la recitazione e il movimento nei testi, la strumentazione nelle partiture musicali, ecc."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label "F16 Containerwerk"@de ,
+                       "F16 Container Work"@en ,
+                       "F16 Oeuvre de conteneur"@fr ,
+                       "F16 Opera di contenitor"@it ;
+
+            rdfs:subClassOf webern-works:F1_Work , ecrm:F16_Container_Work .
+
+
+    ### ###########################################
+    ### webern-works:F19_PublicationWork
+
+    webern-works:F19_PublicationWork rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:F19_Publication_Work ;
+
+            rdfs:comment    """Diese Klasse umfasst Werke, die so geplant sind, dass sie zu einem Manifestationsprodukttyp führen und sich auf die Wiedergabe von Ausdrücken aus anderen Werken beziehen."""@de ,
+                            """This class comprises works that have been planned to result in a manifestation product type and that pertain to the rendering of expressions from other works."""@en ,
+                            """Cette classe comprend les œuvres qui ont été planifiées pour aboutir à un type de produit de manifestation et qui se rapportent au rendu d'expressions provenant d'autres œuvres."""@fr ,
+                            """Questa classe comprende lavori che sono stati pianificati per dare luogo a un tipo di prodotto di manifestazione e che si riferiscono al rendering di espressioni da altri lavori."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label "F19 Publikationswerk"@de ,
+                       "F19 Publication Work"@en ,
+                       "F19 Oeuvre de publication"@fr ,
+                       "F19 Opera di pubblicazione"@it ;
+
+            rdfs:subClassOf webern-works:F16_ContainerWork , ecrm:F19_Publication_Work .
+
+    ### ###########################################
     ### webern-works:F22_SelfContainedExpression
 
     webern-works:F22_SelfContainedExpression rdf:type owl:Class ;
@@ -1900,6 +2129,30 @@
 
 
     ### ###########################################
+    ### webern-works:F24_PublicationExpression
+
+    webern-works:F24_PublicationExpression rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom ecrm:F24_Publication_Expression ;
+
+            rdfs:comment    """Diese Klasse umfasst komplette Zeichensätze, die in Publikationen enthalten sind und die die endgültigen Entscheidungen der Verlage über Inhalt und Gestaltung der Publikationen widerspiegeln."""@de ,
+                            """This class comprises complete sets of signs present in publications, reflecting publishers’ final decisions as to both content and layout of the publications."""@en ,
+                            """Cette classe comprend des ensembles complets de panneaux présents dans les publications, reflétant les décisions finales des éditeurs quant au contenu et à la mise en page des publications."""@fr ,
+                            """Questa classe comprende una serie completa di cartelli presenti nelle pubblicazioni, che riflettono le decisioni finali degli editori sia per quanto riguarda il contenuto che il layout delle pubblicazioni."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "F24 Expression einer Publikation"@de ,
+                        "F24 Publication Expression"@en ,
+                        "F24 Expression des publications"@fr ,
+                        "F24 Espressione di pubblicazione"@it ;
+
+            rdfs:subClassOf webern-works:F2_Expression , efrbroo:F24_Publication_Expression .
+
+
+    ### ###########################################
     ### webern-works:F28_ExpressionCreation
 
     webern-works:F28_ExpressionCreation rdf:type owl:Class ;
@@ -1920,26 +2173,36 @@
                         "F28 Création d'expressions"@fr ,
                         "F28 Creazione di espressioni"@it ;
 
-            rdfs:subClassOf kb:Resource , efrbroo:F28_Expression_Creation ,
+            rdfs:subClassOf webern-works:E12_Production , webern-works:E65_Creation , efrbroo:F28_Expression_Creation ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty webern-works:R17_created ;
-                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty webern-works:R17_createdValue ;
-                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
                             ] ,
                             [ rdf:type owl:Restriction ;
-                              owl:onProperty webern-works:R19_createdARealisationOf ;
-                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onProperty webern-works:R18_created ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;      # TODO: eigentlich 1 ! ändern, wenn eingefügt
                               salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
                             ] ,
                             [ rdf:type owl:Restriction ;
-                              owl:onProperty webern-works:R19_createdARealisationOfValue ;
-                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onProperty webern-works:R18_createdValue ;
+                              owl:minCardinality "0"^^xsd:nonNegativeInteger ;      # TODO: eigentlich 1 !
                               salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-works:R19_createdARealisationOf ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty webern-works:R19_createdARealisationOfValue ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                              salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
                             ] .
 
 
@@ -2088,9 +2351,11 @@
             prov:wasDerivedFrom doremus:M14_Medium_Of_Performance ;
 
             rdfs:comment    """Diese Klasse umfasst die Aussagen zu einem M14 Medium Of Performance."""@de ,
-            """This class comprises statements for an M14 Medium Of Performance."""@en ,
-            """Cette classe contient les instructions d'un M14 Medium Of Performance."""@fr ,
-            """Questa classe contiene le istruzioni per uno M14 Medium Of Performance."""@it ;
+                            """This class comprises statements for an M14 Medium Of Performance."""@en ,
+                            """Cette classe contient les instructions d'un M14 Medium Of Performance."""@fr ,
+                            """Questa classe contiene le istruzioni per uno M14 Medium Of Performance."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
 
             rdfs:label  "M14 Aufführungsmedium"@de ,
                         "M14 Medium of Performance"@en ,
@@ -2137,3 +2402,27 @@
                               owl:minCardinality "1"^^xsd:nonNegativeInteger ;
                               salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
                             ] .
+
+
+    ### ###########################################
+    ### webern-works:M31_ActorFunction
+
+    webern-works:M31_ActorFunction rdf:type owl:Class ;
+
+            kb:resourceIcon "default.png" ;
+
+            prov:wasDerivedFrom doremus:M31_Actor_Function ;
+
+            rdfs:comment    """Diese Klasse umfasst die Aussagen zu einer M31 Funktion eines Akteurs."""@de ,
+                            """This class comprises statements for an M31 Actor's Function."""@en ,
+                            """Cette classe contient les instructions d'un M31 Fonction de l'acteur."""@fr ,
+                            """Questa classe contiene le istruzioni per uno M31 Funzione dell'attore."""@it ;
+
+            rdfs:isDefinedBy <http://www.knora.org/ontology/08AE/webern-works> ;
+
+            rdfs:label  "M31 Funktion eines Akteurs"@de ,
+                        "M31 Actor's Function"@en ,
+                        "M31 Fonction de l'acteur"@fr ,
+                        "M31 Funzione dell'attore"@it ;
+
+            rdfs:subClassOf webern-works:E55_Type , doremus:M31_Actor_Function .
