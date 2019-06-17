@@ -127,10 +127,11 @@ object CacheUtil {
       * @return an [[Option[V]]].
       */
     def get[V](cacheName: String, key: String): Option[V] = {
+        val start = System.currentTimeMillis()
         val cacheManager = CacheManager.getInstance()
         val cacheOption = Option(cacheManager.getCache(cacheName))
 
-        cacheOption match {
+        val result = cacheOption match {
             case Some(cache) =>
                 Option(cache.get(key)) match {
                     case Some(element) =>
@@ -144,6 +145,9 @@ object CacheUtil {
                 throw ApplicationCacheException(s"Can't find application cache '$cacheName'. Please check configuration of 'app.caches' in 'application.conf'")
         }
 
+        val took = System.currentTimeMillis() - start
+        log.info(s"Cache Query took: ${took}ms")
+        result
     }
 
     /**

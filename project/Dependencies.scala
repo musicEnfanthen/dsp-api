@@ -41,7 +41,7 @@ object Dependencies {
     val Versions = Seq(
         scalaVersion := "2.12.8",
         akkaVersion := "2.5.21",
-        akkaHttpVersion := "10.1.7",
+        akkaHttpVersion := "10.1.8",
         jenaVersion := "3.4.0",
         metricsVersion := "4.0.1",
         sipiVersion := "v1.4.3",
@@ -98,7 +98,10 @@ object Dependencies {
 
         // caching
         val ehcache                = "net.sf.ehcache"                           % "ehcache"                  % "2.10.3"
-
+        
+        // prometheus monitoring
+        // val akkaHttpPrometheus     = "fr.davit"                                %% "akka-http-metrics-prometheus" % "0.3.0"
+        
         // other
         //"javax.transaction" % "transaction-api" % "1.1-rev-1",
         val commonsText            = "org.apache.commons"                       % "commons-text"             % "1.6"
