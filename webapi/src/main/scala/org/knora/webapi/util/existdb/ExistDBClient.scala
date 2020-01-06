@@ -1,15 +1,18 @@
 package org.knora.webapi.util.existdb
 
+import java.io.File
+
 import org.apache.http.HttpHost
 import org.apache.http.auth.{AuthScope, UsernamePasswordCredentials}
 import org.apache.http.client.AuthCache
 import org.apache.http.client.config.RequestConfig
-import org.apache.http.client.methods.{CloseableHttpResponse, HttpPost}
+import org.apache.http.client.methods.{CloseableHttpResponse, HttpPost, HttpPut}
 import org.apache.http.client.protocol.HttpClientContext
 import org.apache.http.entity.{ContentType, StringEntity}
 import org.apache.http.impl.auth.BasicScheme
 import org.apache.http.impl.client.{BasicAuthCache, BasicCredentialsProvider, CloseableHttpClient, HttpClients}
 import org.apache.http.util.EntityUtils
+import org.knora.webapi.util.FileUtil
 import org.knora.webapi.{ExistDBConnectionException, ExistDBResponseException, TriplestoreResponseException}
 import org.rogach.scallop.{ScallopConf, ScallopOption}
 
@@ -51,7 +54,7 @@ class ExistDBClient(host: String,
         .setDefaultRequestConfig(updateTimeoutConfig)
         .build
 
-    def updateFile(filePath: String, fileContent: String): Try[String] = {
+    def updateFile(fileContent: String, filePath: String): Try[String] = {
         val authCache: AuthCache = new BasicAuthCache
         val basicAuth: BasicScheme = new BasicScheme
         authCache.put(targetHost, basicAuth)
@@ -61,14 +64,14 @@ class ExistDBClient(host: String,
         httpContext.setAuthCache(authCache)
 
         val requestEntity = new StringEntity(fileContent, ContentType.create(mimeTypeApplicationXml, "UTF-8"))
-        val updateHttpPost = new HttpPost(filePath)
-        updateHttpPost.setEntity(requestEntity)
+        val updateHttpPut = new HttpPut(s"/exist/rest/db/$filePath")
+        updateHttpPut.setEntity(requestEntity)
 
         var maybeResponse: Option[CloseableHttpResponse] = None
 
         val existDBResponseTry = Try {
             try {
-                maybeResponse = Some(updateHttpClient.execute(targetHost, updateHttpPost, httpContext))
+                maybeResponse = Some(updateHttpClient.execute(targetHost, updateHttpPut, httpContext))
 
                 val responseEntityStr: String = Option(maybeResponse.get.getEntity) match {
                     case Some(responseEntity) => EntityUtils.toString(responseEntity)
@@ -92,12 +95,29 @@ class ExistDBClient(host: String,
             case tre: TriplestoreResponseException => throw tre
 
             case e: Exception =>
+                e.printStackTrace()
                 throw ExistDBConnectionException(s"Failed to connect to eXist-db", Some(e))
         }
     }
 }
 
+/**
+ * A command-line program for testing the eXist-db client.
+ */
 object ExistDBClient extends App {
+    val conf = new ExistDBClientConf(args)
+    val fileContent = FileUtil.readTextFile(new File(conf.file()))
+    val filePath = conf.path()
+
+    val client = new ExistDBClient(
+        host = "localhost",
+        port = 8080,
+        username = "admin",
+        password = ""
+    )
+
+    println(client.updateFile(fileContent = fileContent, filePath = filePath))
+
     /**
      * Parses command-line arguments.
      */
