@@ -277,7 +277,7 @@ object TriplestoreConnectionException {
 }
 
 /**
-  * Indicates that we tried using a feature which is unsuported by the selected triplestore.
+  * Indicates that we tried using a feature which is unsupported by the selected triplestore.
   *
   * @param message a description of the error.
   * @param cause   the original exception representing the cause of the error, if any.
@@ -326,6 +326,31 @@ object InconsistentTriplestoreDataException {
     def apply(message: String, e: Throwable, log: LoggingAdapter): InconsistentTriplestoreDataException =
         InconsistentTriplestoreDataException(message, Some(ExceptionUtil.logAndWrapIfNotSerializable(e, log)))
 }
+
+
+/**
+ * An abstract class for exceptions indicating that something went wrong with eXist-db.
+ *
+ * @param message a description of the error.
+ * @param cause   the original exception representing the cause of the error, if any.
+ */
+abstract class ExistDBException(message: String, cause: Option[Throwable] = None) extends InternalServerException(message, cause)
+
+/**
+ * Indicates that the network connection to eXist-db failed.
+ *
+ * @param message a description of the error.
+ * @param cause   the original exception representing the cause of the error, if any.
+ */
+case class ExistDBConnectionException(message: String, cause: Option[Throwable] = None) extends ExistDBException(message, cause)
+
+/**
+ * Indicates that eXist-db returned an error message, or a response that could not be parsed.
+ *
+ * @param message a description of the error.
+ * @param cause   the original exception representing the cause of the error, if any.
+ */
+case class ExistDBResponseException(message: String, cause: Option[Throwable] = None) extends ExistDBException(message, cause)
 
 /**
   * Indicates that the API server generated invalid JSON in an API response.
