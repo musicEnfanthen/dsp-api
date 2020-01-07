@@ -16,14 +16,14 @@ import org.knora.webapi.util.FileUtil
 import org.knora.webapi.{ExistDBConnectionException, ExistDBResponseException, TriplestoreResponseException}
 import org.rogach.scallop.{ScallopConf, ScallopOption}
 
-import scala.util.Try
+import scala.util.{Failure, Success, Try}
 
 class ExistDBClient(host: String,
                     port: Int,
                     username: String,
                     password: String,
-                    queryTimeoutMillis: Int = 10000,
-                    updateTimeoutMillis: Int = 10000) {
+                    queryTimeoutMillis: Int = 360000,
+                    updateTimeoutMillis: Int = 360000) {
 
     private val mimeTypeApplicationXml = "application/xml"
 
@@ -105,9 +105,11 @@ class ExistDBClient(host: String,
  * A command-line program for testing the eXist-db client.
  */
 object ExistDBClient extends App {
+    // Get the command-line options.
+
     val conf = new ExistDBClientConf(args)
-    val fileContent = FileUtil.readTextFile(new File(conf.file()))
-    val filePath = conf.path()
+
+    // Construct the client.
 
     val client = new ExistDBClient(
         host = "localhost",
@@ -116,7 +118,57 @@ object ExistDBClient extends App {
         password = ""
     )
 
-    println(client.updateFile(fileContent = fileContent, filePath = filePath))
+    // Create Lucene indexes.
+
+    val luceneConfig: String =
+        """<collection xmlns="http://exist-db.org/collection-config/1.0">
+          |    <index xmlns:wiki="http://exist-db.org/xquery/wiki" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:atom="http://www.w3.org/2005/Atom">
+          |        <!-- Disable the old full text index -->
+          |        <fulltext default="none" attributes="false"/>
+          |	<!-- Lucene index is configured below -->
+          |        <lucene>
+          |	        <analyzer class="org.apache.lucene.analysis.standard.StandardAnalyzer"/>
+          |	        <text qname="noun"/>
+          |         <text qname="verb"/>
+          |         <text qname="adj"/>
+          |        </lucene>
+          |    </index>
+          |</collection>""".stripMargin
+
+    client.updateFile(fileContent = luceneConfig, filePath = "system/config/db/books/collection.xconf")
+
+    println("Created Lucene indexes.")
+
+    // Get the list of files to upload.
+
+    val dir = new File(conf.dir())
+
+    val files = dir.listFiles.filter {
+        file =>
+            val fileName = file.getName
+            fileName.endsWith(".xml") && !file.getName.startsWith(".")
+    }
+
+    // Upload the files.
+
+    for (file <- files) {
+        val fileName = file.getName
+        val bookName = fileName.substring(0, fileName.lastIndexOf('.'))
+        val fileContent = FileUtil.readTextFile(file)
+        val filePath = s"books/$bookName"
+
+        val startTime = System.currentTimeMillis()
+        val updateTry: Try[String] = client.updateFile(fileContent = fileContent, filePath = filePath)
+        val endTime = System.currentTimeMillis()
+
+        updateTry match {
+            case Success(_) =>
+                println(s"Uploaded $bookName (${file.length()} bytes, ${endTime - startTime} ms)")
+
+            case Failure(exception) =>
+                println(s"Failed to upload $bookName: $exception")
+        }
+    }
 
     /**
      * Parses command-line arguments.
@@ -126,11 +178,10 @@ object ExistDBClient extends App {
             s"""
                |Uploads a file to eXist-db.
                |
-               |Usage: org.knora.webapi.util.existdb.ExistDBClient file path
+               |Usage: org.knora.webapi.util.existdb.ExistDBClient dir
             """.stripMargin)
 
-        val file: ScallopOption[String] = trailArg[String](required = true, descr = "The file to be uploaded")
-        val path: ScallopOption[String] = trailArg[String](required = true, descr = "The path in which the file is to be stored")
+        val dir: ScallopOption[String] = trailArg[String](required = true, descr = "The directory containing files to be uploaded")
         verify()
     }
 }
