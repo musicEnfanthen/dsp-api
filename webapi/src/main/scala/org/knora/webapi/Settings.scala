@@ -60,6 +60,9 @@ class SettingsImpl(config: Config) extends Extension {
         externalKnoraApiHost
     }
 
+    // If true, reread data from the triplestore after writing it, to verify that it was written correctly.
+    val v2VerifyUpdates: Boolean = config.getBoolean("app.knora-api.check-updates")
+
     val salsah1BaseUrl: String = config.getString("app.salsah1.base-url")
     val salsah1ProjectIconsBasePath: String = config.getString("app.salsah1.project-icons-basepath")
 

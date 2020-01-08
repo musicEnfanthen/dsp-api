@@ -1006,69 +1006,77 @@ class ResourcesResponderV2(responderData: ResponderData) extends ResponderWithSt
                                requestingUser: UserADM): Future[ReadResourcesSequenceV2] = {
         val resourceIri = resourceReadyToCreate.sparqlTemplateResourceToCreate.resourceIri
 
-        for {
-            resourcesResponse: ReadResourcesSequenceV2 <- getResourcesV2(
-                resourceIris = Seq(resourceIri),
-                requestingUser = requestingUser,
-                targetSchema = ApiV2Complex,
-                schemaOptions = SchemaOptions.ForStandoffWithTextValues
+        if (settings.v2VerifyUpdates) {
+            for {
+                resourcesResponse: ReadResourcesSequenceV2 <- getResourcesV2(
+                    resourceIris = Seq(resourceIri),
+                    targetSchema = ApiV2Complex,
+                    schemaOptions = SchemaOptions.ForStandoffWithTextValues,
+                    requestingUser = requestingUser
+                )
+
+                resource: ReadResourceV2 = try {
+                    resourcesResponse.toResource(requestedResourceIri = resourceIri)
+                } catch {
+                    case _: NotFoundException => throw UpdateNotPerformedException(s"Resource <$resourceIri> was not created. Please report this as a possible bug.")
+                }
+
+                _ = if (resource.resourceClassIri.toString != resourceReadyToCreate.sparqlTemplateResourceToCreate.resourceClassIri) {
+                    throw AssertionException(s"Resource <$resourceIri> was saved, but it has the wrong resource class")
+                }
+
+                _ = if (resource.attachedToUser != requestingUser.id) {
+                    throw AssertionException(s"Resource <$resourceIri> was saved, but it is attached to the wrong user")
+                }
+
+                _ = if (resource.projectADM.id != projectIri) {
+                    throw AssertionException(s"Resource <$resourceIri> was saved, but it is attached to the wrong user")
+                }
+
+                _ = if (resource.permissions != resourceReadyToCreate.sparqlTemplateResourceToCreate.permissions) {
+                    throw AssertionException(s"Resource <$resourceIri> was saved, but it has the wrong permissions")
+                }
+
+                // Undo any escapes in the submitted rdfs:label to compare it with the saved one.
+                unescapedLabel: String = stringFormatter.fromSparqlEncodedString(resourceReadyToCreate.sparqlTemplateResourceToCreate.resourceLabel)
+
+                _ = if (resource.label != unescapedLabel) {
+                    throw AssertionException(s"Resource <$resourceIri> was saved, but it has the wrong label")
+                }
+
+                _ = if (resource.values.keySet != resourceReadyToCreate.values.keySet) {
+                    throw AssertionException(s"Resource <$resourceIri> was saved, but it has the wrong properties")
+                }
+
+                _ = resource.values.foreach {
+                    case (propertyIri: SmartIri, savedValues: Seq[ReadValueV2]) =>
+                        val expectedValues: Seq[UnverifiedValueV2] = resourceReadyToCreate.values(propertyIri)
+
+                        if (expectedValues.size != savedValues.size) {
+                            throw AssertionException(s"Resource <$resourceIri> was saved, but it has the wrong values")
+                        }
+
+                        savedValues.zip(expectedValues).foreach {
+                            case (savedValue, expectedValue) =>
+                                if (!(expectedValue.valueContent.wouldDuplicateCurrentVersion(savedValue.valueContent) &&
+                                    savedValue.permissions == expectedValue.permissions &&
+                                    savedValue.attachedToUser == requestingUser.id)) {
+                                    // println(s"========== Expected ==========\n${MessageUtil.toSource(expectedValue.valueContent)}\n========== Saved ==========\n${MessageUtil.toSource(savedValue.valueContent)}")
+                                    throw AssertionException(s"Resource <$resourceIri> was saved, but one or more of its values are not correct")
+                                }
+                        }
+                }
+            } yield ReadResourcesSequenceV2(
+                numberOfResources = 1,
+                resources = Seq(resource.copy(values = Map.empty))
             )
-
-            resource: ReadResourceV2 = try {
-                resourcesResponse.toResource(requestedResourceIri = resourceIri)
-            } catch {
-                case _: NotFoundException => throw UpdateNotPerformedException(s"Resource <$resourceIri> was not created. Please report this as a possible bug.")
-            }
-
-            _ = if (resource.resourceClassIri.toString != resourceReadyToCreate.sparqlTemplateResourceToCreate.resourceClassIri) {
-                throw AssertionException(s"Resource <$resourceIri> was saved, but it has the wrong resource class")
-            }
-
-            _ = if (resource.attachedToUser != requestingUser.id) {
-                throw AssertionException(s"Resource <$resourceIri> was saved, but it is attached to the wrong user")
-            }
-
-            _ = if (resource.projectADM.id != projectIri) {
-                throw AssertionException(s"Resource <$resourceIri> was saved, but it is attached to the wrong user")
-            }
-
-            _ = if (resource.permissions != resourceReadyToCreate.sparqlTemplateResourceToCreate.permissions) {
-                throw AssertionException(s"Resource <$resourceIri> was saved, but it has the wrong permissions")
-            }
-
-            // Undo any escapes in the submitted rdfs:label to compare it with the saved one.
-            unescapedLabel: String = stringFormatter.fromSparqlEncodedString(resourceReadyToCreate.sparqlTemplateResourceToCreate.resourceLabel)
-
-            _ = if (resource.label != unescapedLabel) {
-                throw AssertionException(s"Resource <$resourceIri> was saved, but it has the wrong label")
-            }
-
-            _ = if (resource.values.keySet != resourceReadyToCreate.values.keySet) {
-                throw AssertionException(s"Resource <$resourceIri> was saved, but it has the wrong properties")
-            }
-
-            _ = resource.values.foreach {
-                case (propertyIri: SmartIri, savedValues: Seq[ReadValueV2]) =>
-                    val expectedValues: Seq[UnverifiedValueV2] = resourceReadyToCreate.values(propertyIri)
-
-                    if (expectedValues.size != savedValues.size) {
-                        throw AssertionException(s"Resource <$resourceIri> was saved, but it has the wrong values")
-                    }
-
-                    savedValues.zip(expectedValues).foreach {
-                        case (savedValue, expectedValue) =>
-                            if (!(expectedValue.valueContent.wouldDuplicateCurrentVersion(savedValue.valueContent) &&
-                                savedValue.permissions == expectedValue.permissions &&
-                                savedValue.attachedToUser == requestingUser.id)) {
-                                // println(s"========== Expected ==========\n${MessageUtil.toSource(expectedValue.valueContent)}\n========== Saved ==========\n${MessageUtil.toSource(savedValue.valueContent)}")
-                                throw AssertionException(s"Resource <$resourceIri> was saved, but one or more of its values are not correct")
-                            }
-                    }
-            }
-        } yield ReadResourcesSequenceV2(
-            numberOfResources = 1,
-            resources = Seq(resource.copy(values = Map.empty))
-        )
+        } else {
+            getResourcePreviewV2(
+                resourceIris = Seq(resourceIri),
+                targetSchema = ApiV2Complex,
+                requestingUser = requestingUser
+            )
+        }
     }
 
     /**
