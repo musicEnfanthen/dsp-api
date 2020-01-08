@@ -1006,7 +1006,7 @@ class ResourcesResponderV2(responderData: ResponderData) extends ResponderWithSt
                                requestingUser: UserADM): Future[ReadResourcesSequenceV2] = {
         val resourceIri = resourceReadyToCreate.sparqlTemplateResourceToCreate.resourceIri
 
-        if (settings.v2VerifyUpdates) {
+        if (settings.v2VerifyResourceUpdates) {
             for {
                 resourcesResponse: ReadResourcesSequenceV2 <- getResourcesV2(
                     resourceIris = Seq(resourceIri),

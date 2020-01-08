@@ -1693,7 +1693,7 @@ class ValuesResponderV2(responderData: ResponderData) extends Responder(responde
                             propertyIri: SmartIri,
                             unverifiedValue: UnverifiedValueV2,
                             requestingUser: UserADM): Future[VerifiedValueV2] = {
-        if (settings.v2VerifyUpdates) {
+        if (settings.v2VerifyResourceUpdates) {
             for {
                 resourcesRequest <- Future {
                     ResourcesGetRequestV2(
