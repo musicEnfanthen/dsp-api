@@ -1,5 +1,7 @@
 import os
 import requests
+import urllib.parse as parse
+from lxml import etree
 
 # variables
 exist_server = 'http://localhost:8080/exist'
@@ -16,6 +18,22 @@ def run():
     print('Client starting')
     print(f'eXist-db status: {db_status()}')
     print(f'App "knora-exist" status: {app_status()}')
+    print('initiate upload')
+    upload()
+
+def upload():
+    """
+    Upload a pre-defined file
+    """
+    url = '/'.join((exist_server, app_path, modules, 'upload-file.xql'))
+    # TODO: make this dynamic?
+    file_name = 'exist-db/sample.xml'
+    xml = etree.parse(file_name)
+    # parsing, validation, etc. could happen here
+    data = etree.tostring(xml)
+    r = requests.post(url, params={'file': file_name}, data=data, auth=('admin', ''))
+    # print result... sould not stay like this, make something reasonable with the result
+    print(r.text)
 
 def app_status():
     """
