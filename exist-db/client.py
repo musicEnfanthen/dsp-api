@@ -4,6 +4,7 @@ import requests
 # variables
 exist_server = 'http://localhost:8080/exist'
 app_path = 'apps/knora-exist'
+modules = 'modules'
 
 # turn off proxy for localhost
 os.environ['NO_PROXY'] = '127.0.0.1'
@@ -20,7 +21,7 @@ def app_status():
     """
     Tests if the `knora-exist` App is up and running
     """
-    url = '/'.join((exist_server, app_path, 'test.xql'))
+    url = '/'.join((exist_server, app_path, modules, 'test.xql'))
     try:
         r = requests.get(url)
         return r.status_code
@@ -34,7 +35,7 @@ def db_status():
     stat_url = exist_server + '/status'
     # print(stat_url)
     try:
-        r = requests.get(stat_url, auth=('admin', ''))
+        r = requests.get(stat_url)
         return r.status_code
     except Exception as e:
         return 'Could not connect to database.'
